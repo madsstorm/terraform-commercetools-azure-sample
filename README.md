@@ -1,0 +1,1 @@
+# terraform-commercetools-azure-sample
