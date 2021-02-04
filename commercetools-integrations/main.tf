@@ -32,7 +32,7 @@ locals {
 # RESOURCES
 ##################################################################################
 resource "random_string" "resource_code" {
-  length = 5
+  length = 6
   special = false
   upper = false
 }
@@ -47,7 +47,6 @@ module "subscriptions" {
   
   location = var.location
 
-  name = "${local.name}-subs"
   resource_group_name = azurerm_resource_group.this.name
 
   storage_account_kind = var.storage_account_kind
@@ -64,7 +63,6 @@ module "api-extensions" {
 
   location = var.location
 
-  name = "${local.name}-api-ext"
   resource_group_name = azurerm_resource_group.this.name
 
   storage_account_kind = var.storage_account_kind
