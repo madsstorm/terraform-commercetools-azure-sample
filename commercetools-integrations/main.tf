@@ -45,6 +45,7 @@ module "subscriptions" {
   source = "./modules/project/subscriptions"
   
   location = var.location
+  environment = var.environment
 
   resource_group_name = azurerm_resource_group.this.name
 
@@ -61,6 +62,7 @@ module "api-extensions" {
   source = "./modules/project/api-extensions"
 
   location = var.location
+  environment = var.environment
 
   resource_group_name = azurerm_resource_group.this.name
 

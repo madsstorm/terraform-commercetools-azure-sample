@@ -5,7 +5,7 @@ resource "random_string" "resource_code" {
 }
 
 resource "azurerm_storage_account" "this" {
-    name = "st${var.name}${random_string.resource_code.result}"
+    name = "st${var.name}${var.environment}${random_string.resource_code.result}"
     resource_group_name = var.resource_group_name
     location = var.location
     account_kind = var.storage_account_kind
@@ -14,7 +14,7 @@ resource "azurerm_storage_account" "this" {
 }
 
 resource "azurerm_app_service_plan" "this" {
-    name = "plan-${var.name}-${random_string.resource_code.result}"
+    name = "plan-${var.name}-${var.environment}-${random_string.resource_code.result}"
     location = var.location
     resource_group_name = var.resource_group_name
     kind = var.service_plan_kind
@@ -26,7 +26,7 @@ resource "azurerm_app_service_plan" "this" {
 }
 
 resource "azurerm_function_app" "this" {
-    name = "func-${var.name}-${random_string.resource_code.result}"
+    name = "func-${var.name}-${var.environment}-${random_string.resource_code.result}"
     location = var.location
     resource_group_name = var.resource_group_name
     app_service_plan_id = azurerm_app_service_plan.this.id

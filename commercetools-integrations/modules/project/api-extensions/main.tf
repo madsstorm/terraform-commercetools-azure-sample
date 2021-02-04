@@ -2,6 +2,7 @@ module "function-app" {
     source = "../../common/azure/function-app"
 
     location = var.location
+    environment = var.environment
 
     name = "apiext"
     resource_group_name = var.resource_group_name
