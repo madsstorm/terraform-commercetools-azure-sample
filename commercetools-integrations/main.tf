@@ -31,11 +31,14 @@ locals {
 ##################################################################################
 # RESOURCES
 ##################################################################################
-resource "random_pet" "this" {
+resource "random_string" "resource_code" {
+  length = 5
+  special = false
+  upper = false
 }
 
 resource "azurerm_resource_group" "this" {
-    name = "rg-${local.name}-${rancom_pet.this.id}"
+    name = "rg-${local.name}-${random_string.resource_code.result}"
     location = var.location
 }
 
