@@ -1,6 +1,6 @@
 resource "azurerm_resource_group" "this" {
     name = var.resource_group_name
-    location = var.location    
+    location = var.location
 }
 
 resource "azurerm_storage_account" "this" {
@@ -33,7 +33,7 @@ resource "azurerm_function_app" "this" {
     version = "3"
        
     connection_string {
-      name = "ServiceBusconnection"
+      name = "ServiceBusConnection"
       type = "ServiceBus"
       value = var.servicebus_connection_string
     }
