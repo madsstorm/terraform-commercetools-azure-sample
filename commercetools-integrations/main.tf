@@ -15,6 +15,13 @@ terraform {
 }
 
 ##################################################################################
+# PROVIDERS
+##################################################################################
+provider "azurerm" {
+  features {}
+}
+
+##################################################################################
 # LOCALS
 ##################################################################################
 locals {
@@ -28,7 +35,7 @@ resource "random_pet" "this" {
 }
 
 resource "azurerm_resource_group" "this" {
-    name = "rg-${locals.name}-${rancom_pet.this.id}"
+    name = "rg-${local.name}-${rancom_pet.this.id}"
     location = var.location
 }
 
