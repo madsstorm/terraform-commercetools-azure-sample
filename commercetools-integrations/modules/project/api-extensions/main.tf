@@ -3,7 +3,7 @@ module "function-app" {
 
     location = var.location
 
-    name = "api-ext"
+    name = "apiext"
     resource_group_name = var.resource_group_name
 
     storage_account_kind = var.storage_account_kind

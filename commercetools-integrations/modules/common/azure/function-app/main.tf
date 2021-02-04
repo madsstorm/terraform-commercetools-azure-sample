@@ -5,7 +5,7 @@ resource "random_string" "resource_code" {
 }
 
 resource "azurerm_storage_account" "this" {
-    name = "st-${var.name}-${random_string.resource_code.result}"
+    name = "st${var.name}${random_string.resource_code.result}"
     resource_group_name = var.resource_group_name
     location = var.location
     account_kind = var.storage_account_kind

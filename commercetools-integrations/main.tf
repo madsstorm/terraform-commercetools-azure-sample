@@ -25,7 +25,6 @@ provider "azurerm" {
 # LOCALS
 ##################################################################################
 locals {
-  name = "${var.project}-${var.environment}"
 }
 
 ##################################################################################
@@ -38,7 +37,7 @@ resource "random_string" "resource_code" {
 }
 
 resource "azurerm_resource_group" "this" {
-    name = "rg-${local.name}-${random_string.resource_code.result}"
+    name = "rg-${var.project}-${var.environment}-${random_string.resource_code.result}"
     location = var.location
 }
 
