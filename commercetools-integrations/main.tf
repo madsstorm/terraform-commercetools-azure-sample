@@ -40,7 +40,7 @@ resource "azurerm_resource_group" "this" {
 }
 
 module "subscriptions" {
-  source = "modules/subscriptions"
+  source = "./modules/subscriptions"
   
   location = var.location
 
@@ -57,7 +57,7 @@ module "subscriptions" {
 }
 
 module "api-extensions" {
-  source = "modules/api-extensions"
+  source = "./modules/api-extensions"
 
   location = var.location
 
