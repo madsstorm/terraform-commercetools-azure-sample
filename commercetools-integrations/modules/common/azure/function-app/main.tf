@@ -32,8 +32,8 @@ resource "azurerm_function_app" "this" {
     storage_account_access_key = azurerm_storage_account.this.primary_access_key
     version = "3"
        
-    connection_string {
-      name = "ServiceBusConnection"
+    connection_string {      
+      name = "AzureWebJobsServiceBus"
       type = "ServiceBus"
       value = var.servicebus_connection_string
     }
