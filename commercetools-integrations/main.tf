@@ -44,7 +44,7 @@ module "subscriptions" {
   
   location = var.location
 
-  name = "${locals.name}-subs"
+  name = "${local.name}-subs"
   resource_group_name = azurerm_resource_group.this.name
 
   storage_account_kind = var.storage_account_kind
@@ -61,7 +61,7 @@ module "api-extensions" {
 
   location = var.location
 
-  name = "${locals.name}-api-ext"
+  name = "${local.name}-api-ext"
   resource_group_name = azurerm_resource_group.this.name
 
   storage_account_kind = var.storage_account_kind
