@@ -7,7 +7,8 @@ terraform {
   }
 }
 
-provider "azurerm" {    
+provider "azurerm" {
+    location = var.location
 }
 
 module "subscriptions-function-app" {
