@@ -41,7 +41,7 @@ resource "azurerm_resource_group" "this" {
     location = var.location
 }
 
-resource "azurerm_application_insights" "example" {
+resource "azurerm_application_insights" "this" {
   name = "appi-${var.project}-${var.environment}-${random_string.resource_code.result}"
   location = azurerm_resource_group.this.location
   resource_group_name = azurerm_resource_group.this.name
