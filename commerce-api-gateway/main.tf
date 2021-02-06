@@ -41,13 +41,6 @@ resource "azurerm_resource_group" "this" {
     location = var.location
 }
 
-resource "azurerm_application_insights" "this" {
-  name = "appi-${var.project}-${var.environment}-${random_string.resource_code.result}"
-  location = azurerm_resource_group.this.location
-  resource_group_name = azurerm_resource_group.this.name
-  application_type = "web"  
-}
-
 resource "azurerm_api_management" "this" {
   name = "apim-${var.project}-${var.environment}-${random_string.resource_code.result}"
   location = azurerm_resource_group.this.location
@@ -55,6 +48,25 @@ resource "azurerm_api_management" "this" {
   publisher_email = "madsstorm@gmail.com"
   publisher_name = "Mads Storm Hansen"
   sku_name = var.api_management_sku_name  
+}
+
+resource "azurerm_api_management_api" "products" {
+  name = "products"
+  resource_group_name = azurerm_resource_group.this.name
+  api_management_name = azurerm_api_management.this.name
+  revision = "1"
+  display_name = "Products API"
+  path = "products"
+  protocols = [ "https" ]
+
+  service_url = "https://api.madsstorm.dk/products"
+}
+
+resource "azurerm_application_insights" "this" {
+  name = "appi-${var.project}-${var.environment}-${random_string.resource_code.result}"
+  location = azurerm_resource_group.this.location
+  resource_group_name = azurerm_resource_group.this.name
+  application_type = "web"  
 }
 
 resource "azurerm_api_management_logger" "this" {
