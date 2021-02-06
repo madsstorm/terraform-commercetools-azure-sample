@@ -69,8 +69,8 @@ resource "azurerm_api_management_logger" "this" {
 
 resource "azurerm_api_management_diagnostic" "this" {
   identifier = "applicationinsights"
+  sampling_percentage = 5.0
   resource_group_name = azurerm_resource_group.this.name
   api_management_name = azurerm_api_management.this.name
   api_management_logger_id = azurerm_api_management_logger.this.id
-  sampling_percentage = 5.0
 }
