@@ -67,31 +67,7 @@ resource "azurerm_api_management_api_diagnostic" "products-diagnostics" {
   api_management_name      = azurerm_api_management.this.name
   api_name                 = azurerm_api_management_api.products.name
   api_management_logger_id = azurerm_api_management_logger.this.id
-}
-
-resource "azurerm_application_insights" "this" {
-  name = "appi-${var.project}-${var.environment}-${random_string.resource_code.result}"
-  location = azurerm_resource_group.this.location
-  resource_group_name = azurerm_resource_group.this.name
-  application_type = "web" 
-}
-
-resource "azurerm_api_management_logger" "this" {
-  name = "log-${var.project}-${var.environment}-${random_string.resource_code.result}"
-  api_management_name = azurerm_api_management.this.name
-  resource_group_name = azurerm_resource_group.this.name
-
-  application_insights {
-    instrumentation_key = azurerm_application_insights.this.instrumentation_key
-  }
-}
-
-resource "azurerm_api_management_diagnostic" "this" {
-  identifier = "applicationinsights"
-  resource_group_name = azurerm_resource_group.this.name
-  api_management_name = azurerm_api_management.this.name
-  api_management_logger_id = azurerm_api_management_logger.this.id 
-
+  
   sampling_percentage       = 5.0
   always_log_errors         = true
   log_client_ip             = true
@@ -132,5 +108,22 @@ resource "azurerm_api_management_diagnostic" "this" {
       "content-length",
       "origin",
     ]
+  }
+}
+
+resource "azurerm_application_insights" "this" {
+  name = "appi-${var.project}-${var.environment}-${random_string.resource_code.result}"
+  location = azurerm_resource_group.this.location
+  resource_group_name = azurerm_resource_group.this.name
+  application_type = "web" 
+}
+
+resource "azurerm_api_management_logger" "this" {
+  name = "log-${var.project}-${var.environment}-${random_string.resource_code.result}"
+  api_management_name = azurerm_api_management.this.name
+  resource_group_name = azurerm_resource_group.this.name
+
+  application_insights {
+    instrumentation_key = azurerm_application_insights.this.instrumentation_key
   }
 }
