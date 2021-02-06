@@ -1,3 +1,3 @@
 location = "North Europe"
 
-api_management_sku_name = "Comsumption_0"
+api_management_sku_name = "Consumption_0"
