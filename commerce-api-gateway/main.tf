@@ -47,7 +47,7 @@ resource "azurerm_api_management" "this" {
   resource_group_name = azurerm_resource_group.this.name
   publisher_email = "madsstorm@gmail.com"
   publisher_name = "Mads Storm Hansen"
-  sku_name = var.api_management_sku_name  
+  sku_name = var.api_management_sku_name
 }
 
 resource "azurerm_api_management_api" "products" {
@@ -58,15 +58,22 @@ resource "azurerm_api_management_api" "products" {
   display_name = "Products API"
   path = "products"
   protocols = [ "https" ]
-
   service_url = "https://api.madsstorm.dk/products"
+}
+
+resource "azurerm_api_management_api_diagnostic" "products-diagnostics" {
+  identifier = "applicationinsights"
+  resource_group_name      = azurerm_resource_group.this.name
+  api_management_name      = azurerm_api_management.this.name
+  api_name                 = azurerm_api_management_api.products.name
+  api_management_logger_id = azurerm_api_management_logger.this.id
 }
 
 resource "azurerm_application_insights" "this" {
   name = "appi-${var.project}-${var.environment}-${random_string.resource_code.result}"
   location = azurerm_resource_group.this.location
   resource_group_name = azurerm_resource_group.this.name
-  application_type = "web"  
+  application_type = "web" 
 }
 
 resource "azurerm_api_management_logger" "this" {
@@ -83,8 +90,8 @@ resource "azurerm_api_management_diagnostic" "this" {
   identifier = "applicationinsights"
   resource_group_name = azurerm_resource_group.this.name
   api_management_name = azurerm_api_management.this.name
-  api_management_logger_id = azurerm_api_management_logger.this.id
-  
+  api_management_logger_id = azurerm_api_management_logger.this.id 
+
   sampling_percentage       = 5.0
   always_log_errors         = true
   log_client_ip             = true
