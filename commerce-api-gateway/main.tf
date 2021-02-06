@@ -61,14 +61,6 @@ resource "azurerm_api_management_api" "products" {
   service_url = "https://api.madsstorm.dk/products"
 }
 
-resource "azurerm_api_management_api_diagnostic" "products-monitor" {
-  identifier = "azuremonitor"
-  resource_group_name      = azurerm_resource_group.this.name
-  api_management_name      = azurerm_api_management.this.name
-  api_name                 = azurerm_api_management_api.products.name
-  api_management_logger_id = azurerm_api_management_logger.this.id
-}
-
 resource "azurerm_api_management_api_diagnostic" "products-diagnostics" {
   identifier = "applicationinsights"
   resource_group_name      = azurerm_resource_group.this.name
