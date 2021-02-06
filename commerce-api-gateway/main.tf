@@ -72,46 +72,5 @@ resource "azurerm_api_management_diagnostic" "this" {
   resource_group_name = azurerm_resource_group.this.name
   api_management_name = azurerm_api_management.this.name
   api_management_logger_id = azurerm_api_management_logger.this.id
-
-  # sampling_percentage = 10
-  # always_log_errors = true
-  # log_client_ip = true
-  # verbosity = "verbose"
-  # http_correlation_protocol = "W3C"
-
-  # frontend_request {
-  #   body_bytes = 32
-  #   headers_to_log = [
-  #     "content-type",
-  #     "accept",
-  #     "origin",
-  #   ]
-  # }
-
-  # frontend_response {
-  #   body_bytes = 32
-  #   headers_to_log = [
-  #     "content-type",
-  #     "content-length",
-  #     "origin",
-  #   ]
-  # }
-
-  # backend_request {
-  #   body_bytes = 32
-  #   headers_to_log = [
-  #     "content-type",
-  #     "accept",
-  #     "origin",
-  #   ]
-  # }
-
-  # backend_response {
-  #   body_bytes = 32
-  #   headers_to_log = [
-  #     "content-type",
-  #     "content-length",
-  #     "origin",
-  #   ]
-  # }
+  sampling_percentage = 5.0
 }
