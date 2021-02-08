@@ -81,4 +81,14 @@ resource "commercetools_product_type" "tablet-product-type" {
             name = "boolean"
         }
     }
+
+    attribute {
+        name = "colour"
+        label = {
+            da = "Farve"
+        }
+        type {
+            name = "text"
+        }
+    }
 }
