@@ -16,7 +16,7 @@ resource "azurerm_servicebus_topic" "topic" {
     namespace_name      = var.namespace_name
 }
 
-resource "azurerm_servicebus_topic_authorization_rule" "this" {
+resource "azurerm_servicebus_topic_authorization_rule" "policy" {
     name                = "send_only"
     namespace_name      = var.namespace_name
     topic_name          = var.topic_name
