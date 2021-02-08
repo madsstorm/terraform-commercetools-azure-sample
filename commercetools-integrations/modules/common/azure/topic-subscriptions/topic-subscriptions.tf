@@ -21,7 +21,7 @@ resource "azurerm_servicebus_subscription" "subscriptions" {
 
     name = each.key
     resource_group_name = var.resource_group_name
-    namespace_name      = module.servicebus.namespace_name
+    namespace_name      = var.namespace_name
     topic_name          = azurerm_servicebus_topic.topic.name
     max_delivery_count  = 100
 }

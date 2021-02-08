@@ -55,7 +55,7 @@ module "topic_subscriptions" {
 resource "azurerm_servicebus_topic_authorization_rule" "order_created" {
   name                = "SendOnly"
   namespace_name      = module.servicebus.namespace_name
-  topic_name          = azurerm_servicebus_topic.order_created.name
+  topic_name          = module.topic_subscriptions.topic_name
   resource_group_name = var.resource_group_name
   listen              = false
   send                = true
