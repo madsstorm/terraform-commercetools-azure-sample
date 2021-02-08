@@ -65,3 +65,27 @@ resource "commercetools_subscription" "order_created_subscription" {
     types            = ["OrderCreated"]
   }
 }
+
+module "product_published_topic" {
+    source = "../../common/azure/topic-subscriptions"
+    
+    resource_group_name = var.resource_group_name
+    namespace_name      = module.servicebus.namespace_name
+
+    topic_name = "product_published"
+    subscription_names = ["update_product"]
+}
+
+resource "commercetools_subscription" "product_published_subscription" {
+  key = "product_published_subscription"
+
+  destination = {
+    type          = "azure_servicebus"
+    connection_string = module.product_published_topic.topic_send_connection_string
+  }
+ 
+  message {
+    resource_type_id = "product"
+    types            = ["ProductPublished"]
+  }
+}
