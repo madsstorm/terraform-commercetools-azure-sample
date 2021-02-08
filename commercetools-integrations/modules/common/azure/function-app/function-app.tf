@@ -35,6 +35,6 @@ resource "azurerm_function_app" "this" {
     version = "3"
 
     app_settings = {
-      "ServiceBusConnection" = var.servicebus_connection_string
+      "AzureWebJobsServiceBus" = var.servicebus_connection_string
     }       
 }

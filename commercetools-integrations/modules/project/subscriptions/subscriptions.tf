@@ -15,7 +15,7 @@ module "function-app" {
     service_plan_tier = var.service_plan_tier
     service_plan_size = var.service_plan_size
 
-    servicebus_connection_string = module.servicebus.namespace_connection_string
+    servicebus_connection_string = module.servicebus.namespace_listen_connection_string
 }
 
 module "servicebus" {

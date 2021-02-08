@@ -1,3 +1,3 @@
-output "namespace_connection_string" {
-    value = azurerm_servicebus_namespace.this.default_primary_connection_string
+output "namespace_listen_connection_string" {
+    value = azurerm_servicebus_namespace_authorization_rule.listen.primary_connection_string
 }
