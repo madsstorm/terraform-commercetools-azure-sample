@@ -42,15 +42,15 @@ module "servicebus" {
     servicebus_sku = var.servicebus_sku
 }
 
-# module "order_created_topic" {
-#     source = "../../common/azure/topic-subscriptions"
+module "order_created_topic" {
+    source = "../../common/azure/topic-subscriptions"
     
-#     resource_group_name = var.resource_group_name
-#     namespace_name      = module.servicebus.namespace_name
+    resource_group_name = var.resource_group_name
+    namespace_name      = module.servicebus.namespace_name
 
-#     topic_name = "order_created"
-#     subscription_names = ["send_customer_email",  "send_order_to_backend"]
-# }
+    topic_name = "order_created"
+    subscription_names = ["send_customer_email",  "send_order_to_backend"]
+}
 
 # resource "commercetools_subscription" "order_created_subscription" {
 #   key = "order_created_subscription"
