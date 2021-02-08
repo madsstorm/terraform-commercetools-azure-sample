@@ -76,16 +76,16 @@ module "product_published_topic" {
     subscription_names = ["update_product"]
 }
 
-# resource "commercetools_subscription" "product_published_subscription" {
-#   key = "product_published_subscription"
+resource "commercetools_subscription" "product_published_subscription" {
+  key = "product_published_subscription"
 
-#   destination = {
-#     type          = "azure_servicebus"
-#     connection_string = module.product_published_topic.topic_send_connection_string
-#   }
+  destination = {
+    type          = "azure_servicebus"
+    connection_string = module.product_published_topic.topic_send_connection_string
+  }
  
-#   message {
-#     resource_type_id = "product"
-#     types            = ["ProductPublished"]
-#   }
-# }
+  message {
+    resource_type_id = "product"
+    types            = ["ProductPublished"]
+  }
+}
