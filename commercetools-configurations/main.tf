@@ -5,7 +5,7 @@ terraform {
   required_providers {
       commercetools = {
       source = "labd/commercetools"
-      version = "=0.26.1"
+      version = "0.26.1"
     }
   }
 }
