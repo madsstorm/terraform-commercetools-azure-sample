@@ -1,5 +1,3 @@
-location = "North Europe"
-
 storage_account_kind = "StorageV2"
 storage_account_tier = "Standard"
 storage_account_replication_type = "GRS"
