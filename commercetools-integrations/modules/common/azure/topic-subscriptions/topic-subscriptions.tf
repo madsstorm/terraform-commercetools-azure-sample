@@ -19,7 +19,7 @@ resource "azurerm_servicebus_topic" "topic" {
 resource "azurerm_servicebus_topic_authorization_rule" "policy" {
     name                = "send_only"
     namespace_name      = var.namespace_name
-    topic_name          = var.topic_name
+    topic_name          = azurerm_servicebus_topic.topic.name
     resource_group_name = var.resource_group_name
     listen              = false
     send                = true
