@@ -1,3 +1,18 @@
+##################################################################################
+# CONFIGURATION
+##################################################################################
+terraform {
+  required_providers {
+      commercetools = {
+      source = "labd/commercetools"
+      version = "0.26.1"
+    }
+  }
+}
+
+##################################################################################
+# RESOURCES
+##################################################################################
 resource "commercetools_product_type" "mobile-phone-product-type" {
     name = "Mobile Phone"
     description = "Mobile Phone"
