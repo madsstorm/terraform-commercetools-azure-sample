@@ -15,5 +15,17 @@ module "function-app" {
     service_plan_tier = var.service_plan_tier
     service_plan_size = var.service_plan_size
 
-    servicebus_connection_string = ""
+    servicebus_connection_string = module.servicebus.namespace_connection_string
+}
+
+module "servicebus" {
+    source = "../../common/azure/servicebus"
+
+    location = var.location
+    environment = var.environment
+
+    name = "subs"
+    resource_group_name = var.resource_group_name
+
+    servicebus_sku = var.servicebus_sku
 }

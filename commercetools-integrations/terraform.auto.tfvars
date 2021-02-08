@@ -6,6 +6,8 @@ subscriptions_service_plan_kind = "FunctionApp"
 subscriptions_service_plan_tier = "Dynamic"
 subscriptions_service_plan_size = "Y1"
 
+subscriptions_servicebus_sku = "Standard"
+
 api_extensions_service_plan_kind = "FunctionApp"
 api_extensions_service_plan_tier = "Dynamic"
 api_extensions_service_plan_size = "Y1"

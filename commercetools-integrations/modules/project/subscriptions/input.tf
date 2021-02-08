@@ -7,6 +7,8 @@ variable "storage_account_kind" {}
 variable "storage_account_tier" {}
 variable "storage_account_replication_type" {}
 
+variable "servicebus_sku" {}
+
 variable "service_plan_kind" {}
 variable "service_plan_tier" {}
 variable "service_plan_size" {}

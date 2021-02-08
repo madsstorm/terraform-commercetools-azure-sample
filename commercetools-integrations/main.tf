@@ -53,6 +53,8 @@ module "subscriptions" {
   storage_account_tier = var.storage_account_tier
   storage_account_replication_type = var.storage_account_replication_type
 
+  servicebus_sku = var.subscriptions_servicebus_sku
+
   service_plan_kind = var.subscriptions_service_plan_kind
   service_plan_tier = var.subscriptions_service_plan_tier
   service_plan_size = var.subscriptions_service_plan_size

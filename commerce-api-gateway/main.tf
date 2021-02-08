@@ -58,7 +58,7 @@ resource "azurerm_api_management_api" "products" {
   display_name = "Products API"
   path = "products"
   protocols = [ "https" ]
-  service_url = "https://api.madsstorm.dk/products"
+  service_url = "https://api.example.com/products"
 }
 
 resource "azurerm_api_management_api_diagnostic" "products-diagnostics" {

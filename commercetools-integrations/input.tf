@@ -11,6 +11,8 @@ variable "subscriptions_service_plan_kind" {}
 variable "subscriptions_service_plan_tier" {}
 variable "subscriptions_service_plan_size" {}
 
+variable "subscriptions_servicebus_sku" {}
+
 variable "api_extensions_service_plan_kind" {}
 variable "api_extensions_service_plan_tier" {}
 variable "api_extensions_service_plan_size" {}
