@@ -42,29 +42,29 @@ module "servicebus" {
     servicebus_sku = var.servicebus_sku
 }
 
-module "order_created_topic" {
-    source = "../../common/azure/topic-subscriptions"
+# module "order_created_topic" {
+#     source = "../../common/azure/topic-subscriptions"
     
-    resource_group_name = var.resource_group_name
-    namespace_name      = module.servicebus.namespace_name
+#     resource_group_name = var.resource_group_name
+#     namespace_name      = module.servicebus.namespace_name
 
-    topic_name = "order_created"
-    subscription_names = ["send_customer_email",  "send_order_to_backend"]
-}
+#     topic_name = "order_created"
+#     subscription_names = ["send_customer_email",  "send_order_to_backend"]
+# }
 
-resource "commercetools_subscription" "order_created_subscription" {
-  key = "order_created_subscription"
+# resource "commercetools_subscription" "order_created_subscription" {
+#   key = "order_created_subscription"
 
-  destination = {
-    type          = "azure_servicebus"
-    connection_string = module.order_created_topic.topic_send_connection_string
-  }
+#   destination = {
+#     type          = "azure_servicebus"
+#     connection_string = module.order_created_topic.topic_send_connection_string
+#   }
  
-  message {
-    resource_type_id = "order"
-    types            = ["OrderCreated"]
-  }
-}
+#   message {
+#     resource_type_id = "order"
+#     types            = ["OrderCreated"]
+#   }
+# }
 
 # module "product_published_topic" {
 #     source = "../../common/azure/topic-subscriptions"
