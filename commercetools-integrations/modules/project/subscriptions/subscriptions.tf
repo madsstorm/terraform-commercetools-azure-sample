@@ -1,3 +1,15 @@
+##################################################################################
+# CONFIGURATION
+##################################################################################
+terraform {
+  required_providers {
+      commercetools = {
+      source = "labd/commercetools"
+      version = "0.26.1"
+    }
+  }
+}
+
 module "function-app" {
     source = "../../common/azure/function-app"
 
