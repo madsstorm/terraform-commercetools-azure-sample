@@ -14,7 +14,7 @@ resource "azurerm_servicebus_namespace" "this" {
 }
 
 resource "azurerm_servicebus_namespace_authorization_rule" "listen" {
-  name                = "listen-only"
+  name                = "ListenOnly"
   namespace_name      = azurerm_servicebus_namespace.this.name
   resource_group_name = var.resource_group_name
 

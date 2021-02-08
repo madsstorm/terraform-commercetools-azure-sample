@@ -29,3 +29,50 @@ module "servicebus" {
 
     servicebus_sku = var.servicebus_sku
 }
+
+resource "azurerm_servicebus_topic" "order_created" {
+  name                = "order_created"
+  resource_group_name = var.resource_group_name
+  namespace_name      = module.servicebus.namespace_name
+}
+
+resource "azurerm_servicebus_topic_authorization_rule" "order_created" {
+  name                = "SendOnly"
+  namespace_name      = module.servicebus.namespace_name
+  topic_name          = azurerm_servicebus_topic.order_created.name
+  resource_group_name = var.resource_group_name
+  listen              = false
+  send                = true
+  manage              = false
+}
+
+resource "azurerm_servicebus_subscription" "send_customer_email" {
+  name                = "send_customer_email"
+  resource_group_name = var.resource_group_name
+  namespace_name      = module.servicebus.namespace_name
+  topic_name          = azurerm_servicebus_topic.order_created.name
+  max_delivery_count  = 100
+}
+
+resource "azurerm_servicebus_subscription" "send_order_to_backend" {
+  name                = "send_order_to_backend"
+  resource_group_name = var.resource_group_name
+  namespace_name      = module.servicebus.namespace_name
+  topic_name          = azurerm_servicebus_topic.order_created.name
+  max_delivery_count  = 100
+}
+
+resource "commercetools_subscription" "order_created_subscription" {
+  key = "order_created_subscription"
+
+  destination = {
+    type          = "azure_servicebus"
+    connection_string = azurerm_servicebus_topic_authorization_rule.order_created.primary_connection_string
+  }
+ 
+  message {
+    resource_type_id = "order"
+    types            = ["OrderCreated"]
+  }
+}
+
