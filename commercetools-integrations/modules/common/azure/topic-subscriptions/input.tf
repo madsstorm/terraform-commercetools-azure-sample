@@ -3,5 +3,5 @@ variable "namespace_name" {}
 
 variable "topic_name" {}
 variable "subscription_names" {
-    type = list(string)
+    type = set(string)
 }
