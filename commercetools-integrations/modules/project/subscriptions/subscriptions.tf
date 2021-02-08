@@ -42,10 +42,14 @@ module "servicebus" {
     servicebus_sku = var.servicebus_sku
 }
 
-resource "azurerm_servicebus_topic" "order_created" {
-  name                = "order_created"
-  resource_group_name = var.resource_group_name
-  namespace_name      = module.servicebus.namespace_name
+module "topic_subscriptions" {
+    source = "../../common/azure/topic-subscriptions"
+    
+    resource_group_name = var.resource_group_name
+    namespace_name      = module.servicebus.namespace_name
+
+    topic_name = "OrderCreated"
+    subscription_names = ["SendCustomerEmail",  "SendOrderToBackend"]
 }
 
 resource "azurerm_servicebus_topic_authorization_rule" "order_created" {
@@ -56,22 +60,6 @@ resource "azurerm_servicebus_topic_authorization_rule" "order_created" {
   listen              = false
   send                = true
   manage              = false
-}
-
-resource "azurerm_servicebus_subscription" "send_customer_email" {
-  name                = "send_customer_email"
-  resource_group_name = var.resource_group_name
-  namespace_name      = module.servicebus.namespace_name
-  topic_name          = azurerm_servicebus_topic.order_created.name
-  max_delivery_count  = 100
-}
-
-resource "azurerm_servicebus_subscription" "send_order_to_backend" {
-  name                = "send_order_to_backend"
-  resource_group_name = var.resource_group_name
-  namespace_name      = module.servicebus.namespace_name
-  topic_name          = azurerm_servicebus_topic.order_created.name
-  max_delivery_count  = 100
 }
 
 resource "commercetools_subscription" "order_created_subscription" {
