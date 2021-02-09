@@ -45,10 +45,6 @@ module "function_app" {
     name = "ctsubs"
     resource_group_name = azurerm_resource_group.this.name
     
-    service_plan_kind = var.service_plan_kind
-    service_plan_tier = var.service_plan_tier
-    service_plan_size = var.service_plan_size
-
     servicebus_connection_string = module.servicebus.namespace_listen_connection_string
 }
 
