@@ -8,8 +8,9 @@ resource "azurerm_storage_account" "this" {
   account_replication_type = "LRS"
   access_tier              = "Hot"
 
-  allow_blob_public_access = false
-  min_tls_version = "TLS1_2"
+  allow_blob_public_access  = false
+  enable_https_traffic_only = true
+  min_tls_version           = "TLS1_2"
 }
 
 resource "azurerm_app_service_plan" "this" {
