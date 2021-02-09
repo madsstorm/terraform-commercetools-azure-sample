@@ -35,7 +35,7 @@ resource "azurerm_resource_group" "api_extensions" {
     location = var.location   
 }
 
-module "function-app" {
+module "api_extension_function_app" {
     source = "./modules/function-app"
 
     location = azurerm_resource_group.api_extensions.location

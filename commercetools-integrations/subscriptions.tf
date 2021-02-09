@@ -39,7 +39,7 @@ resource "azurerm_resource_group" "subscriptions" {
     location = var.location   
 }
 
-module "function-app" {
+module "subscriptions_function_app" {
     source = "./modules/function-app"
 
     location = azurerm_resource_group.subscriptions.location
@@ -59,7 +59,7 @@ module "function-app" {
     servicebus_connection_string = module.servicebus.namespace_listen_connection_string
 }
 
-module "servicebus" {
+module "subscriptions_servicebus" {
     source = "./modules/servicebus"
 
     location = azurerm_resource_group.subscriptions.location
