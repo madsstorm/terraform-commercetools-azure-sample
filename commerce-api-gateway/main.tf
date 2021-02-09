@@ -28,7 +28,7 @@ locals {
 # RESOURCES
 ##################################################################################
 resource "azurerm_resource_group" "this" {
-    name = "rg-${local.project}-${var.environment}"
+    name = "${local.project}-${var.environment}"
     location = var.location
 }
 
