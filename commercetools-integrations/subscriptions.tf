@@ -20,7 +20,7 @@ module "subscriptions_function_app" {
     service_plan_tier = var.subscriptions_service_plan_tier
     service_plan_size = var.subscriptions_service_plan_size
 
-    servicebus_connection_string = module.servicebus.namespace_listen_connection_string
+    servicebus_connection_string = module.subscriptions_servicebus.namespace_listen_connection_string
 }
 
 module "subscriptions_servicebus" {
@@ -39,7 +39,7 @@ module "order_created_topic" {
     source = "./modules/topic-subscriptions"
     
     resource_group_name = azurerm_resource_group.subscriptions.name
-    namespace_name      = module.servicebus.namespace_name
+    namespace_name      = module.subscriptions_servicebus.namespace_name
 
     topic_name = "order_created"
     subscription_names = ["send_customer_email",  "send_order_to_backend"]
@@ -63,7 +63,7 @@ module "product_published_topic" {
     source = "./modules/topic-subscriptions"
     
     resource_group_name = azurerm_resource_group.subscriptions.name
-    namespace_name      = module.servicebus.namespace_name
+    namespace_name      = module.subscriptions_servicebus.namespace_name
 
     topic_name = "product_published"
     subscription_names = ["update_product"]
