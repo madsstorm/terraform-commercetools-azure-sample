@@ -12,7 +12,7 @@ resource "azurerm_api_management_api" "commerce_auth" {
   subscription_required = false
 }
 
-resource "azurerm_api_management_api_operation" "commerce_post" {
+resource "azurerm_api_management_api_operation" "commerce_auth_post" {
   operation_id        = "commerce_post"
   api_name            = azurerm_api_management_api.commerce_auth.name
   api_management_name = azurerm_api_management.this.name
