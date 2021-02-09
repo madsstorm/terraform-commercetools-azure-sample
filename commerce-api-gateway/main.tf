@@ -38,18 +38,7 @@ resource "azurerm_api_management" "this" {
   resource_group_name = azurerm_resource_group.this.name
   publisher_email     = "madsstorm@gmail.com"
   publisher_name      = "Mads Storm Hansen"
-  sku_name            = var.api_management_sku_name
-}
-
-resource "azurerm_api_management_api" "products" {
-  name                = "products"
-  resource_group_name = azurerm_resource_group.this.name
-  api_management_name = azurerm_api_management.this.name
-  revision            = "1"
-  display_name        = "Products API"
-  path                = "products"
-  protocols           = ["https"]
-  service_url         = "https://api.example.com/products"
+  sku_name            = "Consumption_0"
 }
 
 resource "azurerm_application_insights" "this" {
@@ -69,11 +58,22 @@ resource "azurerm_api_management_logger" "this" {
   }
 }
 
-resource "azurerm_api_management_api_diagnostic" "products-diagnostics" {
+resource "azurerm_api_management_api" "commerce" {
+  name                = "commerce"
+  resource_group_name = azurerm_resource_group.this.name
+  api_management_name = azurerm_api_management.this.name
+  revision            = "1"
+  display_name        = "Commerce API"
+  path                = "commerce"
+  protocols           = ["https"]
+  service_url         = var.CTP_API_URL
+}
+
+resource "azurerm_api_management_api_diagnostic" "commerce" {
   identifier               = "applicationinsights"
   resource_group_name      = azurerm_resource_group.this.name
   api_management_name      = azurerm_api_management.this.name
-  api_name                 = azurerm_api_management_api.products.name
+  api_name                 = azurerm_api_management_api.commerce.name
   api_management_logger_id = azurerm_api_management_logger.this.id
 
   sampling_percentage       = 5.0
