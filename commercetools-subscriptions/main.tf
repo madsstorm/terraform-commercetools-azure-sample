@@ -45,10 +45,6 @@ module "function_app" {
     name = "ctsubs"
     resource_group_name = azurerm_resource_group.this.name
     
-    storage_account_kind = var.storage_account_kind
-    storage_account_tier = var.storage_account_tier
-    storage_account_replication_type = var.storage_account_replication_type
-
     service_plan_kind = var.service_plan_kind
     service_plan_tier = var.service_plan_tier
     service_plan_size = var.service_plan_size

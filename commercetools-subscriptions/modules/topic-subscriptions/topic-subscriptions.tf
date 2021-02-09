@@ -2,6 +2,16 @@ resource "azurerm_servicebus_topic" "topic" {
     name                = var.topic_name
     resource_group_name = var.resource_group_name
     namespace_name      = var.namespace_name
+    
+    max_size_in_megabytes = 5120
+    default_message_ttl = "14:0:0:0"
+
+    enable_batched_operations = false
+    enable_express = false
+    enable_partitioning = false
+    
+    requires_duplicate_detection = false
+    support_ordering = false    
 }
 
 resource "azurerm_servicebus_topic_authorization_rule" "policy" {
@@ -21,5 +31,12 @@ resource "azurerm_servicebus_subscription" "subscriptions" {
     resource_group_name = var.resource_group_name
     namespace_name      = var.namespace_name
     topic_name          = azurerm_servicebus_topic.topic.name
-    max_delivery_count  = 100
+
+    default_message_ttl = "14:0:0:0"
+    lock_duration = "0:0:1:0"
+    max_delivery_count = 300
+
+    dead_lettering_on_message_expiration = true
+    enable_batched_operations = false
+    requires_session = false
 }
