@@ -5,7 +5,7 @@ resource "azurerm_storage_account" "this" {
 
     account_kind = "StorageV2"
     account_tier = "Standard"
-    account_replication_type = "GRS"
+    account_replication_type = "LRS"
     access_tier = "Hot"
 
     enable_https_traffic_only = true
@@ -39,7 +39,6 @@ resource "azurerm_function_app" "this" {
     storage_account_name = azurerm_storage_account.this.name
     storage_account_access_key = azurerm_storage_account.this.primary_access_key
     
-    https_only = true
     enable_builtin_logging = true
     version = "~3"
 
