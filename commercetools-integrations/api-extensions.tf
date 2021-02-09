@@ -1,35 +1,3 @@
-##################################################################################
-# CONFIGURATION
-##################################################################################
-terraform {
-  required_providers {
-    azurerm = {
-      source = "hashicorp/azurerm"
-      version = "2.46.1"
-    }
-    random = {
-      source = "hashicorp/random"
-      version = "3.0.1"
-    }
-  }
-}
-
-##################################################################################
-# PROVIDERS
-##################################################################################
-provider "azurerm" {
-  features {}
-}
-
-##################################################################################
-# RESOURCES
-##################################################################################
-resource "random_string" "resource_code" {
-  length = 6
-  special = false
-  upper = false
-}
-
 resource "azurerm_resource_group" "api_extensions" {
     name = "rg-${var.project}-subs-${var.environment}-${random_string.resource_code.result}"
     location = var.location   
