@@ -7,10 +7,6 @@ terraform {
       source = "hashicorp/azurerm"
       version = "2.46.1"
     }
-    random = {
-      source = "hashicorp/random"
-      version = "3.0.1"
-    }
   }
 }
 
@@ -25,24 +21,19 @@ provider "azurerm" {
 # LOCALS
 ##################################################################################
 locals {
+  project = "commerce-api-gateway"
 }
 
 ##################################################################################
 # RESOURCES
 ##################################################################################
-resource "random_string" "resource_code" {
-  length = 6
-  special = false
-  upper = false
-}
-
 resource "azurerm_resource_group" "this" {
-    name = "rg-${var.project}-${var.environment}-${random_string.resource_code.result}"
+    name = "rg-${local.project}-${var.environment}"
     location = var.location
 }
 
 resource "azurerm_api_management" "this" {
-  name = "apim-${var.project}-${var.environment}-${random_string.resource_code.result}"
+  name = "apim-${local.project}-${var.environment}"
   location = azurerm_resource_group.this.location
   resource_group_name = azurerm_resource_group.this.name
   publisher_email = "madsstorm@gmail.com"
@@ -112,14 +103,14 @@ resource "azurerm_api_management_api_diagnostic" "products-diagnostics" {
 }
 
 resource "azurerm_application_insights" "this" {
-  name = "appi-${var.project}-${var.environment}-${random_string.resource_code.result}"
+  name = "appi-${local.project}-${var.environment}"
   location = azurerm_resource_group.this.location
   resource_group_name = azurerm_resource_group.this.name
   application_type = "web" 
 }
 
 resource "azurerm_api_management_logger" "this" {
-  name = "log-${var.project}-${var.environment}-${random_string.resource_code.result}"
+  name = "log-${local.project}-${var.environment}"
   api_management_name = azurerm_api_management.this.name
   resource_group_name = azurerm_resource_group.this.name
 

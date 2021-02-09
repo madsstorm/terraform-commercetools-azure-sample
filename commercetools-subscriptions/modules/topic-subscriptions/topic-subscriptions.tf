@@ -1,15 +1,3 @@
-##################################################################################
-# CONFIGURATION
-##################################################################################
-terraform {
-  required_providers {
-      commercetools = {
-      source = "labd/commercetools"
-      version = "0.26.1"
-    }
-  }
-}
-
 resource "azurerm_servicebus_topic" "topic" {
     name                = var.topic_name
     resource_group_name = var.resource_group_name

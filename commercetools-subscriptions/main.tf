@@ -22,60 +22,47 @@ provider "azurerm" {
 }
 
 ##################################################################################
+# LOCALS
+##################################################################################
+locals {
+  project = "commercetools-subscriptions"
+}
+
+##################################################################################
 # RESOURCES
 ##################################################################################
 resource "azurerm_resource_group" "this" {
-    name = "${var.project}-${var.environment}"
+    name = "${local.project}-${var.environment}"
     location = var.location   
 }
 
-module "api_extension_function_app" {
+module "function_app" {
     source = "./modules/function-app"
 
     location = azurerm_resource_group.this.location
     environment = var.environment
 
-    name = "apiext"
-    resource_group_name = azurerm_resource_group.this.name
-
-    storage_account_kind = var.storage_account_kind
-    storage_account_tier = var.storage_account_tier
-    storage_account_replication_type = var.storage_account_replication_type
-
-    service_plan_kind = var.api_extensions_service_plan_kind
-    service_plan_tier = var.api_extensions_service_plan_tier
-    service_plan_size = var.api_extensions_service_plan_size
-
-    servicebus_connection_string = ""
-}
-
-module "subscriptions_function_app" {
-    source = "./modules/function-app"
-
-    location = azurerm_resource_group.this.location
-    environment = var.environment
-
-    name = "subs"
+    name = "ctsubs"
     resource_group_name = azurerm_resource_group.this.name
     
     storage_account_kind = var.storage_account_kind
     storage_account_tier = var.storage_account_tier
     storage_account_replication_type = var.storage_account_replication_type
 
-    service_plan_kind = var.subscriptions_service_plan_kind
-    service_plan_tier = var.subscriptions_service_plan_tier
-    service_plan_size = var.subscriptions_service_plan_size
+    service_plan_kind = var.service_plan_kind
+    service_plan_tier = var.service_plan_tier
+    service_plan_size = var.service_plan_size
 
-    servicebus_connection_string = module.subscriptions_servicebus.namespace_listen_connection_string
+    servicebus_connection_string = module.servicebus.namespace_listen_connection_string
 }
 
-module "subscriptions_servicebus" {
+module "servicebus" {
     source = "./modules/servicebus"
 
     location = azurerm_resource_group.this.location
     environment = var.environment
 
-    name = "subs"
+    name = "ctsubs"
     resource_group_name = azurerm_resource_group.this.name
 
     servicebus_sku = var.subscriptions_servicebus_sku
@@ -85,7 +72,7 @@ module "order_created_topic" {
     source = "./modules/topic-subscriptions"
     
     resource_group_name = azurerm_resource_group.this.name
-    namespace_name      = module.subscriptions_servicebus.namespace_name
+    namespace_name      = module.servicebus.namespace_name
 
     topic_name = "order_created"
     subscription_names = ["send_customer_email",  "send_order_to_backend"]
@@ -109,7 +96,7 @@ module "product_published_topic" {
     source = "./modules/topic-subscriptions"
     
     resource_group_name = azurerm_resource_group.this.name
-    namespace_name      = module.subscriptions_servicebus.namespace_name
+    namespace_name      = module.servicebus.namespace_name
 
     topic_name = "product_published"
     subscription_names = ["update_product"]

@@ -1,11 +1,5 @@
-resource "random_string" "resource_code" {
-  length = 6
-  special = false
-  upper = false
-}
-
 resource "azurerm_storage_account" "this" {
-    name = "st${var.name}${var.environment}${random_string.resource_code.result}"
+    name = "st${var.name}${var.environment}"
     resource_group_name = var.resource_group_name
     location = var.location
     account_kind = var.storage_account_kind
@@ -14,7 +8,7 @@ resource "azurerm_storage_account" "this" {
 }
 
 resource "azurerm_app_service_plan" "this" {
-    name = "plan-${var.name}-${var.environment}-${random_string.resource_code.result}"
+    name = "plan-${var.name}-${var.environment}"
     location = var.location
     resource_group_name = var.resource_group_name
     kind = var.service_plan_kind
