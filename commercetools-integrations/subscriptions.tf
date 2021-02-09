@@ -3,6 +3,14 @@
 ##################################################################################
 terraform {
   required_providers {
+    azurerm = {
+      source = "hashicorp/azurerm"
+      version = "2.46.1"
+    }
+    random = {
+      source = "hashicorp/random"
+      version = "3.0.1"
+    }
       commercetools = {
       source = "labd/commercetools"
       version = "0.26.1"
@@ -10,42 +18,63 @@ terraform {
   }
 }
 
-module "function-app" {
-    source = "../../common/azure/function-app"
+##################################################################################
+# PROVIDERS
+##################################################################################
+provider "azurerm" {
+  features {}
+}
 
-    location = var.location
+##################################################################################
+# RESOURCES
+##################################################################################
+resource "random_string" "resource_code" {
+  length = 6
+  special = false
+  upper = false
+}
+
+resource "azurerm_resource_group" "subscriptions" {
+    name = "rg-${var.project}-subs-${var.environment}-${random_string.resource_code.result}"
+    location = var.location   
+}
+
+module "function-app" {
+    source = "./modules/function-app"
+
+    location = azurerm_resource_group.subscriptions.location
     environment = var.environment
 
     name = "subs"
-    resource_group_name = var.resource_group_name
+    resource_group_name = azurerm_resource_group.subscriptions.name
     
     storage_account_kind = var.storage_account_kind
     storage_account_tier = var.storage_account_tier
     storage_account_replication_type = var.storage_account_replication_type
 
-    service_plan_kind = var.service_plan_kind
-    service_plan_tier = var.service_plan_tier
-    service_plan_size = var.service_plan_size
+    service_plan_kind = var.subscriptions_service_plan_kind
+    service_plan_tier = var.subscriptions_service_plan_tier
+    service_plan_size = var.subscriptions_service_plan_size
 
     servicebus_connection_string = module.servicebus.namespace_listen_connection_string
 }
 
 module "servicebus" {
-    source = "../../common/azure/servicebus"
+    source = "./modules/servicebus"
 
-    location = var.location
+    location = azurerm_resource_group.subscriptions.location
     environment = var.environment
 
     name = "subs"
-    resource_group_name = var.resource_group_name
+    resource_group_name = azurerm_resource_group.subscriptions.name
 
-    servicebus_sku = var.servicebus_sku
+    servicebus_sku = var.subscriptions_servicebus_sku
 }
 
 module "order_created_topic" {
-    source = "../../common/azure/topic-subscriptions"
+    source = "./modules/topic-subscriptions"
     
-    resource_group_name = var.resource_group_name
+    resource_group_name = azurerm_resource_group.subscriptions.name
     namespace_name      = module.servicebus.namespace_name
 
     topic_name = "order_created"
@@ -67,9 +96,9 @@ resource "commercetools_subscription" "order_created_subscription" {
 }
 
 module "product_published_topic" {
-    source = "../../common/azure/topic-subscriptions"
+    source = "./modules/topic-subscriptions"
     
-    resource_group_name = var.resource_group_name
+    resource_group_name = azurerm_resource_group.subscriptions.name
     namespace_name      = module.servicebus.namespace_name
 
     topic_name = "product_published"

@@ -26,7 +26,7 @@ resource "azurerm_app_service_plan" "this" {
 }
 
 resource "azurerm_function_app" "this" {
-    name = "func-${var.name}-${var.environment}-${random_string.resource_code.result}"
+    name = "func-${var.name}-${var.environment}"
     location = var.location
     resource_group_name = var.resource_group_name
     app_service_plan_id = azurerm_app_service_plan.this.id
