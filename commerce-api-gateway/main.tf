@@ -70,8 +70,8 @@ resource "azurerm_api_management_api" "commerce" {
 }
 
 resource "azurerm_api_management_api_operation" "commerce-get" {
-  operation_id = "commerce-get"
-  api_name            = azurerm_api_management_api.commerce
+  operation_id        = "commerce-get"
+  api_name            = azurerm_api_management_api.commerce.name
   api_management_name = azurerm_api_management.this.name
   resource_group_name = azurerm_resource_group.this.name
 
@@ -81,9 +81,9 @@ resource "azurerm_api_management_api_operation" "commerce-get" {
 }
 
 resource "azurerm_api_management_api_operation" "commerce-post" {
-  operation_id = "commerce-post"
-  api_name            = azurerm_api_management_api.commerce
-  api_management_name = azurerm_api_management.this.name  
+  operation_id        = "commerce-post"
+  api_name            = azurerm_api_management_api.commerce.name
+  api_management_name = azurerm_api_management.this.name
   resource_group_name = azurerm_resource_group.this.name
 
   display_name = "POST"
