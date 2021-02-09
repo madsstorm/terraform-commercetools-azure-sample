@@ -69,6 +69,28 @@ resource "azurerm_api_management_api" "commerce" {
   service_url         = var.CTP_API_URL
 }
 
+resource "azurerm_api_management_api_operation" "commerce-get" {
+  operation_id = "commerce-get"
+  api_name            = azurerm_api_management_api.commerce
+  api_management_name = azurerm_api_management.this.name
+  resource_group_name = azurerm_resource_group.this.name
+
+  display_name = "GET"
+  method       = "GET"
+  url_template = "/*"
+}
+
+resource "azurerm_api_management_api_operation" "commerce-post" {
+  operation_id = "commerce-post"
+  api_name            = azurerm_api_management_api.commerce
+  api_management_name = azurerm_api_management.this.name  
+  resource_group_name = azurerm_resource_group.this.name
+
+  display_name = "POST"
+  method       = "POST"
+  url_template = "/*"
+}
+
 resource "azurerm_api_management_api_diagnostic" "commerce" {
   identifier               = "applicationinsights"
   resource_group_name      = azurerm_resource_group.this.name
