@@ -5,6 +5,7 @@ resource "azurerm_api_management_api_diagnostic" "this" {
   api_name                 = var.api_name
   api_management_logger_id = var.api_management_logger_id
 
+  sampling_percentage       = 0.0
   always_log_errors         = true
   log_client_ip             = false
   verbosity                 = "verbose"
