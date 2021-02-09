@@ -52,6 +52,23 @@ resource "azurerm_api_management_api" "products" {
   service_url = "https://api.example.com/products"
 }
 
+resource "azurerm_application_insights" "this" {
+  name = "appi-${azurerm_api_management.this.name}"
+  location = azurerm_resource_group.this.location
+  resource_group_name = azurerm_resource_group.this.name
+  application_type = "web" 
+}
+
+resource "azurerm_api_management_logger" "this" {
+  name = "log-${local.project}-${var.environment}"
+  api_management_name = azurerm_api_management.this.name
+  resource_group_name = azurerm_resource_group.this.name
+
+  application_insights {
+    instrumentation_key = azurerm_application_insights.this.instrumentation_key
+  }
+}
+
 resource "azurerm_api_management_api_diagnostic" "products-diagnostics" {
   identifier = "applicationinsights"
   resource_group_name      = azurerm_resource_group.this.name
@@ -99,22 +116,5 @@ resource "azurerm_api_management_api_diagnostic" "products-diagnostics" {
       "content-length",
       "origin",
     ]
-  }
-}
-
-resource "azurerm_application_insights" "this" {
-  name = "appi-${local.project}-${var.environment}"
-  location = azurerm_resource_group.this.location
-  resource_group_name = azurerm_resource_group.this.name
-  application_type = "web" 
-}
-
-resource "azurerm_api_management_logger" "this" {
-  name = "log-${local.project}-${var.environment}"
-  api_management_name = azurerm_api_management.this.name
-  resource_group_name = azurerm_resource_group.this.name
-
-  application_insights {
-    instrumentation_key = azurerm_application_insights.this.instrumentation_key
   }
 }
