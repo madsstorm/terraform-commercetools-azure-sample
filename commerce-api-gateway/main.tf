@@ -4,7 +4,7 @@
 terraform {
   required_providers {
     azurerm = {
-      source = "hashicorp/azurerm"
+      source  = "hashicorp/azurerm"
       version = "2.46.1"
     }
   }
@@ -28,39 +28,39 @@ locals {
 # RESOURCES
 ##################################################################################
 resource "azurerm_resource_group" "this" {
-    name = "${local.project}-${var.environment}"
-    location = var.location
+  name     = "${local.project}-${var.environment}"
+  location = var.location
 }
 
 resource "azurerm_api_management" "this" {
-  name = "apim-${local.project}-${var.environment}"
-  location = azurerm_resource_group.this.location
+  name                = "apim-${local.project}-${var.environment}"
+  location            = azurerm_resource_group.this.location
   resource_group_name = azurerm_resource_group.this.name
-  publisher_email = "madsstorm@gmail.com"
-  publisher_name = "Mads Storm Hansen"
-  sku_name = var.api_management_sku_name
+  publisher_email     = "madsstorm@gmail.com"
+  publisher_name      = "Mads Storm Hansen"
+  sku_name            = var.api_management_sku_name
 }
 
 resource "azurerm_api_management_api" "products" {
-  name = "products"
+  name                = "products"
   resource_group_name = azurerm_resource_group.this.name
   api_management_name = azurerm_api_management.this.name
-  revision = "1"
-  display_name = "Products API"
-  path = "products"
-  protocols = [ "https" ]
-  service_url = "https://api.example.com/products"
+  revision            = "1"
+  display_name        = "Products API"
+  path                = "products"
+  protocols           = ["https"]
+  service_url         = "https://api.example.com/products"
 }
 
 resource "azurerm_application_insights" "this" {
-  name = "appi-${local.project}-${var.environment}"
-  location = azurerm_resource_group.this.location
+  name                = "appi-${local.project}-${var.environment}"
+  location            = azurerm_resource_group.this.location
   resource_group_name = azurerm_resource_group.this.name
-  application_type = "web" 
+  application_type    = "web"
 }
 
 resource "azurerm_api_management_logger" "this" {
-  name = "log-${local.project}-${var.environment}"
+  name                = "log-${local.project}-${var.environment}"
   api_management_name = azurerm_api_management.this.name
   resource_group_name = azurerm_resource_group.this.name
 
@@ -70,12 +70,12 @@ resource "azurerm_api_management_logger" "this" {
 }
 
 resource "azurerm_api_management_api_diagnostic" "products-diagnostics" {
-  identifier = "applicationinsights"
+  identifier               = "applicationinsights"
   resource_group_name      = azurerm_resource_group.this.name
   api_management_name      = azurerm_api_management.this.name
   api_name                 = azurerm_api_management_api.products.name
   api_management_logger_id = azurerm_api_management_logger.this.id
-  
+
   sampling_percentage       = 5.0
   always_log_errors         = true
   log_client_ip             = true

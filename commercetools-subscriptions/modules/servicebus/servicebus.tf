@@ -1,10 +1,10 @@
 resource "azurerm_servicebus_namespace" "this" {
   name = "sb-${var.name}-${var.environment}"
-  
-  resource_group_name = var.resource_group_name
-  location = var.location
 
-  sku = "Standard"  
+  resource_group_name = var.resource_group_name
+  location            = var.location
+
+  sku = "Standard"
 }
 
 resource "azurerm_servicebus_namespace_authorization_rule" "this" {
