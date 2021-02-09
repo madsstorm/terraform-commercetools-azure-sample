@@ -25,7 +25,7 @@ resource "azurerm_app_service_plan" "this" {
 }
 
 resource "azurerm_application_insights" "this" {
-    name = "appi-${azurerm_function_app.this.name}"
+    name = "appi-func-${var.name}-${var.environment}"
     location = var.location
     resource_group_name = var.resource_group_name
     application_type = "web" 

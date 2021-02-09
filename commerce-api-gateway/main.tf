@@ -53,7 +53,7 @@ resource "azurerm_api_management_api" "products" {
 }
 
 resource "azurerm_application_insights" "this" {
-  name = "appi-${azurerm_api_management.this.name}"
+  name = "appi-${local.project}-${var.environment}"
   location = azurerm_resource_group.this.location
   resource_group_name = azurerm_resource_group.this.name
   application_type = "web" 
