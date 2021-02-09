@@ -4,7 +4,7 @@ resource "azurerm_servicebus_topic" "topic" {
     namespace_name      = var.namespace_name
     
     max_size_in_megabytes = 5120
-    default_message_ttl = "14:0:0:0"
+    default_message_ttl = "P14D"
 
     enable_batched_operations = false
     enable_express = false
@@ -32,8 +32,8 @@ resource "azurerm_servicebus_subscription" "subscriptions" {
     namespace_name      = var.namespace_name
     topic_name          = azurerm_servicebus_topic.topic.name
 
-    default_message_ttl = "14:0:0:0"
-    lock_duration = "0:0:1:0"
+    default_message_ttl = "P14D"
+    lock_duration = "PT1M"
     max_delivery_count = 300
 
     dead_lettering_on_message_expiration = true
