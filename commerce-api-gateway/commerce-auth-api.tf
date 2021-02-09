@@ -13,7 +13,7 @@ resource "azurerm_api_management_api" "commerce_auth" {
 }
 
 resource "azurerm_api_management_api_operation" "commerce_auth_post" {
-  operation_id        = "commerce_post"
+  operation_id        = "commerce-auth-post"
   api_name            = azurerm_api_management_api.commerce_auth.name
   api_management_name = azurerm_api_management.this.name
   resource_group_name = azurerm_resource_group.this.name
