@@ -60,8 +60,6 @@ module "servicebus" {
 
     name = "ctsubs"
     resource_group_name = azurerm_resource_group.this.name
-
-    servicebus_sku = var.servicebus_sku
 }
 
 module "order_created_topic" {
