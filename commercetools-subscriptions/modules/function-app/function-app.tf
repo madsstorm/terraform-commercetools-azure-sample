@@ -50,6 +50,6 @@ resource "azurerm_function_app" "this" {
     "CTP_CLIENT_ID"                         = var.api_client_id
     "CTP_CLIENT_SECRET"                     = var.api_client_secret
     "CTP_PROJECT_KEY"                       = var.api_project_key
-    "CTP_SCOPES"                            = join(" ", api_scopes)
+    "CTP_SCOPES"                            = join(" ", var.api_scopes)
   }
 }
