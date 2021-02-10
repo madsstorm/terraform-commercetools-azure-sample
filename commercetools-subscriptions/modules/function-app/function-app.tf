@@ -47,5 +47,9 @@ resource "azurerm_function_app" "this" {
     "AzureWebJobsServiceBus"                = var.servicebus_connection_string
     "APPINSIGHTS_INSTRUMENTATIONKEY"        = azurerm_application_insights.this.instrumentation_key
     "APPLICATIONINSIGHTS_CONNECTION_STRING" = azurerm_application_insights.this.connection_string
+    "CTP_CLIENT_ID"                         = var.api_client_id
+    "CTP_CLIENT_SECRET"                     = var.api_client_secret
+    "CTP_PROJECT_KEY"                       = var.api_project_key
+    "CTP_SCOPES"                            = join(" ", api_scopes)
   }
 }

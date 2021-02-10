@@ -36,6 +36,21 @@ resource "azurerm_resource_group" "this" {
   location = var.location
 }
 
+module "servicebus" {
+  source = "./modules/servicebus"
+
+  location    = azurerm_resource_group.this.location
+  environment = var.environment
+
+  name                = "ctsubs"
+  resource_group_name = azurerm_resource_group.this.name
+}
+
+resource "commercetools_api_client" "subscriptions_client" {
+  name  = "Subscriptions Client"
+  scope = ["manage_project:${var.CTP_PROJECT_KEY}"]
+}
+
 module "function_app" {
   source = "./modules/function-app"
 
@@ -46,16 +61,11 @@ module "function_app" {
   resource_group_name = azurerm_resource_group.this.name
 
   servicebus_connection_string = module.servicebus.namespace_listen_connection_string
-}
 
-module "servicebus" {
-  source = "./modules/servicebus"
-
-  location    = azurerm_resource_group.this.location
-  environment = var.environment
-
-  name                = "ctsubs"
-  resource_group_name = azurerm_resource_group.this.name
+  api_client_id     = commercetools_api_client.subscriptions_client.id
+  api_client_secret = commercetools_api_client.subscriptions_client.secret
+  api_scopes        = commercetools_api_client.subscriptions_client.scope
+  api_project_key   = var.CTP_PROJECT_KEY
 }
 
 module "order_created_topic" {
