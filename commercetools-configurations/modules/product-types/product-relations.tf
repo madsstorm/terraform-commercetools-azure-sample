@@ -10,6 +10,7 @@ resource "commercetools_product_type" "product_relation" {
     label = {
       da = "Produkt"
     }
+    required = true
     type {
       name              = "reference"
       reference_type_id = "product"
@@ -21,6 +22,7 @@ resource "commercetools_product_type" "product_relation" {
     label = {
       da = "Obligatorisk"
     }
+    required = true
     type {
       name = "boolean"
     }
@@ -36,6 +38,7 @@ resource "commercetools_product_type" "product_type_relation" {
     label = {
       da = "Produkt Type"
     }
+    required = true
     type {
       name              = "reference"
       reference_type_id = "product-type"
@@ -48,6 +51,7 @@ resource "commercetools_product_type" "product_type_relation" {
     label = {
       da = "Obligatorisk"
     }
+    required = true
     type {
       name = "boolean"
     }
@@ -63,6 +67,7 @@ resource "commercetools_product_type" "category_relation" {
     label = {
       da = "Kategori"
     }
+    required = true
     type {
       name              = "reference"
       reference_type_id = "category"
@@ -75,6 +80,7 @@ resource "commercetools_product_type" "category_relation" {
     label = {
       da = "Obligatorisk"
     }
+    required = true
     type {
       name = "boolean"
     }
