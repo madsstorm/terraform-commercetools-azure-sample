@@ -57,16 +57,16 @@ resource "commercetools_product_type" "mobile-phone-product-type" {
     }
   }
 
-  attribute {
-      name = "relations"
-      label = {
-          da = "Relationer"
-      }
-      type {
-          name = "nested"
-          type_reference = commercetools_product_type.nested_relations_type.id
-      }
-  }
+#   attribute {
+#       name = "relations"
+#       label = {
+#           da = "Relationer"
+#       }
+#       type {
+#           name = "nested"
+#           type_reference = commercetools_product_type.nested_relations_type.id
+#       }
+#   }
 }
 
 resource "commercetools_product_type" "tablet-product-type" {
