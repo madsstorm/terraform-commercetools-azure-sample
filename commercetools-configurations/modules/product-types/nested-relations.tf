@@ -1,55 +1,55 @@
 ##################################################################################
 # RESOURCES
 ##################################################################################
-resource "commercetools_product_type" "relations_type" {
-  name        = "Relations"
-  description = "Relations"
+# resource "commercetools_product_type" "relations_type" {
+#   name        = "Relations"
+#   description = "Relations"
 
-  attribute {
-    name = "related_products"
-    label = {
-      da = "Relaterede produkter"
-    }
-    required = false
-    type {
-      name = "set"
-      element_type {
-        name           = "nested"
-        type_reference = commercetools_product_type.product_relation.id
-      }
-    }
-  }
+#   attribute {
+#     name = "related_products"
+#     label = {
+#       da = "Relaterede produkter"
+#     }
+#     required = false
+#     type {
+#       name = "set"
+#       element_type {
+#         name           = "nested"
+#         type_reference = commercetools_product_type.product_relation.id
+#       }
+#     }
+#   }
 
-  attribute {
-    name = "related_product_types"
-    label = {
-      da = "Relaterede produkt typer"
-    }
-    required = false
-    type {
-      name = "set"
-      element_type {
-        name           = "nested"
-        type_reference = commercetools_product_type.product_type_relation.id
-      }
-    }
-  }
+#   attribute {
+#     name = "related_product_types"
+#     label = {
+#       da = "Relaterede produkt typer"
+#     }
+#     required = false
+#     type {
+#       name = "set"
+#       element_type {
+#         name           = "nested"
+#         type_reference = commercetools_product_type.product_type_relation.id
+#       }
+#     }
+#   }
 
-  attribute {
-    name = "related_categories"
-    label = {
-      da = "Relaterede kategorier"
-    }
-    required = false
-    type {
-      name = "set"
-      element_type {
-        name           = "nested"
-        type_reference = commercetools_product_type.category_relation.id
-      }
-    }
-  }
-}
+#   attribute {
+#     name = "related_categories"
+#     label = {
+#       da = "Relaterede kategorier"
+#     }
+#     required = false
+#     type {
+#       name = "set"
+#       element_type {
+#         name           = "nested"
+#         type_reference = commercetools_product_type.category_relation.id
+#       }
+#     }
+#   }
+# }
 
 resource "commercetools_product_type" "product_relation" {
   name        = "Product relation"

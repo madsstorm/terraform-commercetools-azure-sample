@@ -58,28 +58,93 @@ resource "commercetools_product_type" "mobile-phone-product-type" {
   }
 
   attribute {
-    name = "product_relations"
+    name = "product_related_products"
     label = {
-      da = "Relationer for produkt"
+      da = "Relaterede produkter"
     }
+    required = false
     constraint = "SameForAll"
     type {
-      name           = "nested"
-      type_reference = commercetools_product_type.relations_type.id
+      name = "set"
+      element_type {
+        name           = "nested"
+        type_reference = commercetools_product_type.product_relation.id
+      }
+    }
+  }
+
+    attribute {
+    name = "variant_related_products"
+    label = {
+      da = "Relaterede produkter"
+    }
+    required = false
+    constraint = "None"
+    type {
+      name = "set"
+      element_type {
+        name           = "nested"
+        type_reference = commercetools_product_type.product_relation.id
+      }
     }
   }
 
   attribute {
-    name = "variant_relations"
+    name = "product_related_product_types"
     label = {
-      da = "Relationer for variant"
+      da = "Relaterede produkt typer"
     }
-    constraint = "None"
+    required = false
+    constraint = "SameForAll"
     type {
-      name           = "nested"
-      type_reference = commercetools_product_type.relations_type.id
+      name = "set"
+      element_type {
+        name           = "nested"
+        type_reference = commercetools_product_type.product_type_relation.id
+      }
     }
   }
+
+    attribute {
+    name = "variant_related_product_types"
+    label = {
+      da = "Relaterede produkt typer"
+    }
+    required = false
+    constraint = "None"
+    type {
+      name = "set"
+      element_type {
+        name           = "nested"
+        type_reference = commercetools_product_type.product_type_relation.id
+      }
+    }
+  }
+
+
+#   attribute {
+#     name = "product_relations"
+#     label = {
+#       da = "Relationer for produkt"
+#     }
+#     constraint = "SameForAll"
+#     type {
+#       name           = "nested"
+#       type_reference = commercetools_product_type.relations_type.id
+#     }
+#   }
+
+#   attribute {
+#     name = "variant_relations"
+#     label = {
+#       da = "Relationer for variant"
+#     }
+#     constraint = "None"
+#     type {
+#       name           = "nested"
+#       type_reference = commercetools_product_type.relations_type.id
+#     }
+#   }
 }
 
 resource "commercetools_product_type" "tablet-product-type" {
