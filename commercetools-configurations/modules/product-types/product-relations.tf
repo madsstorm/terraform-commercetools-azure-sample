@@ -1,7 +1,7 @@
 ##################################################################################
 # RESOURCES
 ##################################################################################
-resource "commercetools_product_type" "product-relation" {
+resource "commercetools_product_type" "product_relation" {
   name        = "Product relation"
   description = "Product relation"
 
@@ -27,7 +27,7 @@ resource "commercetools_product_type" "product-relation" {
   }
 }
 
-resource "commercetools_product_type" "product-type-relation" {
+resource "commercetools_product_type" "product_type_relation" {
   name        = "Product Type relation"
   description = "Product Type relation"
 
@@ -54,7 +54,7 @@ resource "commercetools_product_type" "product-type-relation" {
   }
 }
 
-resource "commercetools_product_type" "category-relation" {
+resource "commercetools_product_type" "category_relation" {
   name        = "Category relation"
   description = "Category relation"
 

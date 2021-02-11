@@ -56,6 +56,17 @@ resource "commercetools_product_type" "mobile-phone-product-type" {
       name = "text"
     }
   }
+
+  attribute {
+      name = "related_products"
+      label = {
+          da = "Relaterede produkter"
+      }
+      type {
+          name = "set"
+          element_type = commercetools_product_type.product_relation.id
+      }
+  }
 }
 
 resource "commercetools_product_type" "tablet-product-type" {
