@@ -57,16 +57,29 @@ resource "commercetools_product_type" "mobile-phone-product-type" {
     }
   }
 
-#   attribute {
-#       name = "relations"
-#       label = {
-#           da = "Relationer"
-#       }
-#       type {
-#           name = "nested"
-#           type_reference = commercetools_product_type.nested_relations_type.id
-#       }
-#   }
+  attribute {
+    name = "product_relations"
+    label = {
+      da = "Relationer for produkt"
+    }
+    constraint = "SameForAll"
+    type {
+      name           = "nested"
+      type_reference = commercetools_product_type.relations_type.id
+    }
+  }
+
+  attribute {
+    name = "variant_relations"
+    label = {
+      da = "Relationer for variant"
+    }
+    constraint = "None"
+    type {
+      name           = "nested"
+      type_reference = commercetools_product_type.relations_type.id
+    }
+  }
 }
 
 resource "commercetools_product_type" "tablet-product-type" {
