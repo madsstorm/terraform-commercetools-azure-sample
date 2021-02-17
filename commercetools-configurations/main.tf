@@ -27,10 +27,10 @@ resource "commercetools_tax_category" "standard" {
 
 resource "commercetools_tax_category_rate" "standard_tax_category_da" {
   tax_category_id   = commercetools_tax_category.standard.id
-  name              = "Moms"
+  name              = "25% Moms"
   amount            = 0.25
   included_in_price = true
-  country           = "DA"
+  country           = "DK"
 }
 
 module "product-types" {
