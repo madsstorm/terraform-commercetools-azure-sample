@@ -26,7 +26,7 @@ resource "commercetools_tax_category" "standard" {
 }
 
 resource "commercetools_tax_category_rate" "standard-tax-category-DA" {
-  tax_category_id   = "${commercetools_tax_category.standard.id}"
+  tax_category_id   = commercetools_tax_category.standard.id
   name              = "25% Moms"
   amount            = 0.25
   included_in_price = true
