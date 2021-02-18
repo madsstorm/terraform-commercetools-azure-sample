@@ -57,6 +57,20 @@ resource "commercetools_product_type" "mobile-phone-product-type" {
     }
   }
 
+
+attribute {
+    name = "product_nested_product"
+    label = {
+      da = "Nested produkt"
+    }
+    required = false
+    constraint = "SameForAll"
+    type {
+      name = "nested"
+      type_reference = commercetools_product_type.product_relation.id
+    }
+  }
+
   attribute {
     name = "product_related_products"
     label = {
