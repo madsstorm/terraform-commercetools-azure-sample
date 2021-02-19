@@ -34,6 +34,7 @@ resource "commercetools_product_type" "handset-product-type" {
         1024 = "1 TB"
         2048 = "2 TB"
         4096 = "4 TB"
+        8192 = "8 TB"
       }
     }
   }
