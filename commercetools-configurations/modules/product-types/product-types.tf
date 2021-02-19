@@ -55,7 +55,7 @@ resource "commercetools_product_type" "handset_product_type" {
     label = {
       en = "Specifications"
     }
-    constraint = SameForAll
+    constraint = "SameForAll"
     type {
       name = "set"
       element_type {
