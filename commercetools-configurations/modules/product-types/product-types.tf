@@ -23,7 +23,7 @@ resource "commercetools_product_type" "handset-product-type" {
       en = "Storage"
     }
     type {
-      name = "Enum"
+      name = "enum"
       values = {
         16   = "16 GB"
         32   = "32 GB"
@@ -33,6 +33,7 @@ resource "commercetools_product_type" "handset-product-type" {
         512  = "512 GB"
         1024 = "1 TB"
         2048 = "2 TB"
+        4096 = "4 TB"
       }
     }
   }
