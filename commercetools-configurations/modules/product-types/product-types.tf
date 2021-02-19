@@ -25,6 +25,7 @@ resource "commercetools_product_type" "handset-product-type" {
     type {
       name = "enum"
       values = {
+        8   = "8 GB"
         16   = "16 GB"
         32   = "32 GB"
         64   = "64 GB"
