@@ -57,7 +57,7 @@ resource "commercetools_product_type" "handset_product_type" {
     }
     type {
       name = "set"
-      element_type = {
+      element_type {
         name           = "nested"
         type_reference = commercetools_product_type.specification_type.id
       }
