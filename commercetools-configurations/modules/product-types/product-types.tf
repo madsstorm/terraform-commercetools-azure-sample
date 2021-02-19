@@ -13,7 +13,7 @@ terraform {
 ##################################################################################
 # RESOURCES
 ##################################################################################
-resource "commercetools_product_type" "handset-product-type" {
+resource "commercetools_product_type" "handset_product_type" {
   name        = "Handset"
   description = "Handset"
 
@@ -25,7 +25,7 @@ resource "commercetools_product_type" "handset-product-type" {
     type {
       name = "enum"
       values = {
-        8   = "8 GB"
+        8    = "8 GB"
         16   = "16 GB"
         32   = "32 GB"
         64   = "64 GB"
@@ -44,6 +44,45 @@ resource "commercetools_product_type" "handset-product-type" {
     name = "colour"
     label = {
       en = "Colour"
+    }
+    type {
+      name = "text"
+    }
+  }
+
+  attribute {
+    name = "specifications"
+    label = {
+      en = "Specifications"
+    }
+    type {
+      name = "set"
+      element_type = {
+        name           = "nested"
+        type_reference = commercetools_product_type.specification_type.id
+      }
+    }
+  }
+}
+
+resource "commercetools_product_type" "specification_type" {
+  name        = "Specification"
+  description = "Specification"
+
+  attribute {
+    name = "name"
+    label = {
+      en = "Name"
+    }
+    type {
+      name = "text"
+    }
+  }
+
+  attribute {
+    name = "value"
+    label = {
+      en = "Value"
     }
     type {
       name = "text"
