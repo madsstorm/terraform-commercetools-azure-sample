@@ -49,44 +49,4 @@ resource "commercetools_product_type" "handset_product_type" {
       name = "text"
     }
   }
-
-  attribute {
-    name = "specifications"
-    label = {
-      en = "Specifications"
-    }
-    constraint = "SameForAll"
-    type {
-      name = "set"
-      element_type {
-        name           = "nested"
-        type_reference = commercetools_product_type.specification_type.id
-      }
-    }
-  }
-}
-
-resource "commercetools_product_type" "specification_type" {
-  name        = "Specification"
-  description = "Specification"
-
-  attribute {
-    name = "name"
-    label = {
-      en = "Name"
-    }
-    type {
-      name = "text"
-    }
-  }
-
-  attribute {
-    name = "value"
-    label = {
-      en = "Value"
-    }
-    type {
-      name = "text"
-    }
-  }
 }
