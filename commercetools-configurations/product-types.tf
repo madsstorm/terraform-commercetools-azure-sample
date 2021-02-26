@@ -51,6 +51,3 @@ resource "commercetools_product_type" "handset_product_type" {
     }
   }
 }
-
-resource "commercetools_product_type" "mobile_broadband_product_type" {
-}

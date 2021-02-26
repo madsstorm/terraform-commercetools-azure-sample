@@ -16,10 +16,6 @@ terraform {
 resource "commercetools_project_settings" "project" {
   name       = "Trial"
   currencies = ["DKK"]
-  languages  = ["en"]
+  languages  = ["en","da"]
   countries  = ["DK"]
-}
-
-module "product-types" {
-  source = "./modules/product-types"
 }
