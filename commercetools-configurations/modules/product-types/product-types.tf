@@ -20,6 +20,7 @@ resource "commercetools_product_type" "handset_product_type" {
   attribute {
     name = "storage"
     label = {
+      da = "Lager"
       en = "Storage"
     }
     type {
@@ -49,4 +50,7 @@ resource "commercetools_product_type" "handset_product_type" {
       name = "text"
     }
   }
+}
+
+resource "commercetools_product_type" "mobile_broadband_product_type" {
 }
