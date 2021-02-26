@@ -9,13 +9,13 @@ resource "commercetools_product_type" "modem_product_type" {
   description = "Modem"
   key         = "modem"
 
-  attributes {
+  attribute {
     name = "short-description"
     label = {
       en = "Short description"
       da = "Kort beskrivelse"
     }
-    required = false
+    required   = false
     constraint = "None"
     searchable = true
     input_hint = "MultiLine"
@@ -24,13 +24,13 @@ resource "commercetools_product_type" "modem_product_type" {
     }
   }
 
-    attributes {
+  attribute {
     name = "general-description"
     label = {
       en = "General description"
       da = "General beskrivelse"
     }
-    required = false
+    required   = false
     constraint = "None"
     searchable = true
     input_hint = "MultiLine"
