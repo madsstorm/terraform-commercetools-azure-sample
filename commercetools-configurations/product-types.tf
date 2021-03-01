@@ -4,13 +4,28 @@ resource "commercetools_product_type" "mobile_broadband_subscription" {
   key         = "mobile-broadband-subscription"
 
   attribute {
-    name = "product_prices_reference"
+    name = "variant_prices_reference"
     label = {
-      da = "Produkt priser"
-      en = "Product prices"
+      da = "Variant priser"
+      en = "Variant prices"
     }
     required   = false
-    constraint = "SameForAll"
+    constraint = "None"
+    searchable = false
+    type {
+      name              = "reference"
+      reference_type_id = "key-value-document"
+    }
+  }
+
+  attribute {
+    name = "variant_relations_reference"
+    label = {
+      da = "Variant relationer"
+      en = "Variant relations"
+    }
+    required   = false
+    constraint = "None"
     searchable = false
     type {
       name              = "reference"
