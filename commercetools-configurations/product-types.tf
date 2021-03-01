@@ -4,47 +4,17 @@ resource "commercetools_product_type" "mobile_broadband_subscription" {
   key         = "mobile-broadband-subscription"
 
   attribute {
-    name = "variant_prices_reference"
+    name = "product_price_relations"
     label = {
-      da = "Variant priser"
-      en = "Variant prices"
-    }
-    required   = false
-    constraint = "None"
-    searchable = false
-    type {
-      name              = "reference"
-      reference_type_id = "key-value-document"
-    }
-  }
-
-  attribute {
-    name = "variant_relations_reference"
-    label = {
-      da = "Variant relationer"
-      en = "Variant relations"
-    }
-    required   = false
-    constraint = "None"
-    searchable = false
-    type {
-      name              = "reference"
-      reference_type_id = "key-value-document"
-    }
-  }
-
-  attribute {
-    name = "product_relations_reference"
-    label = {
-      da = "Produkt relationer"
-      en = "Product relations"
+      da = "Prisrelationer"
+      en = "Pricerelations"
     }
     required   = false
     constraint = "SameForAll"
     searchable = false
     type {
-      name              = "reference"
-      reference_type_id = "key-value-document"
+      name           = "nested"
+      type_reference = commercetools_product_type.product_price_relations.id
     }
   }
 }
@@ -55,32 +25,17 @@ resource "commercetools_product_type" "mobile_broadband_hardware" {
   key         = "mobile-broadband-hardware"
 
   attribute {
-    name = "product_prices_reference"
+    name = "product_price_relations"
     label = {
-      da = "Produkt priser"
-      en = "Product prices"
+      da = "Prisrelationer"
+      en = "Pricerelations"
     }
     required   = false
     constraint = "SameForAll"
     searchable = false
     type {
-      name              = "reference"
-      reference_type_id = "key-value-document"
-    }
-  }
-
-  attribute {
-    name = "product_relations_reference"
-    label = {
-      da = "Produkt relationer"
-      en = "Product relations"
-    }
-    required   = false
-    constraint = "SameForAll"
-    searchable = false
-    type {
-      name              = "reference"
-      reference_type_id = "key-value-document"
+      name           = "nested"
+      type_reference = commercetools_product_type.product_price_relations.id
     }
   }
 }
@@ -91,38 +46,23 @@ resource "commercetools_product_type" "service_option" {
   key         = "service-option"
 
   attribute {
-    name = "product_prices_reference"
+    name = "product_price_relations"
     label = {
-      da = "Produkt priser"
-      en = "Product prices"
+      da = "Prisrelationer"
+      en = "Pricerelations"
     }
     required   = false
     constraint = "SameForAll"
     searchable = false
     type {
-      name              = "reference"
-      reference_type_id = "key-value-document"
-    }
-  }
-
-  attribute {
-    name = "product_relations_reference"
-    label = {
-      da = "Produkt relationer"
-      en = "Product relations"
-    }
-    required   = false
-    constraint = "SameForAll"
-    searchable = false
-    type {
-      name              = "reference"
-      reference_type_id = "key-value-document"
+      name           = "nested"
+      type_reference = commercetools_product_type.product_price_relations.id
     }
   }
 }
 
 resource "commercetools_custom_object" "my-value" {
   container = "my-container"
-  key = "my-key"
-  value = jsonencode(10)
+  key       = "my-key"
+  value     = jsonencode(10)
 }
