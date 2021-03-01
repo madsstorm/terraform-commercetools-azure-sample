@@ -12,7 +12,7 @@ resource "commercetools_product_type" "mobile_broadband_subscription" {
     required   = false
     searchable = false
     type {
-      name = "nested"
+      name           = "nested"
       type_reference = commercetools_product_type.product_prices_relations.id
     }
   }
@@ -31,9 +31,9 @@ resource "commercetools_product_type" "service_option" {
 }
 
 resource "commercetools_product_type" "product_prices_relations" {
-  name         = "Product prices and relations"
-  descriptions = "Prices and relations for products"
-  key          = "product-prices-relations"
+  name        = "Product prices and relations"
+  description = "Prices and relations for products"
+  key         = "product-prices-relations"
 
   attribute {
     name = "variant_prices_reference"
