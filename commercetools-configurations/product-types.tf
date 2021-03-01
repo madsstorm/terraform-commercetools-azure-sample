@@ -4,17 +4,32 @@ resource "commercetools_product_type" "mobile_broadband_subscription" {
   key         = "mobile-broadband-subscription"
 
   attribute {
-    name = "product_price_relations"
+    name = "prices_reference"
     label = {
-      da = "Prisrelationer"
-      en = "Pricerelations"
+      da = "Priser"
+      en = "Prices"
     }
     required   = false
     constraint = "SameForAll"
     searchable = false
     type {
-      name           = "nested"
-      type_reference = commercetools_product_type.product_price_relations.id
+      name              = "reference"
+      reference_type_id = "key-value-document"
+    }
+  }
+
+  attribute {
+    name = "relations_reference"
+    label = {
+      da = "Relationer"
+      en = "Relations"
+    }
+    required   = false
+    constraint = "SameForAll"
+    searchable = false
+    type {
+      name              = "reference"
+      reference_type_id = "key-value-document"
     }
   }
 }
@@ -25,17 +40,32 @@ resource "commercetools_product_type" "mobile_broadband_hardware" {
   key         = "mobile-broadband-hardware"
 
   attribute {
-    name = "product_price_relations"
+    name = "prices_reference"
     label = {
-      da = "Prisrelationer"
-      en = "Pricerelations"
+      da = "Priser"
+      en = "Prices"
     }
     required   = false
     constraint = "SameForAll"
     searchable = false
     type {
-      name           = "nested"
-      type_reference = commercetools_product_type.product_price_relations.id
+      name              = "reference"
+      reference_type_id = "key-value-document"
+    }
+  }
+
+  attribute {
+    name = "relations_reference"
+    label = {
+      da = "Relationer"
+      en = "Relations"
+    }
+    required   = false
+    constraint = "SameForAll"
+    searchable = false
+    type {
+      name              = "reference"
+      reference_type_id = "key-value-document"
     }
   }
 }
@@ -46,17 +76,32 @@ resource "commercetools_product_type" "service_option" {
   key         = "service-option"
 
   attribute {
-    name = "product_price_relations"
+    name = "prices_reference"
     label = {
-      da = "Prisrelationer"
-      en = "Pricerelations"
+      da = "Priser"
+      en = "Prices"
     }
     required   = false
     constraint = "SameForAll"
     searchable = false
     type {
-      name           = "nested"
-      type_reference = commercetools_product_type.product_price_relations.id
+      name              = "reference"
+      reference_type_id = "key-value-document"
+    }
+  }
+
+  attribute {
+    name = "relations_reference"
+    label = {
+      da = "Relationer"
+      en = "Relations"
+    }
+    required   = false
+    constraint = "SameForAll"
+    searchable = false
+    type {
+      name              = "reference"
+      reference_type_id = "key-value-document"
     }
   }
 }
