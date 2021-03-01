@@ -5,7 +5,7 @@ resource "commercetools_product_type" "mobile_broadband_subscription" {
 }
 
 resource "commercetools_product_type" "mobile_broadband_hardware" {
-  name        = "Mobile broadband hardware"
+  name        = "Broadband hardware"
   description = "Hardware for mobile broadband subscriptions"
   key         = "mobile-broadband-hardware"
 }
