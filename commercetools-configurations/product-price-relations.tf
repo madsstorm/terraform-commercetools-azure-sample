@@ -1,4 +1,8 @@
 resource "commercetools_product_type" "product_price_relations" {
+  name        = "Product price relations"
+  description = "Prices and relations for products"
+  key         = "product-price-relations"
+
   attribute {
     name = "prices_reference"
     label = {
