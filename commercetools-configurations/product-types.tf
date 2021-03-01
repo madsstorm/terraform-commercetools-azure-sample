@@ -1,41 +1,17 @@
-resource "commercetools_product_type" "mobile_broadband_product_type" {
-  name        = "Mobile broadband"
-  description = "Mobile broadband"
-  key         = "mobile-broadband"
+resource "commercetools_product_type" "mobile_broadband_subscription" {
+  name        = "Mobile broadband subscription"
+  description = "Subscriptions for mobile broadband"
+  key         = "mobile-broadband-subscription"
 }
 
-resource "commercetools_product_type" "modem_product_type" {
-  name        = "Modem"
-  description = "Modem"
-  key         = "modem"
+resource "commercetools_product_type" "mobile_broadband_hardware" {
+  name        = "Mobile broadband hardware"
+  description = "Hardware for mobile broadband subscriptions"
+  key         = "mobile-broadband-hardware"
+}
 
-  attribute {
-    name = "short-description"
-    label = {
-      en = "Short description"
-      da = "Kort beskrivelse"
-    }
-    required   = false
-    constraint = "None"
-    searchable = true
-    input_hint = "MultiLine"
-    type {
-      name = "ltext"
-    }
-  }
-
-  attribute {
-    name = "general-description"
-    label = {
-      en = "General description"
-      da = "General beskrivelse"
-    }
-    required   = false
-    constraint = "None"
-    searchable = true
-    input_hint = "MultiLine"
-    type {
-      name = "ltext"
-    }
-  }
+resource "commercetools_product_type" "service_option" {
+  name        = "Service option"
+  description = "Options for services"
+  key         = "service-option"
 }
