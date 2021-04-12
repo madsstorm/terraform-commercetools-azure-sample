@@ -24,4 +24,18 @@ resource "commercetools_product_type" "smartphone" {
           }
       }
   }
+
+  attribute {
+      name = "ColourDescription"
+      label = {
+          da = "Farve beskrivelse"
+          en = "Colour description"
+      }
+      required = false
+      constraint = "None"
+      searchable = true
+      type {
+          name = "ltext"
+      }
+  }
 }
