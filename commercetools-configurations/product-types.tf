@@ -32,7 +32,7 @@ resource "commercetools_product_type" "smartphone" {
           en = "Storage"
       }
       required = false
-      constraint = "CombinationUnique"
+      constraint = "None"
       searchable = false
       type {
           name = "enum"
@@ -57,7 +57,7 @@ resource "commercetools_product_type" "smartphone" {
           en = "Colour description"
       }
       required = false
-      constraint = "CombinationUnique"
+      constraint = "None"
       searchable = true
       type {
           name = "ltext"
