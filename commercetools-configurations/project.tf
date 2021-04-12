@@ -2,13 +2,13 @@ terraform {
   required_providers {
     commercetools = {
       source  = "labd/commercetools"
-      version = "0.26.1"
+      version = "0.28.0"
     }
   }
 }
 
 resource "commercetools_project_settings" "project" {
-  name       = "Trial"
+  name       = "${var.projectname}"
   currencies = ["DKK"]
   languages  = ["en", "da"]
   countries  = ["DK"]
