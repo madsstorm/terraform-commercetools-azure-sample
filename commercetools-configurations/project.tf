@@ -8,7 +8,7 @@ terraform {
 }
 
 resource "commercetools_project_settings" "project" {
-  name       = "${var.projectname}"
+  name       = var.projectname
   currencies = ["DKK"]
   languages  = ["en", "da"]
   countries  = ["DK"]
