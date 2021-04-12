@@ -4,12 +4,14 @@ resource "commercetools_product_type" "smartphone" {
   key         = "smartphone"
 
   attribute {
-      name = "brand"
+      name = "Brand"
       label = {
           da = "Brand"
           en = "Brand"
       }
       required = true
+      constraint = "SameForAll"
+      searchable = true
       type {
           name = "enum"
           values = {
@@ -22,5 +24,4 @@ resource "commercetools_product_type" "smartphone" {
           }
       }
   }
-
 }
