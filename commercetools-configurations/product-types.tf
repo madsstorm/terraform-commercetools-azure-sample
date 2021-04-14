@@ -17,10 +17,6 @@ resource "commercetools_product_type" "accessory" {
           values = {
               apple = "Apple"
               samsung = "Samsung"
-              huawei = "Huawei"
-              sony = "Sony"
-              oneplus = "OnePlus"
-              motorola = "Motorola"
               google = "Google"
               puro = "Puro"
               panzer = "Panzer"
@@ -148,10 +144,10 @@ resource "commercetools_product_type" "accessory" {
         }
       }
       localized_value {
-        key = "multicolored"
+        key = "multicoloured"
         label = {
           da = "Flerfarvet"
-          en = "Multicolored"
+          en = "Multicoloured"
         }
       }
     }
