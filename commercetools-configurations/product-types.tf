@@ -1,3 +1,22 @@
+locals {
+  colours = {
+    "black" = { "da" = "Sort", "en" = "Black" }
+    "white" = { "da" = "Hvid", "en" = "White" }
+    "grey" = { "da" = "Grå", "en" = "Grey" }
+    "blue" = { "da" = "Blå", "en" = "Blue" }
+    "green" = { "da" = "Grøn", "en" = "Green" }
+    "red" = { "da" = "Rød", "en" = "Red" }
+    "yellow" = { "da" = "Gul", "en" = "Yellow" }
+    "purple" = { "da" = "Lilla", "en" = "Purple" }
+    "violet" = { "da" = "Violet", "en" = "Violet" }
+    "pink" = { "da" = "Pink", "en" = "Pink" }
+    "gold" = { "da" = "Guld", "en" = "Gold" }
+    "silver" = { "da" = "Sølv", "en" = "Silver" }
+    "bronze" = { "da" = "Bronze", "en" = "Bronze" }
+    "multicoloured" = { "da" = "Flerfarvet", "en" = "Multicoloured" }
+  }
+}
+
 resource "commercetools_product_type" "smartphone" {
   name        = "Smartphone"
   description = "Smartphone"
@@ -76,102 +95,14 @@ resource "commercetools_product_type" "smartphone" {
     searchable = true
     type {
       name = "lenum"
-      localized_value {
-        key = "black"
-        label = {
-          da = "Sort"
-          en = "Black"
-        }
-      }
-      localized_value {
-        key = "white"
-        label = {
-          da = "Hvid"
-          en = "White"
-        }
-      }
-      localized_value {
-        key = "grey"
-        label = {
-          da = "Grå"
-          en = "Grey"
-        }
-      }
-      localized_value {
-        key = "blue"
-        label = {
-          da = "Blå"
-          en = "Blue"
-        }
-      }
-      localized_value {
-        key = "green"
-        label = {
-          da = "Grøn"
-          en = "Green"
-        }
-      }
-      localized_value {
-        key = "red"
-        label = {
-          da = "Rød"
-          en = "Red"
-        }
-      }
-      localized_value {
-        key = "yellow"
-        label = {
-          da = "Gul"
-          en = "Yellow"
-        }
-      }
-      localized_value {
-        key = "purple"
-        label = {
-          da = "Lilla"
-          en = "Purple"
-        }
-      }
-      localized_value {
-        key = "violet"
-        label = {
-          da = "Violet"
-          en = "Violet"
-        }
-      }
-      localized_value {
-        key = "pink"
-        label = {
-          da = "Pink"
-          en = "Pink"
-        }
-      }
-      localized_value {
-        key = "gold"
-        label = {
-          da = "Guld"
-          en = "Gold"
-        }
-      }
-      localized_value {
-        key = "silver"
-        label = {
-          da = "Sølv"
-          en = "Silver"
-        }
-      }
-      localized_value {
-        key = "bronze"
-        label = {
-          da = "Bronze"
-          en = "Bronze"
-        }
-      }
-      localized_value {
-        key = "multicoloured"
-        label = {
-          da = "Flerfarvet"
-          en = "Multicoloured"
+      dynamic "localized_value" {
+        for_each = local.colors
+        content {
+          key  = localized_value.key
+          label = {
+            da = localized_value.value.da
+            en = localized_value.value.en
+          }
         }
       }
     }
@@ -232,102 +163,14 @@ resource "commercetools_product_type" "accessory" {
     searchable = true
     type {
       name = "lenum"
-      localized_value {
-        key = "black"
-        label = {
-          da = "Sort"
-          en = "Black"
-        }
-      }
-      localized_value {
-        key = "white"
-        label = {
-          da = "Hvid"
-          en = "White"
-        }
-      }
-      localized_value {
-        key = "grey"
-        label = {
-          da = "Grå"
-          en = "Grey"
-        }
-      }
-      localized_value {
-        key = "blue"
-        label = {
-          da = "Blå"
-          en = "Blue"
-        }
-      }
-      localized_value {
-        key = "green"
-        label = {
-          da = "Grøn"
-          en = "Green"
-        }
-      }
-      localized_value {
-        key = "red"
-        label = {
-          da = "Rød"
-          en = "Red"
-        }
-      }
-      localized_value {
-        key = "yellow"
-        label = {
-          da = "Gul"
-          en = "Yellow"
-        }
-      }
-      localized_value {
-        key = "purple"
-        label = {
-          da = "Lilla"
-          en = "Purple"
-        }
-      }
-      localized_value {
-        key = "violet"
-        label = {
-          da = "Violet"
-          en = "Violet"
-        }
-      }
-      localized_value {
-        key = "pink"
-        label = {
-          da = "Pink"
-          en = "Pink"
-        }
-      }
-      localized_value {
-        key = "gold"
-        label = {
-          da = "Guld"
-          en = "Gold"
-        }
-      }
-      localized_value {
-        key = "silver"
-        label = {
-          da = "Sølv"
-          en = "Silver"
-        }
-      }
-      localized_value {
-        key = "bronze"
-        label = {
-          da = "Bronze"
-          en = "Bronze"
-        }
-      }
-      localized_value {
-        key = "multicoloured"
-        label = {
-          da = "Flerfarvet"
-          en = "Multicoloured"
+      dynamic "localized_value" {
+        for_each = local.colors
+        content {
+          key  = localized_value.key
+          label = {
+            da = localized_value.value.da
+            en = localized_value.value.en
+          }
         }
       }
     }
