@@ -1,5 +1,5 @@
 locals {
-  colours = {
+  colors = {
     "black" = { "da" = "Sort", "en" = "Black" }
     "white" = { "da" = "Hvid", "en" = "White" }
     "grey" = { "da" = "Grå", "en" = "Grey" }
@@ -13,7 +13,7 @@ locals {
     "gold" = { "da" = "Guld", "en" = "Gold" }
     "silver" = { "da" = "Sølv", "en" = "Silver" }
     "bronze" = { "da" = "Bronze", "en" = "Bronze" }
-    "multicoloured" = { "da" = "Flerfarvet", "en" = "Multicoloured" }
+    "multicolored" = { "da" = "Flerfarvet", "en" = "Multicolored" }
   }
 }
 
@@ -71,10 +71,10 @@ resource "commercetools_product_type" "smartphone" {
   }
 
   attribute {
-      name = "ColourDescription"
+      name = "ColorDescription"
       label = {
           da = "Farve beskrivelse"
-          en = "Colour description"
+          en = "Color description"
       }
       required = false
       constraint = "None"
@@ -85,10 +85,10 @@ resource "commercetools_product_type" "smartphone" {
   }
 
   attribute {
-    name = "FilterColour"
+    name = "FilterColor"
     label = {
       da = "Filterfarve"
-      en = "Filter colour"
+      en = "Filter color"
     }
     required = false
     constraint = "None"
@@ -139,10 +139,10 @@ resource "commercetools_product_type" "accessory" {
   }
 
   attribute {
-      name = "ColourDescription"
+      name = "ColorDescription"
       label = {
           da = "Farve beskrivelse"
-          en = "Colour description"
+          en = "Color description"
       }
       required = false
       constraint = "None"
@@ -153,10 +153,10 @@ resource "commercetools_product_type" "accessory" {
   }
   
   attribute {
-    name = "FilterColour"
+    name = "FilterColor"
     label = {
       da = "Filterfarve"
-      en = "Filter colour"
+      en = "Filter color"
     }
     required = false
     constraint = "None"
