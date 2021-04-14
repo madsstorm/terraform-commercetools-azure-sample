@@ -40,4 +40,39 @@ resource "commercetools_product_type" "accessory" {
           name = "ltext"
       }
   }
+  
+  attribute {
+    name = "FilterColour"
+    label = {
+      da = "Filterfarve"
+      en = "Filter colour"
+    }
+    required = false
+    constraint = "None"
+    searchable = true
+    type {
+      name = "lenum"
+      localized_value {
+        key = "black"
+        label = {
+          da = "Sort"
+          en = "Black"
+        }
+      }
+      localized_value {
+        key = "blue"
+        label = {
+          da = "Blå"
+          en = "Blue"
+        }
+      }
+      localized_value {
+        key = "red"
+        label = {
+          da = "Rød"
+          en = "Red"
+        }
+      }
+    }
+  }
 }
