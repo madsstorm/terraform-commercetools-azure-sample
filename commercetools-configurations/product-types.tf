@@ -36,9 +36,9 @@ resource "commercetools_product_type" "accessory" {
     required = false
     constraint = "None"
     searchable = true
+    input_hint = "MultiLine"
     type {
       name = "ltext"
-      input_hint = "MultiLine"
     }
   }
 
