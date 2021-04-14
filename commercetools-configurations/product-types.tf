@@ -95,14 +95,13 @@ resource "commercetools_product_type" "smartphone" {
     searchable = true
     type {
       name = "lenum"
-      dynamic "color" {
+      dynamic "localized_value" {
         for_each = local.filtercolors
-        iterator = color
         content {
-          key  = color.key
+          key  = localized_value.key
           label = {
-            da = color.value.da
-            en = color.value.en
+            da = localized_value.value.da
+            en = localized_value.value.en
           }
         }
       }
