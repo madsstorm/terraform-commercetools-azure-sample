@@ -67,6 +67,13 @@ resource "commercetools_product_type" "accessory" {
         }
       }
       localized_value {
+        key = "grey"
+        label = {
+          da = "Grå"
+          en = "Grey"
+        }
+      }
+      localized_value {
         key = "blue"
         label = {
           da = "Blå"
@@ -135,14 +142,7 @@ resource "commercetools_product_type" "accessory" {
           da = "Bronze"
           en = "Bronze"
         }
-      }
-      localized_value {
-        key = "grey"
-        label = {
-          da = "Grå"
-          en = "Grey"
-        }
-      }
+      }      
     }
   }
 }
