@@ -146,7 +146,14 @@ resource "commercetools_product_type" "accessory" {
           da = "Bronze"
           en = "Bronze"
         }
-      }      
+      }
+      localized_value {
+        key = "multicolored"
+        label = {
+          da = "Flerfarvet"
+          en = "Multicolored"
+        }
+      }
     }
   }
 }
