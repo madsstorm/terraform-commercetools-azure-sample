@@ -37,16 +37,16 @@ resource "commercetools_product_type" "smartphone" {
       type {
           name = "enum"
           values = {
-              16GB = "16 GB"
-              32GB = "32 GB"
-              64GB = "64 GB"
-              128GB = "128 GB"
-              256GB = "256 GB"
-              512GB = "512 GB"
-              1TB = "1 TB"
-              2TB = "2 TB"
-              4TB = "4 TB"
-              8TB = "8 TB"
+              "16 GB" = "16 GB"
+              "32 GB" = "32 GB"
+              "64 GB" = "64 GB"
+              "128 GB" = "128 GB"
+              "256 GB" = "256 GB"
+              "512 GB" = "512 GB"
+              "1 TB" = "1 TB"
+              "2 TB" = "2 TB"
+              "4 TB" = "4 TB"
+              "8 TB" = "8 TB"
           }
       }
   }
