@@ -17,6 +17,10 @@ resource "commercetools_product_type" "accessory" {
           values = {
               apple = "Apple"
               samsung = "Samsung"
+              huawei = "Huawei"
+              sony = "Sony"
+              oneplus = "OnePlus"
+              motorola = "Motorola"
               google = "Google"
               puro = "Puro"
               panzer = "Panzer"
