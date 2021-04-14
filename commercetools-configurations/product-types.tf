@@ -60,6 +60,13 @@ resource "commercetools_product_type" "accessory" {
         }
       }
       localized_value {
+        key = "white"
+        label = {
+          da = "Hvid"
+          en = "White"
+        }
+      }
+      localized_value {
         key = "blue"
         label = {
           da = "Blå"
@@ -67,10 +74,73 @@ resource "commercetools_product_type" "accessory" {
         }
       }
       localized_value {
+        key = "green"
+        label = {
+          da = "Grøn"
+          en = "Green"
+        }
+      }
+      localized_value {
         key = "red"
         label = {
           da = "Rød"
           en = "Red"
+        }
+      }
+      localized_value {
+        key = "yellow"
+        label = {
+          da = "Gul"
+          en = "Yellow"
+        }
+      }
+      localized_value {
+        key = "purple"
+        label = {
+          da = "Lilla"
+          en = "Purple"
+        }
+      }
+      localized_value {
+        key = "violet"
+        label = {
+          da = "Violet"
+          en = "Violet"
+        }
+      }
+      localized_value {
+        key = "pink"
+        label = {
+          da = "Pink"
+          en = "Pink"
+        }
+      }
+      localized_value {
+        key = "gold"
+        label = {
+          da = "Guld"
+          en = "Gold"
+        }
+      }
+      localized_value {
+        key = "silver"
+        label = {
+          da = "Sølv"
+          en = "Silver"
+        }
+      }
+      localized_value {
+        key = "bronze"
+        label = {
+          da = "Bronze"
+          en = "Bronze"
+        }
+      }
+      localized_value {
+        key = "grey"
+        label = {
+          da = "Grå"
+          en = "Grey"
         }
       }
     }
