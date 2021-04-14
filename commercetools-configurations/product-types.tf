@@ -26,6 +26,21 @@ resource "commercetools_product_type" "accessory" {
           }
       }
   }
+  
+  attribute {
+    name = "ShortDescription"
+    label = {
+      da = "Kort beskrivelse"
+      en = "Short description"
+    }
+    required = false
+    constraint = "None"
+    searchable = true
+    type {
+      name = "ltext"
+      input_hint = "MultiLine"
+    }
+  }
 
   attribute {
       name = "ColourDescription"
