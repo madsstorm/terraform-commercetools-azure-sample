@@ -1,5 +1,5 @@
 locals {
-  colors = {
+  filtercolors = {
     "black" = { "da" = "Sort", "en" = "Black" }
     "white" = { "da" = "Hvid", "en" = "White" }
     "grey" = { "da" = "Grå", "en" = "Grey" }
@@ -32,9 +32,9 @@ resource "commercetools_product_type" "smartphone" {
       constraint = "SameForAll"
       searchable = true
       type {
-          name = "enum"
+          name = "enum"         
           values = {
-              samsung = "Samsung"              
+              samsung = "Samsung"
               huawei = "Huawei"
               sony = "Sony"
               apple = "Apple"
@@ -56,16 +56,16 @@ resource "commercetools_product_type" "smartphone" {
       type {
           name = "enum"
           values = {
-              "16GB" = "16 GB"
-              "32GB" = "32 GB"
-              "64GB" = "64 GB"
-              "128GB" = "128 GB"
-              "256GB" = "256 GB"
-              "512GB" = "512 GB"
-              "1TB" = "1 TB"
-              "2TB" = "2 TB"
-              "4TB" = "4 TB"
-              "8TB" = "8 TB"
+              "16gb" = "16 GB"
+              "32gb" = "32 GB"
+              "64gb" = "64 GB"
+              "128gb" = "128 GB"
+              "256gb" = "256 GB"
+              "512gb" = "512 GB"
+              "1tb" = "1 TB"
+              "2tb" = "2 TB"
+              "4tb" = "4 TB"
+              "8tb" = "8 TB"
           }
       }
   }
@@ -95,13 +95,14 @@ resource "commercetools_product_type" "smartphone" {
     searchable = true
     type {
       name = "lenum"
-      dynamic "localized_value" {
-        for_each = local.colors
+      dynamic "color" {
+        for_each = local.filtercolors
+        iterator = color
         content {
-          key  = localized_value.key
+          key  = color.key
           label = {
-            da = localized_value.value.da
-            en = localized_value.value.en
+            da = color.value.da
+            en = color.value.en
           }
         }
       }
@@ -164,7 +165,7 @@ resource "commercetools_product_type" "accessory" {
     type {
       name = "lenum"
       dynamic "localized_value" {
-        for_each = local.colors
+        for_each = local.filtercolors
         content {
           key  = localized_value.key
           label = {
