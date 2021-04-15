@@ -1,10 +1,10 @@
 resource "commercetools_type" "price_with_minimum_price" {
     key = "price-withMinimumPrice"
     name = {
-        da = "Custom minimumspris"
+        da = "Minimumspris"
     }
     description = {
-        da = "Custom minimumspris"
+        da = "Minimumspris"
     }
 
     resource_type_ids = ["product-price"]
