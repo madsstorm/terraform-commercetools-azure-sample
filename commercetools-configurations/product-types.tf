@@ -13,6 +13,7 @@ locals {
     "gold" = { "da" = "Guld", "en" = "Gold" }
     "silver" = { "da" = "Sølv", "en" = "Silver" }
     "bronze" = { "da" = "Bronze", "en" = "Bronze" }
+    "transparent" = { "da" = "Transparent", "en" = "Transparent" }
     "multicolored" = { "da" = "Flerfarvet", "en" = "Multicolored" }
   }
 }
