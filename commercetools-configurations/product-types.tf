@@ -7,6 +7,7 @@ resource "commercetools_product_type" "smartphone" {
       name = "Brand"
       label = {
           da = "Brand"
+          en = "Brand"
       }
       required = true
       constraint = "SameForAll"
@@ -28,6 +29,7 @@ resource "commercetools_product_type" "smartphone" {
       name = "Storage"
       label = {
           da = "Storage"
+          en = "Storage"
       }
       required = false
       constraint = "None"
@@ -52,7 +54,8 @@ resource "commercetools_product_type" "smartphone" {
   attribute {
       name = "ColorDescription"
       label = {
-          da = "Farve beskrivelse"
+          da = "Farvebeskrivelse"
+          en = "Color description"
       }
       required = false
       constraint = "None"
@@ -66,28 +69,117 @@ resource "commercetools_product_type" "smartphone" {
     name = "FilterColor"
     label = {
       da = "Filterfarve"
+      en = "Filter color"
     }
     required = false
     constraint = "None"
     searchable = true
     type {
-      name = "enum"
-      values = {
-        "Black" = "Black"
-        "White" = "White"
-        "Grey" = "Grey"
-        "Blue" = "Blue"
-        "Green" = "Green"
-        "Red" = "Red"
-        "Yellow" = "Yellow"
-        "Purple" = "Purple"
-        "Violet" = "Violet"
-        "Pink" = "Pink"
-        "Gold" = "Gold"
-        "Silver" = "Silver"
-        "Bronze" = "Bronze"
-        "Transparent" = "Transparent"
-        "Multicolored" = "Multicolored"
+      name = "lenum"
+      localized_value {
+        key = "black"
+        label = {
+          da = "Sort"
+          en = "Black"
+        }
+      }
+      localized_value {
+        key = "white"
+        label = {
+          da = "Hvid"
+          en = "White"
+        }
+      }
+      localized_value {
+        key = "grey"
+        label = {
+          da = "Grå"
+          en = "Grey"
+        }
+      }
+      localized_value {
+        key = "blue"
+        label = {
+          da = "Blå"
+          en = "Blue"
+        }
+      }
+      localized_value {
+        key = "green"
+        label = {
+          da = "Grøn"
+          en = "Green"
+        }
+      }
+      localized_value {
+        key = "red"
+        label = {
+          da = "Rød"
+          en = "Red"
+        }
+      }
+      localized_value {
+        key = "yellow"
+        label = {
+          da = "Gul"
+          en = "Yellow"
+        }
+      }
+      localized_value {
+        key = "purple"
+        label = {
+          da = "Lilla"
+          en = "Purple"
+        }
+      }
+      localized_value {
+        key = "violet"
+        label = {
+          da = "Violet"
+          en = "Violet"
+        }
+      }
+      localized_value {
+        key = "pink"
+        label = {
+          da = "Pink"
+          en = "Pink"
+        }
+      }
+      localized_value {
+        key = "gold"
+        label = {
+          da = "Guld"
+          en = "Gold"
+        }
+      }
+      localized_value {
+        key = "silver"
+        label = {
+          da = "Sølv"
+          en = "Silver"
+        }
+      }
+      localized_value {
+        key = "bronze"
+        label = {
+          da = "Bronze"
+          en = "Bronze"
+        }
+      }
+      localized_value {
+        key = "transparent"
+        label = {
+          da = "Transparent"
+          en = "Transparent"
+        }
+      }
+      localized_value {
+        key = "multicolored"
+        label = {
+          da = "Flerfarvet"
+          en = "Multicolored"
+        }
       }
     }
   }
@@ -102,6 +194,7 @@ resource "commercetools_product_type" "accessory" {
       name = "Brand"
       label = {
           da = "Brand"
+          en = "Brand"
       }
       required = true
       constraint = "SameForAll"
@@ -125,6 +218,7 @@ resource "commercetools_product_type" "accessory" {
       name = "ColorDescription"
       label = {
           da = "Farve beskrivelse"
+          en = "Color description"
       }
       required = false
       constraint = "None"
@@ -138,28 +232,117 @@ resource "commercetools_product_type" "accessory" {
     name = "FilterColor"
     label = {
       da = "Filterfarve"
+      en = "Filter color"
     }
     required = false
     constraint = "None"
     searchable = true
     type {
-      name = "enum"
-      values = {
-        "Black" = "Black"
-        "White" = "White"
-        "Grey" = "Grey"
-        "Blue" = "Blue"
-        "Green" = "Green"
-        "Red" = "Red"
-        "Yellow" = "Yellow"
-        "Purple" = "Purple"
-        "Violet" = "Violet"
-        "Pink" = "Pink"
-        "Gold" = "Gold"
-        "Silver" = "Silver"
-        "Bronze" = "Bronze"
-        "Transparent" = "Transparent"
-        "Multicolored" = "Multicolored"
+      name = "lenum"
+      localized_value {
+        key = "black"
+        label = {
+          da = "Sort"
+          en = "Black"
+        }
+      }
+      localized_value {
+        key = "white"
+        label = {
+          da = "Hvid"
+          en = "White"
+        }
+      }
+      localized_value {
+        key = "grey"
+        label = {
+          da = "Grå"
+          en = "Grey"
+        }
+      }
+      localized_value {
+        key = "blue"
+        label = {
+          da = "Blå"
+          en = "Blue"
+        }
+      }
+      localized_value {
+        key = "green"
+        label = {
+          da = "Grøn"
+          en = "Green"
+        }
+      }
+      localized_value {
+        key = "red"
+        label = {
+          da = "Rød"
+          en = "Red"
+        }
+      }
+      localized_value {
+        key = "yellow"
+        label = {
+          da = "Gul"
+          en = "Yellow"
+        }
+      }
+      localized_value {
+        key = "purple"
+        label = {
+          da = "Lilla"
+          en = "Purple"
+        }
+      }
+      localized_value {
+        key = "violet"
+        label = {
+          da = "Violet"
+          en = "Violet"
+        }
+      }
+      localized_value {
+        key = "pink"
+        label = {
+          da = "Pink"
+          en = "Pink"
+        }
+      }
+      localized_value {
+        key = "gold"
+        label = {
+          da = "Guld"
+          en = "Gold"
+        }
+      }
+      localized_value {
+        key = "silver"
+        label = {
+          da = "Sølv"
+          en = "Silver"
+        }
+      }
+      localized_value {
+        key = "bronze"
+        label = {
+          da = "Bronze"
+          en = "Bronze"
+        }
+      }
+      localized_value {
+        key = "transparent"
+        label = {
+          da = "Transparent"
+          en = "Transparent"
+        }
+      }
+      localized_value {
+        key = "multicolored"
+        label = {
+          da = "Flerfarvet"
+          en = "Multicolored"
+        }
       }
     }
   }
