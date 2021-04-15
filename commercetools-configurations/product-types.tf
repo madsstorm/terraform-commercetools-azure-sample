@@ -1,23 +1,3 @@
-locals {
-  filtercolors = {
-    "black" = { "da" = "Sort", "en" = "Black" }
-    "white" = { "da" = "Hvid", "en" = "White" }
-    "grey" = { "da" = "Grå", "en" = "Grey" }
-    "blue" = { "da" = "Blå", "en" = "Blue" }
-    "green" = { "da" = "Grøn", "en" = "Green" }
-    "red" = { "da" = "Rød", "en" = "Red" }
-    "yellow" = { "da" = "Gul", "en" = "Yellow" }
-    "purple" = { "da" = "Lilla", "en" = "Purple" }
-    "violet" = { "da" = "Violet", "en" = "Violet" }
-    "pink" = { "da" = "Pink", "en" = "Pink" }
-    "gold" = { "da" = "Guld", "en" = "Gold" }
-    "silver" = { "da" = "Sølv", "en" = "Silver" }
-    "bronze" = { "da" = "Bronze", "en" = "Bronze" }
-    "transparent" = { "da" = "Transparent", "en" = "Transparent" }
-    "multicolored" = { "da" = "Flerfarvet", "en" = "Multicolored" }
-  }
-}
-
 resource "commercetools_product_type" "smartphone" {
   name        = "Smartphone"
   description = "Smartphone"
@@ -27,7 +7,6 @@ resource "commercetools_product_type" "smartphone" {
       name = "Brand"
       label = {
           da = "Brand"
-          en = "Brand"
       }
       required = true
       constraint = "SameForAll"
@@ -49,7 +28,6 @@ resource "commercetools_product_type" "smartphone" {
       name = "Storage"
       label = {
           da = "Storage"
-          en = "Storage"
       }
       required = false
       constraint = "None"
@@ -75,7 +53,6 @@ resource "commercetools_product_type" "smartphone" {
       name = "ColorDescription"
       label = {
           da = "Farve beskrivelse"
-          en = "Color description"
       }
       required = false
       constraint = "None"
@@ -89,22 +66,28 @@ resource "commercetools_product_type" "smartphone" {
     name = "FilterColor"
     label = {
       da = "Filterfarve"
-      en = "Filter color"
     }
     required = false
     constraint = "None"
     searchable = true
     type {
-      name = "lenum"
-      dynamic "localized_value" {
-        for_each = local.filtercolors
-        content {
-          key  = localized_value.key
-          label = {
-            da = localized_value.value.da
-            en = localized_value.value.en
-          }
-        }
+      name = "enum"
+      values = {
+        "Black" = "Black"
+        "White" = "White"
+        "Grey" = "Grey"
+        "Blue" = "Blue"
+        "Green" = "Green"
+        "Red" = "Red"
+        "Yellow" = "Yellow"
+        "Purple" = "Purple"
+        "Violet" = "Violet"
+        "Pink" = "Pink"
+        "Gold" = "Gold"
+        "Silver" = "Silver"
+        "Bronze" = "Bronze"
+        "Transparent" = "Transparent"
+        "Multicolored" = "Multicolored"
       }
     }
   }
@@ -119,7 +102,6 @@ resource "commercetools_product_type" "accessory" {
       name = "Brand"
       label = {
           da = "Brand"
-          en = "Brand"
       }
       required = true
       constraint = "SameForAll"
@@ -143,7 +125,6 @@ resource "commercetools_product_type" "accessory" {
       name = "ColorDescription"
       label = {
           da = "Farve beskrivelse"
-          en = "Color description"
       }
       required = false
       constraint = "None"
@@ -157,22 +138,28 @@ resource "commercetools_product_type" "accessory" {
     name = "FilterColor"
     label = {
       da = "Filterfarve"
-      en = "Filter color"
     }
     required = false
     constraint = "None"
     searchable = true
     type {
-      name = "lenum"
-      dynamic "localized_value" {
-        for_each = local.filtercolors
-        content {
-          key  = localized_value.key
-          label = {
-            da = localized_value.value.da
-            en = localized_value.value.en
-          }
-        }
+      name = "enum"
+      values = {
+        "Black" = "Black"
+        "White" = "White"
+        "Grey" = "Grey"
+        "Blue" = "Blue"
+        "Green" = "Green"
+        "Red" = "Red"
+        "Yellow" = "Yellow"
+        "Purple" = "Purple"
+        "Violet" = "Violet"
+        "Pink" = "Pink"
+        "Gold" = "Gold"
+        "Silver" = "Silver"
+        "Bronze" = "Bronze"
+        "Transparent" = "Transparent"
+        "Multicolored" = "Multicolored"
       }
     }
   }
