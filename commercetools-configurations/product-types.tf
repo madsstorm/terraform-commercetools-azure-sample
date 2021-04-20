@@ -355,7 +355,7 @@ resource "commercetools_product_type" "subscription" {
 }
 
 resource "commercetools_product_type" "smartphone_subscription_bundle" {
-  name        = "SmartphoneSubscriptionBundle"
+  name        = "Smartphone Subscription Bundle"
   description = "Smartphone Subscription Bundle"
   key         = "smartphonesubscriptionbundle"
 
