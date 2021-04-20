@@ -347,3 +347,73 @@ resource "commercetools_product_type" "accessory" {
     }
   }
 }
+
+resource "commercetools_product_type" "subscription" {
+  name        = "Subscription"
+  description = "Subscription"
+  key         = "subscription"
+}
+
+resource "commercetools_product_type" "smartphone_subscription_bundle" {
+  name        = "SmartphoneSubscriptionBundle"
+  description = "Smartphone Subscription Bundle"
+  key         = "smartphonesubscriptionbundle"
+
+  attribute {
+      name = "Smartphone"
+      label = {
+          da = "Smartphone"
+          en = "Smartphone"
+      }
+      required = true
+      constraint = "SameForAll"
+      searchable = true
+      type {
+          name = "reference"
+          reference_type_id = "product"
+      }
+  }
+
+  attribute {
+    name = "SmartphoneSKU"
+    label = {
+          da = "Smartphone SKU"
+          en = "Smartphone SKU"
+    }
+    required = true
+    constraint = "None"
+    searchable = false
+    type {
+      name = "text"
+    }
+  }
+
+  attribute {
+    name = "SmartphoneVariantId"
+    label = {
+          da = "Smartphone Variant Id"
+          en = "Smartphone Variant Id"
+    }
+    required = true
+    constraint = "None"
+    searchable = false
+    type {
+      name = "number"
+    }
+  }
+
+  attribute {
+    name = "SubscriptionCategory"
+    label = {
+      da = "Subscription Category"
+      en = "Subscription Category"
+    }
+    required = false
+    constraint = "SameForAll"
+    searchable = false
+    type {
+      name = "reference"
+      reference_type_id = "category"
+      }
+  }
+}
