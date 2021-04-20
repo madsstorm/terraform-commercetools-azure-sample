@@ -1,7 +1,7 @@
-resource "commercetools_product_type" "smartphone" {
-  name        = "Smartphone"
-  description = "Smartphone"
-  key         = "smartphone"
+resource "commercetools_product_type" "handset" {
+  name        = "Handset"
+  description = "Handset"
+  key         = "handset"
 
   attribute {
       name = "Brand"
@@ -354,16 +354,16 @@ resource "commercetools_product_type" "subscription" {
   key         = "subscription"
 }
 
-resource "commercetools_product_type" "smartphone_subscription_bundle" {
-  name        = "Smartphone Subscription Bundle"
-  description = "Smartphone Subscription Bundle"
-  key         = "smartphonesubscriptionbundle"
+resource "commercetools_product_type" "handset_bundle" {
+  name        = "Handset Bundle"
+  description = "Handset Bundle"
+  key         = "handsetbundle"
 
   attribute {
-      name = "Smartphone"
+      name = "Handset"
       label = {
-          da = "Smartphone"
-          en = "Smartphone"
+          da = "Handset"
+          en = "Handset"
       }
       required = true
       constraint = "SameForAll"
@@ -375,10 +375,10 @@ resource "commercetools_product_type" "smartphone_subscription_bundle" {
   }
 
   attribute {
-    name = "SmartphoneSKU"
+    name = "HandsetSKU"
     label = {
-          da = "Smartphone SKU"
-          en = "Smartphone SKU"
+          da = "Handset SKU"
+          en = "Handset SKU"
     }
     required = true
     constraint = "None"
@@ -389,10 +389,10 @@ resource "commercetools_product_type" "smartphone_subscription_bundle" {
   }
 
   attribute {
-    name = "SmartphoneVariantId"
+    name = "HandsetVariantId"
     label = {
-          da = "Smartphone Variant Id"
-          en = "Smartphone Variant Id"
+          da = "Handset Variant Id"
+          en = "Handset Variant Id"
     }
     required = true
     constraint = "None"
