@@ -354,16 +354,16 @@ resource "commercetools_product_type" "subscription" {
   key         = "subscription"
 }
 
-resource "commercetools_product_type" "handset_bundle" {
-  name        = "Handset Bundle"
-  description = "Handset Bundle"
-  key         = "handsetbundle"
+resource "commercetools_product_type" "device_subscription_bundle" {
+  name        = "Device Subscription Bundle"
+  description = "Bundle of Device, Subscription and Instalment"
+  key         = "devicesubscriptionbundle"
 
   attribute {
-      name = "Handset"
+      name = "Device"
       label = {
-          da = "Handset"
-          en = "Handset"
+          da = "Device"
+          en = "Device"
       }
       required = true
       constraint = "SameForAll"
@@ -375,40 +375,27 @@ resource "commercetools_product_type" "handset_bundle" {
   }
 
   attribute {
-    name = "HandsetSKU"
-    label = {
-          da = "Handset SKU"
-          en = "Handset SKU"
-    }
-    required = true
-    constraint = "None"
-    searchable = false
-    type {
-      name = "text"
-    }
-  }
-
-  attribute {
-    name = "HandsetVariantId"
-    label = {
-          da = "Handset Variant Id"
-          en = "Handset Variant Id"
-    }
-    required = true
-    constraint = "None"
-    searchable = false
-    type {
-      name = "number"
-    }
-  }
-
-  attribute {
     name = "SubscriptionCategory"
     label = {
       da = "Subscription Category"
       en = "Subscription Category"
     }
     required = false
+    constraint = "SameForAll"
+    searchable = false
+    type {
+      name = "reference"
+      reference_type_id = "category"
+      }
+  }
+
+  attribute {
+    name = "Instalment Category"
+    label = {
+      da = "Instalment Category"
+      en = "Instalment Category"
+    }
+    required = true
     constraint = "SameForAll"
     searchable = false
     type {
