@@ -390,7 +390,7 @@ resource "commercetools_product_type" "device_subscription_bundle" {
   }
 
   attribute {
-    name = "Instalment Category"
+    name = "InstalmentCategory"
     label = {
       da = "Instalment Category"
       en = "Instalment Category"
