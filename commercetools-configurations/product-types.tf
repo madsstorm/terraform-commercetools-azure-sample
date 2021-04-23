@@ -4,6 +4,36 @@ resource "commercetools_product_type" "handset" {
   key         = "handset"
 
   attribute {
+    name = "SubscriptionCategory"
+    label = {
+      da = "Subscription Category"
+      en = "Subscription Category"
+    }
+    required = false
+    constraint = "SameForAll"
+    searchable = false
+    type {
+      name = "reference"
+      reference_type_id = "category"
+      }
+  }
+
+  attribute {
+    name = "InstalmentCategory"
+    label = {
+      da = "Instalment Category"
+      en = "Instalment Category"
+    }
+    required = true
+    constraint = "SameForAll"
+    searchable = false
+    type {
+      name = "reference"
+      reference_type_id = "category"
+      }
+  }
+
+  attribute {
       name = "Brand"
       label = {
           da = "Brand"
@@ -352,55 +382,4 @@ resource "commercetools_product_type" "subscription" {
   name        = "Subscription"
   description = "Subscription"
   key         = "subscription"
-}
-
-resource "commercetools_product_type" "device_subscription_bundle" {
-  name        = "Device Subscription Bundle"
-  description = "Bundle of Device, Subscription and Instalment"
-  key         = "devicesubscriptionbundle"
-
-  attribute {
-      name = "Device"
-      label = {
-          da = "Device"
-          en = "Device"
-      }
-      required = true
-      constraint = "SameForAll"
-      searchable = true
-      type {
-          name = "reference"
-          reference_type_id = "product"
-      }
-  }
-
-  attribute {
-    name = "SubscriptionCategory"
-    label = {
-      da = "Subscription Category"
-      en = "Subscription Category"
-    }
-    required = false
-    constraint = "SameForAll"
-    searchable = false
-    type {
-      name = "reference"
-      reference_type_id = "category"
-      }
-  }
-
-  attribute {
-    name = "InstalmentCategory"
-    label = {
-      da = "Instalment Category"
-      en = "Instalment Category"
-    }
-    required = true
-    constraint = "SameForAll"
-    searchable = false
-    type {
-      name = "reference"
-      reference_type_id = "category"
-      }
-  }
 }
