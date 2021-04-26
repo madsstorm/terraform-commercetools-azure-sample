@@ -48,33 +48,39 @@ resource "commercetools_product_type" "device" {
   attribute {
     name = "RelationsForProduct"
     label = {
-      da = "Relationer for produkt"
-      en = "Relations for product"
+      da = "Relationer"
+      en = "Relations"
     }
     required = false
     constraint = "SameForAll"
     searchable = false
     type {
-      name = "nested"
-      type_reference = commercetools_product_type.product_relation.id
+      name = "set"
+      element_type {
+        name = "nested"
+        type_reference = commercetools_product_type.product_relation.id
+      }
     }
   }
 
   attribute {
     name = "RelationsForVariant"
     label = {
-      da = "Relationer for variant"
-      en = "Relations for variant"
+      da = "Relationer"
+      en = "Relations"
     }
     required = false
     constraint = "None"
     searchable = false
     type {
-      name = "nested"
-      type_reference = commercetools_product_type.product_relation.id
+      name = "set"
+      element_type {
+        name = "nested"
+        type_reference = commercetools_product_type.product_relation.id
+      }
     }
   }
-  
+
   attribute {
       name = "StorageGB"
       label = {
@@ -168,30 +174,36 @@ resource "commercetools_product_type" "accessory" {
   attribute {
     name = "RelationsForProduct"
     label = {
-      da = "Relationer for produkt"
-      en = "Relations for product"
+      da = "Relationer"
+      en = "Relations"
     }
     required = false
     constraint = "SameForAll"
     searchable = false
     type {
-      name = "nested"
-      type_reference = commercetools_product_type.product_relation.id
+      name = "set"
+      element_type {
+        name = "nested"
+        type_reference = commercetools_product_type.product_relation.id
+      }
     }
   }
 
   attribute {
     name = "RelationsForVariant"
     label = {
-      da = "Relationer for variant"
-      en = "Relations for variant"
+      da = "Relationer"
+      en = "Relations"
     }
     required = false
     constraint = "None"
     searchable = false
     type {
-      name = "nested"
-      type_reference = commercetools_product_type.product_relation.id
+      name = "set"
+      element_type {
+        name = "nested"
+        type_reference = commercetools_product_type.product_relation.id
+      }
     }
   }
 }
