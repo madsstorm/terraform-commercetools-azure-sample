@@ -55,7 +55,7 @@ resource "commercetools_product_type" "device" {
     constraint = "None"
     searchable = false
     type {
-      name = "Money"
+      name = "money"
     }
   }
 }
@@ -103,7 +103,7 @@ resource "commercetools_product_type" "accessory" {
     constraint = "None"
     searchable = false
     type {
-      name = "Money"
+      name = "money"
     }
   }
 }
