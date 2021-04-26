@@ -1,37 +1,7 @@
-resource "commercetools_product_type" "handset" {
-  name        = "Handset"
-  description = "Handset"
-  key         = "handset"
-
-  attribute {
-    name = "SubscriptionCategory"
-    label = {
-      da = "Subscription Category"
-      en = "Subscription Category"
-    }
-    required = false
-    constraint = "SameForAll"
-    searchable = false
-    type {
-      name = "reference"
-      reference_type_id = "category"
-      }
-  }
-
-  attribute {
-    name = "InstalmentCategory"
-    label = {
-      da = "Instalment Category"
-      en = "Instalment Category"
-    }
-    required = true
-    constraint = "SameForAll"
-    searchable = false
-    type {
-      name = "reference"
-      reference_type_id = "category"
-      }
-  }
+resource "commercetools_product_type" "device" {
+  name        = "Device"
+  description = "Device"
+  key         = "device"
 
   attribute {
       name = "Brand"
@@ -43,41 +13,21 @@ resource "commercetools_product_type" "handset" {
       constraint = "SameForAll"
       searchable = true
       type {
-          name = "enum"         
-          values = {
-              samsung = "Samsung"
-              huawei = "Huawei"
-              sony = "Sony"
-              apple = "Apple"
-              oneplus = "OnePlus"
-              motorola = "Motorola"
-          }
+          name = "ltext"
       }
   }
 
   attribute {
-      name = "Storage"
+      name = "StorageGB"
       label = {
-          da = "Storage"
-          en = "Storage"
+          da = "Storage GB"
+          en = "Storage GB"
       }
       required = false
       constraint = "None"
       searchable = true
       type {
-          name = "enum"
-          values = {
-              "16 GB" = "16 GB"
-              "32 GB" = "32 GB"
-              "64 GB" = "64 GB"
-              "128 GB" = "128 GB"
-              "256 GB" = "256 GB"
-              "512 GB" = "512 GB"
-              "1 TB" = "1 TB"
-              "2 TB" = "2 TB"
-              "4 TB" = "4 TB"
-              "8 TB" = "8 TB"
-          }
+          name = "number"
       }
   }
 
@@ -96,121 +46,16 @@ resource "commercetools_product_type" "handset" {
   }
 
   attribute {
-    name = "FilterColor"
+    name = "CostPrice"
     label = {
-      da = "Filterfarve"
-      en = "Filter color"
+      da = "Kostpris"
+      en = "Cost price"
     }
     required = false
     constraint = "None"
-    searchable = true
+    searchable = false
     type {
-      name = "lenum"
-      localized_value {
-        key = "black"
-        label = {
-          da = "Sort"
-          en = "Black"
-        }
-      }
-      localized_value {
-        key = "white"
-        label = {
-          da = "Hvid"
-          en = "White"
-        }
-      }
-      localized_value {
-        key = "grey"
-        label = {
-          da = "Grå"
-          en = "Grey"
-        }
-      }
-      localized_value {
-        key = "blue"
-        label = {
-          da = "Blå"
-          en = "Blue"
-        }
-      }
-      localized_value {
-        key = "green"
-        label = {
-          da = "Grøn"
-          en = "Green"
-        }
-      }
-      localized_value {
-        key = "red"
-        label = {
-          da = "Rød"
-          en = "Red"
-        }
-      }
-      localized_value {
-        key = "yellow"
-        label = {
-          da = "Gul"
-          en = "Yellow"
-        }
-      }
-      localized_value {
-        key = "purple"
-        label = {
-          da = "Lilla"
-          en = "Purple"
-        }
-      }
-      localized_value {
-        key = "violet"
-        label = {
-          da = "Violet"
-          en = "Violet"
-        }
-      }
-      localized_value {
-        key = "pink"
-        label = {
-          da = "Pink"
-          en = "Pink"
-        }
-      }
-      localized_value {
-        key = "gold"
-        label = {
-          da = "Guld"
-          en = "Gold"
-        }
-      }
-      localized_value {
-        key = "silver"
-        label = {
-          da = "Sølv"
-          en = "Silver"
-        }
-      }
-      localized_value {
-        key = "bronze"
-        label = {
-          da = "Bronze"
-          en = "Bronze"
-        }
-      }
-      localized_value {
-        key = "transparent"
-        label = {
-          da = "Transparent"
-          en = "Transparent"
-        }
-      }
-      localized_value {
-        key = "multicolored"
-        label = {
-          da = "Flerfarvet"
-          en = "Multicolored"
-        }
-      }
+      name = "Money"
     }
   }
 }
@@ -230,17 +75,7 @@ resource "commercetools_product_type" "accessory" {
       constraint = "SameForAll"
       searchable = true
       type {
-          name = "enum"
-          values = {
-              apple = "Apple"
-              samsung = "Samsung"
-              google = "Google"
-              puro = "Puro"
-              panzer = "Panzer"
-              kingston = "Kingston"
-              lenovo = "Lenovo"
-              sonos = "Sonos"
-          }
+          name = "ltext"
       }
   }
 
@@ -257,123 +92,18 @@ resource "commercetools_product_type" "accessory" {
           name = "ltext"
       }
   }
-  
+
   attribute {
-    name = "FilterColor"
+    name = "CostPrice"
     label = {
-      da = "Filterfarve"
-      en = "Filter color"
+      da = "Kostpris"
+      en = "Cost price"
     }
     required = false
     constraint = "None"
-    searchable = true
+    searchable = false
     type {
-      name = "lenum"
-      localized_value {
-        key = "black"
-        label = {
-          da = "Sort"
-          en = "Black"
-        }
-      }
-      localized_value {
-        key = "white"
-        label = {
-          da = "Hvid"
-          en = "White"
-        }
-      }
-      localized_value {
-        key = "grey"
-        label = {
-          da = "Grå"
-          en = "Grey"
-        }
-      }
-      localized_value {
-        key = "blue"
-        label = {
-          da = "Blå"
-          en = "Blue"
-        }
-      }
-      localized_value {
-        key = "green"
-        label = {
-          da = "Grøn"
-          en = "Green"
-        }
-      }
-      localized_value {
-        key = "red"
-        label = {
-          da = "Rød"
-          en = "Red"
-        }
-      }
-      localized_value {
-        key = "yellow"
-        label = {
-          da = "Gul"
-          en = "Yellow"
-        }
-      }
-      localized_value {
-        key = "purple"
-        label = {
-          da = "Lilla"
-          en = "Purple"
-        }
-      }
-      localized_value {
-        key = "violet"
-        label = {
-          da = "Violet"
-          en = "Violet"
-        }
-      }
-      localized_value {
-        key = "pink"
-        label = {
-          da = "Pink"
-          en = "Pink"
-        }
-      }
-      localized_value {
-        key = "gold"
-        label = {
-          da = "Guld"
-          en = "Gold"
-        }
-      }
-      localized_value {
-        key = "silver"
-        label = {
-          da = "Sølv"
-          en = "Silver"
-        }
-      }
-      localized_value {
-        key = "bronze"
-        label = {
-          da = "Bronze"
-          en = "Bronze"
-        }
-      }
-      localized_value {
-        key = "transparent"
-        label = {
-          da = "Transparent"
-          en = "Transparent"
-        }
-      }
-      localized_value {
-        key = "multicolored"
-        label = {
-          da = "Flerfarvet"
-          en = "Multicolored"
-        }
-      }
+      name = "Money"
     }
   }
 }
