@@ -13,7 +13,7 @@ resource "commercetools_product_type" "device" {
       constraint = "SameForAll"
       searchable = true
       type {
-          name = "ltext"
+          name = "text"
       }
   }
 
@@ -139,7 +139,7 @@ resource "commercetools_product_type" "accessory" {
       constraint = "SameForAll"
       searchable = true
       type {
-          name = "ltext"
+          name = "text"
       }
   }
 
@@ -160,7 +160,7 @@ resource "commercetools_product_type" "accessory" {
       }
     }
   }
-  
+
   attribute {
       name = "ColorDescription"
       label = {
