@@ -18,30 +18,30 @@ resource "commercetools_product_type" "device" {
   }
 
   attribute {
-      name = "ColorDescription"
+      name = "ScreenSizeInches"
       label = {
-          da = "Farvebeskrivelse"
-          en = "Color description"
+          da = "Skærmstørrelse tommer"
+          en = "Screen size inches"
       }
-      required = false
-      constraint = "None"
+      required = true
+      constraint = "SameForAll"
       searchable = true
       type {
-          name = "ltext"
+          name = "number"
       }
   }
 
   attribute {
-    name = "CostPrice"
+    name = "5G"
     label = {
-      da = "Kostpris"
-      en = "Cost price"
+      da = "5G"
+      en = "5G"
     }
-    required = false
-    constraint = "None"
-    searchable = false
+    required = true
+    constraint = "SameForAll"
+    searchable = true
     type {
-      name = "money"
+      name = "boolean"
     }
   }
 
@@ -64,6 +64,48 @@ resource "commercetools_product_type" "device" {
   }
 
   attribute {
+      name = "StorageGB"
+      label = {
+          da = "Storage GB"
+          en = "Storage GB"
+      }
+      required = true
+      constraint = "None"
+      searchable = true
+      type {
+          name = "number"
+      }
+  }
+
+  attribute {
+      name = "ColorDescription"
+      label = {
+          da = "Farvebeskrivelse"
+          en = "Color description"
+      }
+      required = true
+      constraint = "None"
+      searchable = true
+      type {
+          name = "ltext"
+      }
+  }
+
+  attribute {
+    name = "CostPrice"
+    label = {
+      da = "Kostpris"
+      en = "Cost price"
+    }
+    required = false
+    constraint = "None"
+    searchable = false
+    type {
+      name = "money"
+    }
+  }
+
+  attribute {
     name = "RelationsForVariant"
     label = {
       da = "Relationer"
@@ -78,48 +120,6 @@ resource "commercetools_product_type" "device" {
         name = "nested"
         type_reference = commercetools_product_type.product_relation.id
       }
-    }
-  }
-
-  attribute {
-      name = "StorageGB"
-      label = {
-          da = "Storage GB"
-          en = "Storage GB"
-      }
-      required = false
-      constraint = "None"
-      searchable = true
-      type {
-          name = "number"
-      }
-  }
-
-  attribute {
-      name = "ScreenSizeInches"
-      label = {
-          da = "Skærmstørrelse tommer"
-          en = "Screen size inches"
-      }
-      required = false
-      constraint = "None"
-      searchable = true
-      type {
-          name = "number"
-      }
-  }
-
-  attribute {
-    name = "5G"
-    label = {
-      da = "5G"
-      en = "5G"
-    }
-    required = false
-    constraint = "None"
-    searchable = true
-    type {
-      name = "boolean"
     }
   }
 }
@@ -144,12 +144,30 @@ resource "commercetools_product_type" "accessory" {
   }
 
   attribute {
+    name = "RelationsForProduct"
+    label = {
+      da = "Relationer"
+      en = "Relations"
+    }
+    required = false
+    constraint = "SameForAll"
+    searchable = false
+    type {
+      name = "set"
+      element_type {
+        name = "nested"
+        type_reference = commercetools_product_type.product_relation.id
+      }
+    }
+  }
+  
+  attribute {
       name = "ColorDescription"
       label = {
-          da = "Farve beskrivelse"
+          da = "Farvebeskrivelse"
           en = "Color description"
       }
-      required = false
+      required = true
       constraint = "None"
       searchable = true
       type {
@@ -168,24 +186,6 @@ resource "commercetools_product_type" "accessory" {
     searchable = false
     type {
       name = "money"
-    }
-  }
-
-  attribute {
-    name = "RelationsForProduct"
-    label = {
-      da = "Relationer"
-      en = "Relations"
-    }
-    required = false
-    constraint = "SameForAll"
-    searchable = false
-    type {
-      name = "set"
-      element_type {
-        name = "nested"
-        type_reference = commercetools_product_type.product_relation.id
-      }
     }
   }
 
