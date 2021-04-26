@@ -32,6 +32,20 @@ resource "commercetools_product_type" "device" {
   }
 
   attribute {
+      name = "ScreenSizeInches"
+      label = {
+          da = "Skærmstørrelse tommer"
+          en = "Screen size inches"
+      }
+      required = false
+      constraint = "None"
+      searchable = true
+      type {
+          name = "number"
+      }
+  }
+
+  attribute {
       name = "ColorDescription"
       label = {
           da = "Farvebeskrivelse"
@@ -56,6 +70,20 @@ resource "commercetools_product_type" "device" {
     searchable = false
     type {
       name = "money"
+    }
+  }
+
+  attribute {
+    name = "5G"
+    label = {
+      da = "5G"
+      en = "5G"
+    }
+    required = false
+    constraint = "None"
+    searchable = true
+    type {
+      name = "boolean"
     }
   }
 }
