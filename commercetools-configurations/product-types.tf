@@ -162,24 +162,6 @@ resource "commercetools_product_type" "accessory" {
   }
 
   attribute {
-    name = "RelationsForProduct"
-    label = {
-      da = "Relationer"
-      en = "Relations"
-    }
-    required = false
-    constraint = "SameForAll"
-    searchable = false
-    type {
-      name = "set"
-      element_type {
-        name = "nested"
-        type_reference = commercetools_product_type.product_relation.id
-      }
-    }
-  }
-
-  attribute {
       name = "ColorDescription"
       label = {
           da = "Farvebeskrivelse"
@@ -204,24 +186,6 @@ resource "commercetools_product_type" "accessory" {
     searchable = false
     type {
       name = "money"
-    }
-  }
-
-  attribute {
-    name = "RelationsForVariant"
-    label = {
-      da = "Relationer"
-      en = "Relations"
-    }
-    required = false
-    constraint = "None"
-    searchable = false
-    type {
-      name = "set"
-      element_type {
-        name = "nested"
-        type_reference = commercetools_product_type.product_relation.id
-      }
     }
   }
 }
