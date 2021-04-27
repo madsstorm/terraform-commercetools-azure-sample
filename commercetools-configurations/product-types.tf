@@ -46,6 +46,24 @@ resource "commercetools_product_type" "device" {
   }
 
   attribute {
+    name = "Subscriptions"
+    label = {
+      da = "Abonnementer"
+      en = "Subscriptions"
+    }
+    required = false
+    constraint = "SameForAll"
+    searchable = true
+    type {
+      name = "set"
+      element_type {
+        name = "reference"
+        reference_type_id = "product"
+      }      
+    }
+  }
+
+  attribute {
     name = "RelationsForProduct"
     label = {
       da = "Relationer"
