@@ -110,20 +110,6 @@ resource "commercetools_product_type" "device" {
   }
 
   attribute {
-    name = "CostPrice"
-    label = {
-      da = "Kostpris"
-      en = "Cost price"
-    }
-    required = false
-    constraint = "None"
-    searchable = false
-    type {
-      name = "money"
-    }
-  }
-
-  attribute {
     name = "RelationsForVariant"
     label = {
       da = "Relationer"
@@ -173,20 +159,6 @@ resource "commercetools_product_type" "accessory" {
       type {
           name = "ltext"
       }
-  }
-
-  attribute {
-    name = "CostPrice"
-    label = {
-      da = "Kostpris"
-      en = "Cost price"
-    }
-    required = false
-    constraint = "None"
-    searchable = false
-    type {
-      name = "money"
-    }
   }
 }
 
