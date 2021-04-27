@@ -64,10 +64,10 @@ resource "commercetools_product_type" "device" {
   }
 
   attribute {
-    name = "MasterRelations"
+    name = "MasterProductRelations"
     label = {
-      da = "Relationer"
-      en = "Relations"
+      da = "Produkt relationer"
+      en = "Product relations"
     }
     required = false
     constraint = "SameForAll"
@@ -110,10 +110,10 @@ resource "commercetools_product_type" "device" {
   }
 
   attribute {
-    name = "VariantRelations"
+    name = "VariantProductRelations"
     label = {
-      da = "Relationer"
-      en = "Relations"
+      da = "Produkt relationer"
+      en = "Product relations"
     }
     required = false
     constraint = "None"
