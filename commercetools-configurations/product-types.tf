@@ -23,7 +23,7 @@ resource "commercetools_product_type" "device" {
           da = "Skærmstørrelse tommer"
           en = "Screen size inches"
       }
-      required = true
+      required = false
       constraint = "SameForAll"
       searchable = true
       type {
