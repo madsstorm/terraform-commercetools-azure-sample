@@ -64,7 +64,7 @@ resource "commercetools_product_type" "device" {
   }
 
   attribute {
-    name = "RelationsForProduct"
+    name = "MasterRelations"
     label = {
       da = "Relationer"
       en = "Relations"
@@ -110,7 +110,7 @@ resource "commercetools_product_type" "device" {
   }
 
   attribute {
-    name = "RelationsForVariant"
+    name = "VariantRelations"
     label = {
       da = "Relationer"
       en = "Relations"
