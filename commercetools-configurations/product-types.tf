@@ -64,24 +64,6 @@ resource "commercetools_product_type" "device" {
   }
 
   attribute {
-    name = "MasterProductRelations"
-    label = {
-      da = "Produkt relationer"
-      en = "Product relations"
-    }
-    required = false
-    constraint = "SameForAll"
-    searchable = false
-    type {
-      name = "set"
-      element_type {
-        name = "nested"
-        type_reference = commercetools_product_type.product_relation.id
-      }
-    }
-  }
-
-  attribute {
       name = "StorageGB"
       label = {
           da = "Storage GB"
@@ -107,6 +89,24 @@ resource "commercetools_product_type" "device" {
       type {
           name = "ltext"
       }
+  }
+
+  attribute {
+    name = "MasterProductRelations"
+    label = {
+      da = "Produkt relationer"
+      en = "Product relations"
+    }
+    required = false
+    constraint = "SameForAll"
+    searchable = false
+    type {
+      name = "set"
+      element_type {
+        name = "nested"
+        type_reference = commercetools_product_type.product_relation.id
+      }
+    }
   }
 
   attribute {
@@ -159,6 +159,42 @@ resource "commercetools_product_type" "accessory" {
       type {
           name = "ltext"
       }
+  }
+
+  attribute {
+    name = "MasterProductRelations"
+    label = {
+      da = "Produkt relationer"
+      en = "Product relations"
+    }
+    required = false
+    constraint = "SameForAll"
+    searchable = false
+    type {
+      name = "set"
+      element_type {
+        name = "nested"
+        type_reference = commercetools_product_type.product_relation.id
+      }
+    }
+  }
+  
+  attribute {
+    name = "VariantProductRelations"
+    label = {
+      da = "Produkt relationer"
+      en = "Product relations"
+    }
+    required = false
+    constraint = "None"
+    searchable = false
+    type {
+      name = "set"
+      element_type {
+        name = "nested"
+        type_reference = commercetools_product_type.product_relation.id
+      }
+    }
   }
 }
 
