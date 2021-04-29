@@ -18,16 +18,16 @@ resource "commercetools_product_type" "device" {
   }
 
   attribute {
-      name = "ScreenSizeInches"
+      name = "ScreenSize"
       label = {
-          da = "Skærmstørrelse tommer"
-          en = "Screen size inches"
+          da = "Skærmstørrelse"
+          en = "Screen size"
       }
       required = false
       constraint = "SameForAll"
       searchable = true
       type {
-          name = "number"
+          name = "text"
       }
   }
 
@@ -46,16 +46,16 @@ resource "commercetools_product_type" "device" {
   }
 
   attribute {
-      name = "StorageGB"
+      name = "Storage"
       label = {
-          da = "Storage GB"
-          en = "Storage GB"
+          da = "Storage"
+          en = "Storage"
       }
       required = true
       constraint = "None"
       searchable = true
       type {
-          name = "number"
+          name = "text"
       }
   }
 
@@ -71,6 +71,20 @@ resource "commercetools_product_type" "device" {
       type {
           name = "ltext"
       }
+  }
+
+  attribute {
+    name = "FilterColor"
+    label = {
+      da = "Filterfarve"
+      en = "Filter color"
+    }
+    required = false
+    constraint = "None"
+    searchable = true
+    type {
+      name = "ltext"
+    }
   }
 
   attribute {
@@ -141,6 +155,20 @@ resource "commercetools_product_type" "accessory" {
       type {
           name = "ltext"
       }
+  }
+
+  attribute {
+    name = "FilterColor"
+    label = {
+      da = "Filterfarve"
+      en = "Filter color"
+    }
+    required = false
+    constraint = "None"
+    searchable = true
+    type {
+      name = "ltext"
+    }
   }
 
   attribute {
