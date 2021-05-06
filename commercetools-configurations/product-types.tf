@@ -88,6 +88,20 @@ resource "commercetools_product_type" "device" {
   }
 
   attribute {
+    name = "InternalPrice"
+    label = {
+      da = "Intern pris"
+      en = "Internal price"
+    }
+    required = false
+    constraint = "None"
+    searchable = false
+    type {
+      name = "money"
+    }
+  }
+
+  attribute {
     name = "MasterProductRelations"
     label = {
       da = "Produkt relationer"
@@ -168,6 +182,20 @@ resource "commercetools_product_type" "accessory" {
     searchable = true
     type {
       name = "ltext"
+    }
+  }
+
+  attribute {
+    name = "InternalPrice"
+    label = {
+      da = "Intern pris"
+      en = "Internal price"
+    }
+    required = false
+    constraint = "None"
+    searchable = false
+    type {
+      name = "money"
     }
   }
 
