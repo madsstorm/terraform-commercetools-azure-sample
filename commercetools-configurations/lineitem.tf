@@ -1,5 +1,5 @@
 resource "commercetools_type" "lineitem_group" {
-    key = "lineitem-group"
+    key = "lineitemgroup"
     name = {
         da = "Lineitem group"
         en = "Lineitem group"
