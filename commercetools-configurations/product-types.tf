@@ -136,6 +136,42 @@ resource "commercetools_product_type" "device" {
       }
     }
   }
+
+  attribute {
+    name = "MasterCategoryRelations"
+    label = {
+      da = "Kategori relationer"
+      en = "Category relations"
+    }
+    required = false
+    constraint = "SameForAll"
+    searchable = false
+    type {
+      name = "set"
+      element_type {
+        name = "nested"
+        type_reference = commercetools_product_type.category_relation.id
+      }
+    }
+  }
+
+  attribute {
+    name = "VariantCategoryRelations"
+    label = {
+      da = "Kategori relationer"
+      en = "Category relations"
+    }
+    required = false
+    constraint = "None"
+    searchable = false
+    type {
+      name = "set"
+      element_type {
+        name = "nested"
+        type_reference = commercetools_product_type.category_relation.id
+      }
+    }
+  }
 }
 
 resource "commercetools_product_type" "accessory" {
@@ -234,6 +270,42 @@ resource "commercetools_product_type" "accessory" {
       }
     }
   }
+
+  attribute {
+    name = "MasterCategoryRelations"
+    label = {
+      da = "Kategori relationer"
+      en = "Category relations"
+    }
+    required = false
+    constraint = "SameForAll"
+    searchable = false
+    type {
+      name = "set"
+      element_type {
+        name = "nested"
+        type_reference = commercetools_product_type.category_relation.id
+      }
+    }
+  }
+
+  attribute {
+    name = "VariantCategoryRelations"
+    label = {
+      da = "Kategori relationer"
+      en = "Category relations"
+    }
+    required = false
+    constraint = "None"
+    searchable = false
+    type {
+      name = "set"
+      element_type {
+        name = "nested"
+        type_reference = commercetools_product_type.category_relation.id
+      }
+    }
+  }
 }
 
 resource "commercetools_product_type" "subscription" {
@@ -244,7 +316,7 @@ resource "commercetools_product_type" "subscription" {
 
 resource "commercetools_product_type" "product_relation" {
   name = "Product Relation"
-  description = "Product Relation"
+  description = "Product Relation (nested only)"
   key = "productrelation"
 
   attribute {
@@ -273,6 +345,41 @@ resource "commercetools_product_type" "product_relation" {
     searchable = false
     type {
       name = "number"
+    }
+  }
+
+  attribute {
+    name = "RelationType"
+    label = {
+      da = "Relationstype"
+      en = "Relation type"
+    }
+    required = true
+    constraint = "None"
+    searchable = false
+    type {
+      name = "text"
+    }
+  }
+}
+
+resource "commercetools_product_type" "category_relation" {
+  name = "Category Relation"
+  description = "Category Relation (nested only)"
+  key = "categoryrelation"
+
+  attribute {
+    name  = "Category"
+    label = {
+      da = "Kategori"
+      en = "Category"
+    }
+    required = true
+    constraint = "None"
+    searchable = false
+    type {
+      name = "reference"
+      reference_type_id = "category"
     }
   }
 
