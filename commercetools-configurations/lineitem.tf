@@ -12,7 +12,7 @@ resource "commercetools_type" "lineitem_group" {
     resource_type_ids = ["line-item","custom-line-item"]
 
     field {
-        name = "groupid"
+        name = "lineItemGroupId"
         label = {
             da = "Group Id"
             en = "Group Id"
