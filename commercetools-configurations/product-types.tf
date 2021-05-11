@@ -306,8 +306,8 @@ resource "commercetools_product_type" "accessory" {
       }
     }
   }
-
-attribute {
+  
+  attribute {
       name = "TestingAttribute"
       label = {
           da = "TestingAttribute"
@@ -319,16 +319,8 @@ attribute {
       type {
           name = "enum"
           values = {
-              "16 GB" = "16 GB"
-              "32 GB" = "32 GB"
-              "64 GB" = "64 GB"
-              "128 GB" = "128 GB"
-              "256 GB" = "256 GB"
-              "512 GB" = "512 GB"
-              "1 TB" = "1 TB"
-              "2 TB" = "2 TB"
-              "4 TB" = "4 TB"
-              "8 TB" = "8 TB"
+              "Dog" = "Dog"
+              "Cat" = "Cat"
           }
       }
   }
