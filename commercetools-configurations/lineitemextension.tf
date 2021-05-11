@@ -14,7 +14,7 @@ resource "commercetools_type" "lineitem_extension" {
             en = "Group Id"
         }
         type {
-            name = "text"
+            name = "String"
         }
     }
 }

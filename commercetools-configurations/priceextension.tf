@@ -14,7 +14,7 @@ resource "commercetools_type" "price_extension" {
             en = "Price type"
         }
         type {
-            name = "enum"
+            name = "Enum"
             values = {
                 "OneTime" = "OneTime"
                 "Recurring" = "Recurring"
