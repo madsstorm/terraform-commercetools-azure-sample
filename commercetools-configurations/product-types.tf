@@ -317,11 +317,7 @@ resource "commercetools_product_type" "accessory" {
       constraint = "None"
       searchable = true
       type {
-          name = "enum"
-          values = {
-              "Dog" = "Dog"
-              "Cat" = "Cat"
-          }
+          name = "text"
       }
   }
 }
