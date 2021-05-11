@@ -308,14 +308,14 @@ resource "commercetools_product_type" "accessory" {
   }
 
   attribute {
-    name = "TestingAttributeConversion"
+    name = "TestingAttribute"
     label = {
-      da = "TestingAttributeConversion"
-      en = "TestingAttributeConversion"
+      da = "TestingAttribute"
+      en = "TestingAttribute"
     }
     required = false
     constraint = "None"
-    searchable = false
+    searchable = true
     type {
       name = "enum"
       vaules = {
