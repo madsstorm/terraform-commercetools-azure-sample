@@ -306,20 +306,6 @@ resource "commercetools_product_type" "accessory" {
       }
     }
   }
-  
-  attribute {
-      name = "TestingAttribute"
-      label = {
-          da = "TestingAttribute"
-          en = "TestingAttribute"
-      }
-      required = false
-      constraint = "None"
-      searchable = true
-      type {
-          name = "text"
-      }
-  }
 }
 
 resource "commercetools_product_type" "subscription" {
