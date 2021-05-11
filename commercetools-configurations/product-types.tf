@@ -319,8 +319,8 @@ resource "commercetools_product_type" "accessory" {
     type {
       name = "enum"
       vaules = {
-        dog = "Dog"
-        cat = "Cat"
+        "Dog" = "Dog"
+        "Cat" = "Cat"
       }
     }
   }
