@@ -306,6 +306,24 @@ resource "commercetools_product_type" "accessory" {
       }
     }
   }
+
+  attribute {
+    name = "TestingAttributeConversion"
+    label = {
+      da = "TestingAttributeConversion"
+      en = "TestingAttributeConversion"
+    }
+    required = false
+    constraint = "None"
+    searchable = false
+    type {
+      name = "enum"
+      vaules = {
+        dog = "Dog"
+        cat = "Cat"
+      }
+    }
+  }
 }
 
 resource "commercetools_product_type" "subscription" {
@@ -316,7 +334,7 @@ resource "commercetools_product_type" "subscription" {
 
 resource "commercetools_product_type" "product_relation" {
   name = "Product Relation"
-  description = "Product Relation (nested only)"
+  description = "Product Relation (nested)"
   key = "productrelation"
 
   attribute {
@@ -335,16 +353,16 @@ resource "commercetools_product_type" "product_relation" {
   }
 
   attribute {
-    name  = "VariantId"
+    name  = "SKU"
     label = {
-      da = "Variant Id"
-      en = "Variant Id"
+      da = "SKU"
+      en = "SKU"
     }
     required = false
     constraint = "None"
     searchable = false
     type {
-      name = "number"
+      name = "text"
     }
   }
 
@@ -365,7 +383,7 @@ resource "commercetools_product_type" "product_relation" {
 
 resource "commercetools_product_type" "category_relation" {
   name = "Category Relation"
-  description = "Category Relation (nested only)"
+  description = "Category Relation (nested)"
   key = "categoryrelation"
 
   attribute {
