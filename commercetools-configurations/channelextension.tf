@@ -23,10 +23,10 @@ resource "commercetools_type" "channel_extension" {
     }
 
     field {
-        name = "Skus"
+        name = "SKUs"
         label = {
-            da = "Skus"
-            en = "Skus"
+            da = "SKUs"
+            en = "SKUs"
         }
         type {
             name = "Set"
