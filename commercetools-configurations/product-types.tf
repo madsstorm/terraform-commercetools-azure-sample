@@ -320,7 +320,7 @@ resource "commercetools_product_type" "subscription" {
       en = "Binding period"
     }
     required = false
-    constraint = "None"
+    constraint = "SameForAll"
     searchable = false
     type {
       name = "number"
