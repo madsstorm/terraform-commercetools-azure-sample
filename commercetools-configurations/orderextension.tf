@@ -6,4 +6,15 @@ resource "commercetools_type" "order_extension" {
     }
 
     resource_type_ids = ["order"]
+
+    field {
+        name = "Instalments"
+        label = {
+            da = "Instalments"
+            en = "Instalments"
+        }
+        type {
+            name = "Number"
+        }
+    }
 }
