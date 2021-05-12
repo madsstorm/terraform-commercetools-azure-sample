@@ -312,6 +312,20 @@ resource "commercetools_product_type" "subscription" {
   name        = "Subscription"
   description = "Subscription"
   key         = "subscription"
+
+  attribute {
+    name = "BindingPeriod"
+    label = {
+      da = "Bindingsperiode"
+      en = "Binding period"
+    }
+    required = false
+    constraint = "None"
+    searchable = false
+    type {
+      name = "number"
+    }
+  }
 }
 
 resource "commercetools_product_type" "product_relation" {
