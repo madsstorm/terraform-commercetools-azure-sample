@@ -9,8 +9,9 @@ resource "commercetools_type" "price_extension" {
 
     field {
         name = "IsRecurring"
+        required = true
         label = {
-            da = "Periodevis betaling"
+            da = "Abonnementsbetaling"
             en = "Recurring payment"
         }
         type {
