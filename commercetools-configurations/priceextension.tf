@@ -8,7 +8,7 @@ resource "commercetools_type" "price_extension" {
     resource_type_ids = ["product-price"]
 
     field {
-        name = "IsRecurring"
+        name = "Recurring"
         required = true
         label = {
             da = "Abonnementsbetaling"
