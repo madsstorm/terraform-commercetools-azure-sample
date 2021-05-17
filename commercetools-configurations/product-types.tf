@@ -18,20 +18,6 @@ resource "commercetools_product_type" "device" {
   }
 
   attribute {
-      name = "BrandEnum"
-      label = {
-          da = "Brand"
-          en = "Brand"
-      }
-      required = true
-      constraint = "SameForAll"
-      searchable = true
-      type {
-          name = "enum"
-      }
-  }
-
-  attribute {
       name = "ScreenSize"
       label = {
           da = "Skærmstørrelse"
