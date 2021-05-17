@@ -308,10 +308,10 @@ resource "commercetools_product_type" "accessory" {
   }
 }
 
-resource "commercetools_product_type" "subscription" {
-  name        = "Subscription"
-  description = "Subscription"
-  key         = "subscription"
+resource "commercetools_product_type" "mobile_subscription" {
+  name        = "Mobile Subscription"
+  description = "Mobile Subscription"
+  key         = "mobilesubscription"
 
   attribute {
     name = "BindingPeriod"
