@@ -28,7 +28,9 @@ resource "commercetools_product_type" "device" {
       searchable = true
       type {
           name = "enum"
-          values = {            
+          values = {
+            Apple = "Apple"         
+            Samsung = "Samsung"
           }
       }
   }
