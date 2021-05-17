@@ -4,20 +4,6 @@ resource "commercetools_product_type" "device" {
   key         = "device"
 
   attribute {
-      name = "BrandName"
-      label = {
-          da = "Brand name"
-          en = "Brand name"
-      }
-      required = true
-      constraint = "SameForAll"
-      searchable = true
-      type {
-          name = "text"
-      }
-  }
-  
-  attribute {
       name = "Brand"
       label = {
           da = "Brand"
@@ -27,15 +13,7 @@ resource "commercetools_product_type" "device" {
       constraint = "SameForAll"
       searchable = true
       type {
-          name = "enum"
-          values = {
-            "Apple" = "Apple"
-            "Samsung" = "Samsung"
-            "Huawei" = "Huawei"
-            "Sony" = "Sony"
-            "OnePlus" = "OnePlus"
-            "Motorola" = "Motorola"
-          }
+          name = "text"
       }
   }
 
