@@ -16,6 +16,22 @@ resource "commercetools_product_type" "device" {
           name = "text"
       }
   }
+  
+  attribute {
+      name = "BrandEnum"
+      label = {
+          da = "Brand"
+          en = "Brand"
+      }
+      required = true
+      constraint = "SameForAll"
+      searchable = true
+      type {
+          name = "enum"
+          values = {            
+          }
+      }
+  }
 
   attribute {
       name = "ScreenSize"
@@ -171,20 +187,6 @@ resource "commercetools_product_type" "device" {
         type_reference = commercetools_product_type.category_relation.id
       }
     }
-  }
-
-  attribute {
-      name = "BrandEnum"
-      label = {
-          da = "Brand"
-          en = "Brand"
-      }
-      required = true
-      constraint = "SameForAll"
-      searchable = true
-      type {
-          name = "enum"
-      }
   }
 }
 
