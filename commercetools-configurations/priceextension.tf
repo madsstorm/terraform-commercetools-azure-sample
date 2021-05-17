@@ -8,17 +8,13 @@ resource "commercetools_type" "price_extension" {
     resource_type_ids = ["product-price"]
 
     field {
-        name = "PriceType"
+        name = "IsRecurring"
         label = {
-            da = "Price type"
-            en = "Price type"
+            da = "Periodevis betaling"
+            en = "Recurring payment"
         }
         type {
-            name = "Enum"
-            values = {
-                "OneTime" = "OneTime"
-                "Recurring" = "Recurring"
-            }
+            name = "Boolean"
         }
     }
 }

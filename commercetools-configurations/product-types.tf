@@ -328,6 +328,12 @@ resource "commercetools_product_type" "subscription" {
   }
 }
 
+resource "commercetools_product_type" "fee" {
+  name        = "Fee"
+  description = "Fee"
+  key         = "fee"
+}
+
 resource "commercetools_product_type" "product_relation" {
   name = "Product Relation"
   description = "Product Relation (nested)"
