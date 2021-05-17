@@ -334,6 +334,12 @@ resource "commercetools_product_type" "fee" {
   key         = "fee"
 }
 
+resource "commercetools_product_type" "service_option" {
+  name        = "Service Option"
+  description = "Service Option"
+  key         = "serviceoption"
+}
+
 resource "commercetools_product_type" "product_relation" {
   name = "Product Relation"
   description = "Product Relation (nested)"
