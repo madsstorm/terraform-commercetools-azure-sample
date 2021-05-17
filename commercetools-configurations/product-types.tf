@@ -20,8 +20,8 @@ resource "commercetools_product_type" "device" {
   attribute {
       name = "BrandEnum"
       label = {
-          da = "Brand"
-          en = "Brand"
+          da = "Brand (enum)"
+          en = "Brand (enum)"
       }
       required = true
       constraint = "SameForAll"
@@ -29,8 +29,7 @@ resource "commercetools_product_type" "device" {
       type {
           name = "enum"
           values = {
-            Apple = "Apple"         
-            Samsung = "Samsung"
+            "" = ""
           }
       }
   }
