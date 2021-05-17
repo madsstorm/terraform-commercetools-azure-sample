@@ -172,6 +172,20 @@ resource "commercetools_product_type" "device" {
       }
     }
   }
+
+  attribute {
+      name = "BrandEnum"
+      label = {
+          da = "Brand"
+          en = "Brand"
+      }
+      required = true
+      constraint = "SameForAll"
+      searchable = true
+      type {
+          name = "enum"
+      }
+  }
 }
 
 resource "commercetools_product_type" "accessory" {
