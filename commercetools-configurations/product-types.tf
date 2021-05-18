@@ -330,7 +330,7 @@ resource "commercetools_product_type" "mobile_subscription" {
 
 resource "commercetools_product_type" "fee" {
   name        = "Fee"
-  description = "Fee"
+  description = "A Fee can be added to the Cart as an extra cost"
   key         = "fee"
 }
 
@@ -374,19 +374,19 @@ resource "commercetools_product_type" "product_relation" {
     }
   }
 
-  attribute {
-    name = "RelationType"
-    label = {
-      da = "Relationstype"
-      en = "Relation type"
-    }
-    required = true
-    constraint = "None"
-    searchable = false
-    type {
-      name = "text"
-    }
-  }
+  # attribute {
+  #   name = "RelationType"
+  #   label = {
+  #     da = "Relationstype"
+  #     en = "Relation type"
+  #   }
+  #   required = true
+  #   constraint = "None"
+  #   searchable = false
+  #   type {
+  #     name = "text"
+  #   }
+  # }
 }
 
 resource "commercetools_product_type" "category_relation" {
@@ -409,17 +409,17 @@ resource "commercetools_product_type" "category_relation" {
     }
   }
 
-  attribute {
-    name = "RelationType"
-    label = {
-      da = "Relationstype"
-      en = "Relation type"
-    }
-    required = true
-    constraint = "None"
-    searchable = false
-    type {
-      name = "text"
-    }
-  }
+  # attribute {
+  #   name = "RelationType"
+  #   label = {
+  #     da = "Relationstype"
+  #     en = "Relation type"
+  #   }
+  #   required = true
+  #   constraint = "None"
+  #   searchable = false
+  #   type {
+  #     name = "text"
+  #   }
+  # }
 }
