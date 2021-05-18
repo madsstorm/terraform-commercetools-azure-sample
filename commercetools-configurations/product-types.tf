@@ -374,19 +374,26 @@ resource "commercetools_product_type" "product_relation" {
     }
   }
 
-  # attribute {
-  #   name = "RelationType"
-  #   label = {
-  #     da = "Relationstype"
-  #     en = "Relation type"
-  #   }
-  #   required = true
-  #   constraint = "None"
-  #   searchable = false
-  #   type {
-  #     name = "text"
-  #   }
-  # }
+  attribute {
+    name = "RelationType"
+    label = {
+      da = "Relationstype"
+      en = "Relation type"
+    }
+    required = true
+    constraint = "None"
+    searchable = false
+    type {
+      name = "enum"
+      values = {
+        "Accessory" = "Accessory"
+        "ValueAddedService" = "ValueAddedService"
+        "Subscription" = "Subscription"
+        "DefaultSubscription" = "DefaultSubscription"
+        "Fee" = "Fee"
+      }
+    }
+  }
 }
 
 resource "commercetools_product_type" "category_relation" {
@@ -409,17 +416,24 @@ resource "commercetools_product_type" "category_relation" {
     }
   }
 
-  # attribute {
-  #   name = "RelationType"
-  #   label = {
-  #     da = "Relationstype"
-  #     en = "Relation type"
-  #   }
-  #   required = true
-  #   constraint = "None"
-  #   searchable = false
-  #   type {
-  #     name = "text"
-  #   }
-  # }
+  attribute {
+    name = "RelationType"
+    label = {
+      da = "Relationstype"
+      en = "Relation type"
+    }
+    required = true
+    constraint = "None"
+    searchable = false
+    type {
+      name = "enum"
+      values = {
+        "Accessory" = "Accessory"
+        "ValueAddedService" = "ValueAddedService"
+        "Subscription" = "Subscription"
+        "DefaultSubscription" = "DefaultSubscription"
+        "Fee" = "Fee"
+      }
+    }
+  }
 }
