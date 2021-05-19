@@ -1,20 +1,18 @@
 resource "commercetools_type" "order_extension" {
-    key = "orderextension"
-    name = {
-        da = "Order extension"
-        en = "Order extension"
-    }
+  key = "orderextension"
+  name = {
+    da = "Order extension"
+  }
 
-    resource_type_ids = ["order"]
+  resource_type_ids = ["order"]
 
-    field {
-        name = "Instalments"
-        label = {
-            da = "Instalments"
-            en = "Instalments"
-        }
-        type {
-            name = "Number"
-        }
+  field {
+    name = "Instalments"
+    label = {
+      da = "Instalments"
     }
+    type {
+      name = "Number"
+    }
+  }
 }

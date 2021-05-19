@@ -1,21 +1,19 @@
 resource "commercetools_type" "price_extension" {
-    key = "priceextension"
-    name = {
-        da = "Price extension"
-        en = "Price extension"
-    }
+  key = "priceextension"
+  name = {
+    da = "Price extension"
+  }
 
-    resource_type_ids = ["product-price"]
+  resource_type_ids = ["product-price"]
 
-    field {
-        name = "Recurring"
-        required = true
-        label = {
-            da = "Abonnementsbetaling"
-            en = "Recurring payment"
-        }
-        type {
-            name = "Boolean"
-        }
+  field {
+    name     = "Recurring"
+    required = true
+    label = {
+      da = "Recurring payment"
     }
+    type {
+      name = "Boolean"
+    }
+  }
 }

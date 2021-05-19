@@ -4,40 +4,37 @@ resource "commercetools_product_type" "device" {
   key         = "device"
 
   attribute {
-      name = "Brand"
-      label = {
-          da = "Brand"
-          en = "Brand"
-      }
-      required = true
-      constraint = "SameForAll"
-      searchable = true
-      type {
-          name = "text"
-      }
+    name = "Brand"
+    label = {
+      da = "Brand"
+    }
+    required   = true
+    constraint = "SameForAll"
+    searchable = true
+    type {
+      name = "text"
+    }
   }
 
   attribute {
-      name = "ScreenSize"
-      label = {
-          da = "Skærmstørrelse"
-          en = "Screen size"
-      }
-      required = false
-      constraint = "SameForAll"
-      searchable = true
-      type {
-          name = "text"
-      }
+    name = "ScreenSize"
+    label = {
+      da = "Screen size"
+    }
+    required   = false
+    constraint = "SameForAll"
+    searchable = true
+    type {
+      name = "text"
+    }
   }
 
   attribute {
     name = "5G"
     label = {
       da = "5G"
-      en = "5G"
     }
-    required = true
+    required   = true
     constraint = "SameForAll"
     searchable = true
     type {
@@ -46,40 +43,37 @@ resource "commercetools_product_type" "device" {
   }
 
   attribute {
-      name = "Storage"
-      label = {
-          da = "Storage"
-          en = "Storage"
-      }
-      required = true
-      constraint = "None"
-      searchable = true
-      type {
-          name = "text"
-      }
+    name = "Storage"
+    label = {
+      da = "Storage"
+    }
+    required   = true
+    constraint = "None"
+    searchable = true
+    type {
+      name = "text"
+    }
   }
 
   attribute {
-      name = "ColorDescription"
-      label = {
-          da = "Farvebeskrivelse"
-          en = "Color description"
-      }
-      required = true
-      constraint = "None"
-      searchable = true
-      type {
-          name = "ltext"
-      }
+    name = "ColorDescription"
+    label = {
+      da = "Color description"
+    }
+    required   = true
+    constraint = "None"
+    searchable = true
+    type {
+      name = "ltext"
+    }
   }
 
   attribute {
     name = "FilterColor"
     label = {
-      da = "Filterfarve"
-      en = "Filter color"
+      da = "Filter color"
     }
-    required = false
+    required   = false
     constraint = "None"
     searchable = true
     type {
@@ -90,10 +84,9 @@ resource "commercetools_product_type" "device" {
   attribute {
     name = "InternalPrice"
     label = {
-      da = "Intern pris"
-      en = "Internal price"
+      da = "Internal price"
     }
-    required = false
+    required   = false
     constraint = "None"
     searchable = false
     type {
@@ -102,73 +95,94 @@ resource "commercetools_product_type" "device" {
   }
 
   attribute {
-    name = "MasterProductRelations"
+    name = "SubscriptionCategory"
     label = {
-      da = "Produkt relationer"
-      en = "Product relations"
+      da = "Subscription category"
     }
-    required = false
+    required   = false
     constraint = "SameForAll"
-    searchable = false
+    searchable = true
     type {
-      name = "set"
-      element_type {
-        name = "nested"
-        type_reference = commercetools_product_type.product_relation.id
-      }
+      name              = "reference"
+      reference_type_id = "category"
     }
   }
 
   attribute {
-    name = "VariantProductRelations"
+    name = "Subscriptions"
     label = {
-      da = "Produkt relationer"
-      en = "Product relations"
+      da = "Subscriptions"
     }
-    required = false
-    constraint = "None"
-    searchable = false
-    type {
-      name = "set"
-      element_type {
-        name = "nested"
-        type_reference = commercetools_product_type.product_relation.id
-      }
-    }
-  }
-
-  attribute {
-    name = "MasterCategoryRelations"
-    label = {
-      da = "Kategori relationer"
-      en = "Category relations"
-    }
-    required = false
+    required   = false
     constraint = "SameForAll"
-    searchable = false
+    searchable = true
     type {
       name = "set"
       element_type {
-        name = "nested"
-        type_reference = commercetools_product_type.category_relation.id
+        name              = "reference"
+        reference_type_id = "product"
       }
     }
   }
 
   attribute {
-    name = "VariantCategoryRelations"
+    name = "DefaultSubscription"
     label = {
-      da = "Kategori relationer"
-      en = "Category relations"
+      da = "Default Subscription"
     }
-    required = false
-    constraint = "None"
-    searchable = false
+    required   = false
+    constraint = "SameForAll"
+    searchable = true
+    type {
+      name              = "reference"
+      reference_type_id = "product"
+    }
+  }
+
+  attribute {
+    name = "AccessoryCategory"
+    label = {
+      da = "Accessory category"
+    }
+    required   = false
+    constraint = "SameForAll"
+    searchable = true
+    type {
+      name              = "reference"
+      reference_type_id = "category"
+    }
+  }
+
+  attribute {
+    name = "Accessories"
+    label = {
+      da = "Accessories"
+    }
+    required   = false
+    constraint = "SameForAll"
+    searchable = true
     type {
       name = "set"
       element_type {
-        name = "nested"
-        type_reference = commercetools_product_type.category_relation.id
+        name              = "reference"
+        reference_type_id = "product"
+      }
+    }
+  }
+
+  attribute {
+    name = "ValueAddedServices"
+    label = {
+      da = "Value Added Services"
+    }
+    required   = false
+    constraint = "SameForAll"
+    searchable = true
+    type {
+      name = "set"
+      element_type {
+        name              = "reference"
+        reference_type_id = "product"
       }
     }
   }
@@ -180,40 +194,37 @@ resource "commercetools_product_type" "accessory" {
   key         = "accessory"
 
   attribute {
-      name = "Brand"
-      label = {
-          da = "Brand"
-          en = "Brand"
-      }
-      required = true
-      constraint = "SameForAll"
-      searchable = true
-      type {
-          name = "text"
-      }
+    name = "Brand"
+    label = {
+      da = "Brand"
+    }
+    required   = true
+    constraint = "SameForAll"
+    searchable = true
+    type {
+      name = "text"
+    }
   }
 
   attribute {
-      name = "ColorDescription"
-      label = {
-          da = "Farvebeskrivelse"
-          en = "Color description"
-      }
-      required = true
-      constraint = "None"
-      searchable = true
-      type {
-          name = "ltext"
-      }
+    name = "ColorDescription"
+    label = {
+      da = "Color description"
+    }
+    required   = true
+    constraint = "None"
+    searchable = true
+    type {
+      name = "ltext"
+    }
   }
 
   attribute {
     name = "FilterColor"
     label = {
-      da = "Filterfarve"
-      en = "Filter color"
+      da = "Filter color"
     }
-    required = false
+    required   = false
     constraint = "None"
     searchable = true
     type {
@@ -224,86 +235,13 @@ resource "commercetools_product_type" "accessory" {
   attribute {
     name = "InternalPrice"
     label = {
-      da = "Intern pris"
-      en = "Internal price"
+      da = "Internal price"
     }
-    required = false
+    required   = false
     constraint = "None"
     searchable = false
     type {
       name = "money"
-    }
-  }
-
-  attribute {
-    name = "MasterProductRelations"
-    label = {
-      da = "Produkt relationer"
-      en = "Product relations"
-    }
-    required = false
-    constraint = "SameForAll"
-    searchable = false
-    type {
-      name = "set"
-      element_type {
-        name = "nested"
-        type_reference = commercetools_product_type.product_relation.id
-      }
-    }
-  }
-  
-  attribute {
-    name = "VariantProductRelations"
-    label = {
-      da = "Produkt relationer"
-      en = "Product relations"
-    }
-    required = false
-    constraint = "None"
-    searchable = false
-    type {
-      name = "set"
-      element_type {
-        name = "nested"
-        type_reference = commercetools_product_type.product_relation.id
-      }
-    }
-  }
-
-  attribute {
-    name = "MasterCategoryRelations"
-    label = {
-      da = "Kategori relationer"
-      en = "Category relations"
-    }
-    required = false
-    constraint = "SameForAll"
-    searchable = false
-    type {
-      name = "set"
-      element_type {
-        name = "nested"
-        type_reference = commercetools_product_type.category_relation.id
-      }
-    }
-  }
-
-  attribute {
-    name = "VariantCategoryRelations"
-    label = {
-      da = "Kategori relationer"
-      en = "Category relations"
-    }
-    required = false
-    constraint = "None"
-    searchable = false
-    type {
-      name = "set"
-      element_type {
-        name = "nested"
-        type_reference = commercetools_product_type.category_relation.id
-      }
     }
   }
 }
@@ -316,14 +254,30 @@ resource "commercetools_product_type" "mobile_subscription" {
   attribute {
     name = "BindingPeriod"
     label = {
-      da = "Bindingsperiode"
-      en = "Binding period"
+      da = "Binding period"
     }
-    required = false
+    required   = false
     constraint = "SameForAll"
     searchable = false
     type {
       name = "number"
+    }
+  }
+
+  attribute {
+    name = "Fees"
+    label = {
+      da = "Fees"
+    }
+    required   = false
+    constraint = "SameForAll"
+    searchable = true
+    type {
+      name = "set"
+      element_type {
+        name              = "reference"
+        reference_type_id = "product"
+      }
     }
   }
 }
@@ -338,102 +292,4 @@ resource "commercetools_product_type" "service_option" {
   name        = "Service Option"
   description = "Service Option"
   key         = "serviceoption"
-}
-
-resource "commercetools_product_type" "product_relation" {
-  name = "Product Relation"
-  description = "Product Relation (nested)"
-  key = "productrelation"
-
-  attribute {
-    name  = "Product"
-    label = {
-      da = "Produkt"
-      en = "Product"
-    }
-    required = true
-    constraint = "None"
-    searchable = false
-    type {
-      name = "reference"
-      reference_type_id = "product"
-    }
-  }
-
-  attribute {
-    name  = "SKU"
-    label = {
-      da = "SKU"
-      en = "SKU"
-    }
-    required = false
-    constraint = "None"
-    searchable = false
-    type {
-      name = "text"
-    }
-  }
-
-  attribute {
-    name = "RelationType"
-    label = {
-      da = "Relationstype"
-      en = "Relation type"
-    }
-    required = true
-    constraint = "None"
-    searchable = false
-    type {
-      name = "enum"
-      values = {
-        "Accessory" = "Accessory"
-        "ValueAddedService" = "ValueAddedService"
-        "Subscription" = "Subscription"
-        "DefaultSubscription" = "DefaultSubscription"
-        "Fee" = "Fee"
-      }
-    }
-  }
-}
-
-resource "commercetools_product_type" "category_relation" {
-  name = "Category Relation"
-  description = "Category Relation (nested)"
-  key = "categoryrelation"
-
-  attribute {
-    name  = "Category"
-    label = {
-      da = "Kategori"
-      en = "Category"
-    }
-    required = true
-    constraint = "None"
-    searchable = false
-    type {
-      name = "reference"
-      reference_type_id = "category"
-    }
-  }
-
-  attribute {
-    name = "RelationType"
-    label = {
-      da = "Relationstype"
-      en = "Relation type"
-    }
-    required = true
-    constraint = "None"
-    searchable = false
-    type {
-      name = "enum"
-      values = {
-        "Accessory" = "Accessory"
-        "ValueAddedService" = "ValueAddedService"
-        "Subscription" = "Subscription"
-        "DefaultSubscription" = "DefaultSubscription"
-        "Fee" = "Fee"
-      }
-    }
-  }
 }
