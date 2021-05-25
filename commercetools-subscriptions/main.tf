@@ -97,7 +97,7 @@ resource "commercetools_api_extension" "validate_cart_limits" {
 
   destination {
     type = "HTTP"
-    url = "https://${module.function_app.function_app_hostname}/validate-cart-limits"
+    url = "https://${module.function_app.function_app_hostname}/ValidateCartLimits"
     azure_authentication = module.function_app.function_app_hostkey
   }
 
@@ -112,7 +112,7 @@ resource "commercetools_api_extension" "update_lineitems" {
 
   destination {
     type = "HTTP"
-    url = "https://${module.function_app.function_app_hostname}/update-lineitems"
+    url = "https://${module.function_app.function_app_hostname}/UpdateLineitems"
     azure_authentication = module.function_app.function_app_hostkey
   }
 
@@ -127,7 +127,7 @@ resource "commercetools_api_extension" "generate_ordernumber" {
 
   destination {
     type = "HTTP"
-    url = "https://${module.function_app.function_app_hostname}/generate-ordernumber"
+    url = "https://${module.function_app.function_app_hostname}/GenerateOrdernumber"
     azure_authentication = module.function_app.function_app_hostkey
   }
 
