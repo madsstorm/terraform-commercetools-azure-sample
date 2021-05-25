@@ -17,11 +17,12 @@ resource "azurerm_app_service_plan" "this" {
   name                = "plan-${var.name}-${var.environment}"
   location            = var.location
   resource_group_name = var.resource_group_name
-  kind                = "FunctionApp"
+
+  kind = "elastic"
 
   sku {
-    tier = "Dynamic"
-    size = "Y1"
+    tier = "ElasticPremium"
+    size = "EP1"
   }
 }
 
@@ -39,7 +40,8 @@ resource "azurerm_function_app" "this" {
   app_service_plan_id        = azurerm_app_service_plan.this.id
   storage_account_name       = azurerm_storage_account.this.name
   storage_account_access_key = azurerm_storage_account.this.primary_access_key
-
+  
+  https_only             = true
   enable_builtin_logging = true
   version                = "~3"
 
@@ -52,4 +54,9 @@ resource "azurerm_function_app" "this" {
     "CTP_PROJECT_KEY"                       = var.api_project_key
     "CTP_SCOPES"                            = join(" ", var.api_scopes)
   }
+}
+
+resource "azurerm_function_app_host_keys" "this" {
+  name                = azurerm_function_app.this.name
+  resource_group_name = var.resource_group_name
 }

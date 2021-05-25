@@ -25,7 +25,7 @@ provider "azurerm" {
 # LOCALS
 ##################################################################################
 locals {
-  project = "commercetools-subscriptions"
+  project = "commercetools-integrations"
 }
 
 ##################################################################################
@@ -46,9 +46,9 @@ module "servicebus" {
   resource_group_name = azurerm_resource_group.this.name
 }
 
-resource "commercetools_api_client" "subscriptions_client" {
-  name  = "Subscriptions Client"
-  scope = ["manage_project:${var.CTP_PROJECT_KEY}"]
+resource "commercetools_api_client" "integrations_client" {
+  name  = "Integrations Client"
+  scope = ["view_products:${var.CTP_PROJECT_KEY}","view_orders:${var.CTP_PROJECT_KEY}","view_categories:${var.CTP_PROJECT_KEY}"]
 }
 
 module "function_app" {
@@ -62,9 +62,9 @@ module "function_app" {
 
   servicebus_connection_string = module.servicebus.namespace_listen_connection_string
 
-  api_client_id     = commercetools_api_client.subscriptions_client.id
-  api_client_secret = commercetools_api_client.subscriptions_client.secret
-  api_scopes        = commercetools_api_client.subscriptions_client.scope
+  api_client_id     = commercetools_api_client.integrations_client.id
+  api_client_secret = commercetools_api_client.integrations_client.secret
+  api_scopes        = commercetools_api_client.integrations_client.scope
   api_project_key   = var.CTP_PROJECT_KEY
 }
 
@@ -75,7 +75,7 @@ module "order_created_topic" {
   namespace_name      = module.servicebus.namespace_name
 
   topic_name         = "order_created"
-  subscription_names = ["send_customer_email", "send_order_to_backend"]
+  subscription_names = ["send_order_to_backend"]
 }
 
 resource "commercetools_subscription" "order_created_subscription" {
@@ -92,26 +92,47 @@ resource "commercetools_subscription" "order_created_subscription" {
   }
 }
 
-module "product_published_topic" {
-  source = "./modules/topic-subscriptions"
+resource "commercetools_api_extension" "validate_cart_limits" {
+  key = "validate-cart-limits"
 
-  resource_group_name = azurerm_resource_group.this.name
-  namespace_name      = module.servicebus.namespace_name
-
-  topic_name         = "product_published"
-  subscription_names = ["update_product"]
-}
-
-resource "commercetools_subscription" "product_published_subscription" {
-  key = "product_published_subscription"
-
-  destination = {
-    type              = "azure_servicebus"
-    connection_string = module.product_published_topic.topic_send_connection_string
+  destination {
+    type = "HTTP"
+    url = "https://${module.function_app.function_app_hostname}/validate-cart-limits"
+    azure_authentication = module.function_app.function_app_hostkey
   }
 
-  message {
-    resource_type_id = "product"
-    types            = ["ProductPublished"]
+  trigger {
+    resource_type_id = "cart"
+    actions          = ["Update"]
+  }
+}
+
+resource "commercetools_api_extension" "update_lineitems" {
+  key = "update-lineitems"
+
+  destination {
+    type = "HTTP"
+    url = "https://${module.function_app.function_app_hostname}/update-lineitems"
+    azure_authentication = module.function_app.function_app_hostkey
+  }
+
+  trigger {
+    resource_type_id = "cart"
+    actions          = ["Update"]
+  }
+}
+
+resource "commercetools_api_extension" "generate_ordernumber" {
+  key = "generate-ordernumber"
+
+  destination {
+    type = "HTTP"
+    url = "https://${module.function_app.function_app_hostname}/generate-ordernumber"
+    azure_authentication = module.function_app.function_app_hostkey
+  }
+
+  trigger {
+    resource_type_id = "order"
+    actions          = ["Create"]
   }
 }
