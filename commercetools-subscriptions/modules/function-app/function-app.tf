@@ -13,19 +13,6 @@ resource "azurerm_storage_account" "this" {
   min_tls_version           = "TLS1_2"
 }
 
-resource "azurerm_app_service_plan" "this" {
-  name                = "plan-${var.name}-${var.environment}"
-  location            = var.location
-  resource_group_name = var.resource_group_name
-
-  kind = "elastic"
-
-  sku {
-    tier = "ElasticPremium"
-    size = "EP1"
-  }
-}
-
 resource "azurerm_application_insights" "this" {
   name                = "appi-func-${var.name}-${var.environment}"
   location            = var.location
@@ -34,14 +21,13 @@ resource "azurerm_application_insights" "this" {
 }
 
 resource "azurerm_function_app" "this" {
-  name                       = "func-${var.name}-${var.environment}"
+  name                       = var.function_app_name
   location                   = var.location
   resource_group_name        = var.resource_group_name
-  app_service_plan_id        = azurerm_app_service_plan.this.id
+  app_service_plan_id        = var.app_service_plan_id
   storage_account_name       = azurerm_storage_account.this.name
   storage_account_access_key = azurerm_storage_account.this.primary_access_key
-  
-  https_only             = true
+
   enable_builtin_logging = true
   version                = "~3"
 
@@ -54,9 +40,4 @@ resource "azurerm_function_app" "this" {
     "CTP_PROJECT_KEY"                       = var.api_project_key
     "CTP_SCOPES"                            = join(" ", var.api_scopes)
   }
-}
-
-resource "azurerm_function_app_host_keys" "this" {
-  name                = azurerm_function_app.this.name
-  resource_group_name = var.resource_group_name
 }
