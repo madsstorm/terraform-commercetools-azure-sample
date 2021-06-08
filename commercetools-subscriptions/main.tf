@@ -45,10 +45,3 @@ resource "commercetools_api_client" "integrations_client" {
   name  = "IntegrationsClient"
   scope = ["view_products:${var.CTP_PROJECT_KEY}","view_orders:${var.CTP_PROJECT_KEY}","view_categories:${var.CTP_PROJECT_KEY}"]
 }
-
-resource "commercetools_project_settings" "project" {
-  name       = var.projectname
-  currencies = ["DKK"]
-  languages  = ["da"]
-  countries  = ["DK"]
-}
