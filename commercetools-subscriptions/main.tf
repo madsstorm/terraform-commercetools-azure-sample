@@ -24,24 +24,24 @@ provider "azurerm" {
 ##################################################################################
 # RESOURCES
 ##################################################################################
-# resource "azurerm_resource_group" "commercetools_integrations" {
-#   name     = "commercetools-integrations-${var.environment}"
-#   location = var.location
-# }
+resource "azurerm_resource_group" "commercetools_integrations" {
+  name     = "commercetools-integrations-${var.azure_environment}"
+  location = var.azure_location
+}
 
-# resource "azurerm_app_service_plan" "commercetools_integrations" {
-#   name                = "plan-ctint-${var.environment}"
-#   location            = azurerm_resource_group.commercetools_integrations.location
-#   resource_group_name = azurerm_resource_group.commercetools_integrations.name
-#   kind                = "elastic"
+resource "azurerm_app_service_plan" "commercetools_integrations" {
+  name                = "plan-ctint-${var.azure_environment}"
+  location            = azurerm_resource_group.commercetools_integrations.location
+  resource_group_name = azurerm_resource_group.commercetools_integrations.name
+  kind                = "elastic"
 
-#   sku {
-#     tier     = "ElasticPremium"
-#     size     = "EP1"
-#   }
-# }
+  sku {
+    tier     = "ElasticPremium"
+    size     = "EP1"
+  }
+}
 
 resource "commercetools_api_client" "integrations_client" {
-  name  = "IntegrationsClient"
-  scope = ["view_products:${var.CTP_PROJECT_KEY}","view_orders:${var.CTP_PROJECT_KEY}","view_categories:${var.CTP_PROJECT_KEY}"]
+  name  = "Integrations Client"
+  scope = ["view_products:${var.commercetools_project_key}","view_orders:${var.commercetools_project_key}","view_categories:${var.commercetools_project_key}"]
 }
