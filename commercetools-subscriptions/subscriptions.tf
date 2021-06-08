@@ -4,7 +4,7 @@ module "servicebus" {
   location    = azurerm_resource_group.commercetools_integrations.location
   environment = var.azure_environment
 
-  name                = "ctsubs"
+  name                = "commercetools-subscriptions"
   resource_group_name = azurerm_resource_group.commercetools_integrations.name
 }
 
@@ -38,9 +38,10 @@ module "function_app_subscriptions" {
   location    = azurerm_resource_group.commercetools_integrations.location
   environment = var.azure_environment
 
-  name                = "ctsubs"
-  function_app_name   = "func-ctsubs-${var.azure_environment}"
-  resource_group_name = azurerm_resource_group.commercetools_integrations.name
+  name                 = "commercetools-subscriptions"
+  function_app_name    = "func-commercetools-subscriptions-${var.azure_environment}"
+  storage_account_name = "tlmctsubsfunc${var.environment}"
+  resource_group_name  = azurerm_resource_group.commercetools_integrations.name
 
   app_service_plan_id          = azurerm_app_service_plan.commercetools_integrations.id
   servicebus_connection_string = module.servicebus.namespace_listen_connection_string

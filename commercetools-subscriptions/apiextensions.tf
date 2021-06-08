@@ -1,5 +1,5 @@
 locals {
-  function_app_apiextensions_name = "func-apiext-${var.azure_environment}"
+  function_app_apiextensions_name = "func-commercetools-apiextensions-${var.azure_environment}"
 }
 
 module "function_app_apiextensions" {
@@ -8,9 +8,10 @@ module "function_app_apiextensions" {
   location    = azurerm_resource_group.commercetools_integrations.location
   environment = var.azure_environment
 
-  name                = "apiext"
-  function_app_name   = local.function_app_apiextensions_name
-  resource_group_name = azurerm_resource_group.commercetools_integrations.name
+  name                 = "commercetools-apiextensions"
+  function_app_name    = local.function_app_apiextensions_name
+  storage_account_name = "tlmctapiextfunc${var.environment}"
+  resource_group_name  = azurerm_resource_group.commercetools_integrations.name
   
   app_service_plan_id          = azurerm_app_service_plan.commercetools_integrations.id
   servicebus_connection_string = ""
