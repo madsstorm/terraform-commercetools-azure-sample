@@ -45,3 +45,18 @@ resource "commercetools_api_client" "integrations_client" {
   name  = "IntegrationsClient"
   scope = ["view_products:${var.CTP_PROJECT_KEY}","view_orders:${var.CTP_PROJECT_KEY}","view_categories:${var.CTP_PROJECT_KEY}"]
 }
+
+resource "commercetools_api_extension" "my-extension" {
+  key = "test-case"
+
+  destination {
+    type = "HTTP"
+    url = "https://example.com"
+    authorization_header = "Basic 12345"
+  }
+
+  trigger {
+    resource_type_id = "customer"
+    actions          = ["Create", "Update"]
+  }
+}
