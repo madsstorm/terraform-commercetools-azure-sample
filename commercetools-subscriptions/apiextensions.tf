@@ -1,5 +1,5 @@
 locals {
-  function_app_apiextensions_name = "func-commercetools-apiextensions-${var.azure_environment}"
+  function_app_apiextensions_name = "tlm-ct-apiext-${var.azure_environment}"
 }
 
 module "function_app_apiextensions" {
