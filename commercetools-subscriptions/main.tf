@@ -24,22 +24,22 @@ provider "azurerm" {
 ##################################################################################
 # RESOURCES
 ##################################################################################
-resource "azurerm_resource_group" "commercetools_integrations" {
-  name     = "commercetools-integrations-${var.environment}"
-  location = var.location
-}
+# resource "azurerm_resource_group" "commercetools_integrations" {
+#   name     = "commercetools-integrations-${var.environment}"
+#   location = var.location
+# }
 
-resource "azurerm_app_service_plan" "commercetools_integrations" {
-  name                = "plan-ctint-${var.environment}"
-  location            = azurerm_resource_group.commercetools_integrations.location
-  resource_group_name = azurerm_resource_group.commercetools_integrations.name
-  kind                = "elastic"
+# resource "azurerm_app_service_plan" "commercetools_integrations" {
+#   name                = "plan-ctint-${var.environment}"
+#   location            = azurerm_resource_group.commercetools_integrations.location
+#   resource_group_name = azurerm_resource_group.commercetools_integrations.name
+#   kind                = "elastic"
 
-  sku {
-    tier     = "ElasticPremium"
-    size     = "EP1"
-  }
-}
+#   sku {
+#     tier     = "ElasticPremium"
+#     size     = "EP1"
+#   }
+# }
 
 resource "commercetools_api_client" "integrations_client" {
   name  = "Integrations Client"
