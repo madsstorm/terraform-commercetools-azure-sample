@@ -45,8 +45,10 @@ module "function_app_subscriptions" {
   app_service_plan_id          = azurerm_app_service_plan.commercetools_integrations.id
   servicebus_connection_string = module.servicebus.namespace_listen_connection_string
 
-  api_client_id     = commercetools_api_client.integrations_client.id
-  api_client_secret = commercetools_api_client.integrations_client.secret
-  api_scopes        = commercetools_api_client.integrations_client.scope
-  api_project_key   = var.CTP_PROJECT_KEY
+  ctp_client_id     = commercetools_api_client.integrations_client.id
+  ctp_client_secret = commercetools_api_client.integrations_client.secret
+  ctp_scopes        = commercetools_api_client.integrations_client.scope
+  ctp_project_key   = var.CTP_PROJECT_KEY
+  ctp_api_url       = var.CTP_API_URL
+  ctp_auth_url      = var.CTP_AUTH_URL
 }
