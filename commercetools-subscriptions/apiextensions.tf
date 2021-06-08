@@ -10,7 +10,7 @@ module "function_app_apiextensions" {
 
   name                 = "commercetools-apiextensions"
   function_app_name    = local.function_app_apiextensions_name
-  storage_account_name = "tlmctapiextfunc${var.environment}"
+  storage_account_name = "tlmctapiextfunc${var.azure_environment}"
   resource_group_name  = azurerm_resource_group.commercetools_integrations.name
   
   app_service_plan_id          = azurerm_app_service_plan.commercetools_integrations.id

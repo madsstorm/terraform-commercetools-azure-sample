@@ -40,7 +40,7 @@ module "function_app_subscriptions" {
 
   name                 = "commercetools-subscriptions"
   function_app_name    = "func-commercetools-subscriptions-${var.azure_environment}"
-  storage_account_name = "tlmctsubsfunc${var.environment}"
+  storage_account_name = "tlmctsubsfunc${var.azure_environment}"
   resource_group_name  = azurerm_resource_group.commercetools_integrations.name
 
   app_service_plan_id          = azurerm_app_service_plan.commercetools_integrations.id
