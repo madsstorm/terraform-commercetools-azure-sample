@@ -3,6 +3,7 @@ variable "environment" {}
 
 variable "name" {}
 variable "function_app_name" {}
+variable "storage_account_name" {}
 variable "resource_group_name" {}
 
 variable "app_service_plan_id" {}
