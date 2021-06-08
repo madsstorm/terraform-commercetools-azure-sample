@@ -46,23 +46,9 @@ resource "commercetools_api_client" "integrations_client" {
   scope = ["view_products:${var.CTP_PROJECT_KEY}","view_orders:${var.CTP_PROJECT_KEY}","view_categories:${var.CTP_PROJECT_KEY}"]
 }
 
-resource "commercetools_custom_object" "my-value" {
-  container = "my-container"
-  key = "my-key"
-  value = jsonencode(10)
-}
-
-resource "commercetools_api_extension" "my-extension" {
-  key = "test-case"
-
-  destination = {
-    type = "HTTP"
-    url = "https://example.com"
-    authorization_header = "Basic 12345"
-  }
-
-  trigger {
-    resource_type_id = "customer"
-    actions          = ["Create", "Update"]
-  }
+resource "commercetools_project_settings" "project" {
+  name       = var.projectname
+  currencies = ["DKK"]
+  languages  = ["da"]
+  countries  = ["DK"]
 }
