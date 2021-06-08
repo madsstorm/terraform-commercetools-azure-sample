@@ -28,16 +28,19 @@ resource "azurerm_function_app" "this" {
   storage_account_name       = azurerm_storage_account.this.name
   storage_account_access_key = azurerm_storage_account.this.primary_access_key
 
+  https_only             = true
   enable_builtin_logging = true
   version                = "~3"
 
   app_settings = {
-    "AzureWebJobsServiceBus"                = var.servicebus_connection_string
-    "APPINSIGHTS_INSTRUMENTATIONKEY"        = azurerm_application_insights.this.instrumentation_key
-    "APPLICATIONINSIGHTS_CONNECTION_STRING" = azurerm_application_insights.this.connection_string
-    "CTP_CLIENT_ID"                         = var.api_client_id
-    "CTP_CLIENT_SECRET"                     = var.api_client_secret
-    "CTP_PROJECT_KEY"                       = var.api_project_key
-    "CTP_SCOPES"                            = join(" ", var.api_scopes)
+    "AzureWebJobsServiceBus"                    = var.servicebus_connection_string
+    "APPINSIGHTS_INSTRUMENTATIONKEY"            = azurerm_application_insights.this.instrumentation_key
+    "APPLICATIONINSIGHTS_CONNECTION_STRING"     = azurerm_application_insights.this.connection_string
+    "CommercetoolsApi:ClientId"                 = var.ctp_client_id
+    "CommercetoolsApi:ClientSecret"             = var.ctp_client_secret
+    "CommercetoolsApi:ProjectKey"               = var.ctp_project_key
+    "CommercetoolsApi:Scope"                    = join(" ", var.ctp_scopes)
+    "CommercetoolsApi:ApiBaseAddress"           = var.ctp_api_url
+    "CommercetoolsApi:AuthorizationBaseAddress" = var.ctp_auth_url
   }
 }

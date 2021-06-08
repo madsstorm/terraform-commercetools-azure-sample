@@ -1,15 +1,3 @@
-resource "azurerm_app_service_plan" "subscriptions" {
-  name                = "plan-ctsubs-${var.environment}"
-  location            = azurerm_resource_group.commercetools_integrations.location
-  resource_group_name = azurerm_resource_group.commercetools_integrations.name
-  kind                = "elastic"
-
-  sku {
-    tier     = "ElasticPremium"
-    size     = "EP1"
-  }
-}
-
 module "servicebus" {
   source = "./modules/servicebus"
 
@@ -54,7 +42,7 @@ module "function_app_subscriptions" {
   function_app_name   = "func-ctsubs-${var.environment}"
   resource_group_name = azurerm_resource_group.commercetools_integrations.name
 
-  app_service_plan_id          = azurerm_app_service_plan.subscriptions.id
+  app_service_plan_id          = azurerm_app_service_plan.commercetools_integrations.id
   servicebus_connection_string = module.servicebus.namespace_listen_connection_string
 
   api_client_id     = commercetools_api_client.integrations_client.id

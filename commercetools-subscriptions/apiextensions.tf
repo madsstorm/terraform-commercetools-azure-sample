@@ -1,15 +1,3 @@
-resource "azurerm_app_service_plan" "api_extensions" {
-  name                = "plan-apiext-${var.environment}"
-  location            = azurerm_resource_group.commercetools_integrations.location
-  resource_group_name = azurerm_resource_group.commercetools_integrations.name
-  kind                = var.api_extensions_service_plan_kind
-
-  sku {
-    tier     = var.api_extensions_service_plan_tier
-    size     = var.api_extensions_service_plan_size
-  }
-}
-
 locals {
   function_app_apiextensions_name = "func-apiext-${var.environment}"
 }
@@ -24,13 +12,15 @@ module "function_app_apiextensions" {
   function_app_name   = local.function_app_apiextensions_name
   resource_group_name = azurerm_resource_group.commercetools_integrations.name
   
-  app_service_plan_id          = azurerm_app_service_plan.api_extensions.id
+  app_service_plan_id          = azurerm_app_service_plan.commercetools_integrations.id
   servicebus_connection_string = ""
 
-  api_client_id     = commercetools_api_client.integrations_client.id
-  api_client_secret = commercetools_api_client.integrations_client.secret
-  api_scopes        = commercetools_api_client.integrations_client.scope
-  api_project_key   = var.CTP_PROJECT_KEY
+  ctp_client_id     = commercetools_api_client.integrations_client.id
+  ctp_client_secret = commercetools_api_client.integrations_client.secret
+  ctp_scopes        = commercetools_api_client.integrations_client.scope
+  ctp_project_key   = var.CTP_PROJECT_KEY
+  ctp_api_url       = var.CTP_API_URL
+  ctp_auth_url      = var.CTP_AUTH_URL
 }
 
 data "azurerm_function_app_host_keys" "apiextensions" {
