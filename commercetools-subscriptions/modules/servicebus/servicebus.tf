@@ -3,6 +3,7 @@ resource "azurerm_servicebus_namespace" "this" {
 
   resource_group_name = var.resource_group_name
   location            = var.location
+  tags                = {}
 
   sku = "Standard"
 }
