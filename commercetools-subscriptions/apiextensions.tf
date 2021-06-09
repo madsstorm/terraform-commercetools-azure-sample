@@ -1,5 +1,5 @@
 locals {
-  function_app_apiextensions_name = "tlm-ct-apiext-${var.azure_environment}"
+  function_app_apiextensions_name = "tlm-ctint-apiext-${var.azure_environment}"
 }
 
 module "function_app_apiextensions" {
@@ -38,7 +38,7 @@ resource "commercetools_api_extension" "validate_cart_limits" {
 
   destination = {
     type = "HTTP"
-    url = "https://${module.function_app_apiextensions.function_app_hostname}/ValidateCartLimits"
+    url = "https://${module.function_app_apiextensions.function_app_hostname}/api/ValidateCartLimits"
     azure_authentication = data.azurerm_function_app_host_keys.apiextensions.default_function_key
   }
 
@@ -53,7 +53,7 @@ resource "commercetools_api_extension" "set_lineitem_groupid" {
 
   destination = {
     type = "HTTP"
-    url = "https://${module.function_app_apiextensions.function_app_hostname}/SetLineItemGroupId"
+    url = "https://${module.function_app_apiextensions.function_app_hostname}/api/SetLineItemGroupId"
     azure_authentication = data.azurerm_function_app_host_keys.apiextensions.default_function_key
   }
 
@@ -68,7 +68,7 @@ resource "commercetools_api_extension" "set_lineitem_distributionchannel" {
 
   destination = {
     type = "HTTP"
-    url = "https://${module.function_app_apiextensions.function_app_hostname}/SetLineItemDistributionChannel"
+    url = "https://${module.function_app_apiextensions.function_app_hostname}/api/SetLineItemDistributionChannel"
     azure_authentication = data.azurerm_function_app_host_keys.apiextensions.default_function_key
   }
 
@@ -83,7 +83,7 @@ resource "commercetools_api_extension" "set_ordernumber" {
 
   destination = {
     type = "HTTP"
-    url = "https://${module.function_app_apiextensions.function_app_hostname}/SetOrdernumber"
+    url = "https://${module.function_app_apiextensions.function_app_hostname}/api/SetOrdernumber"
     azure_authentication = data.azurerm_function_app_host_keys.apiextensions.default_function_key
   }
 

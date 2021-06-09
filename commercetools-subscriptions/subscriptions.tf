@@ -4,7 +4,7 @@ module "servicebus" {
   location    = azurerm_resource_group.commercetools_integrations.location
   environment = var.azure_environment
 
-  name                = "tlm-ct-subs"
+  name                = "tlm-ctint-subs"
   resource_group_name = azurerm_resource_group.commercetools_integrations.name
 }
 
@@ -39,7 +39,7 @@ module "function_app_subscriptions" {
   environment = var.azure_environment
 
   name                 = "commercetools-subscriptions"
-  function_app_name    = "tlm-ct-subs-${var.azure_environment}"
+  function_app_name    = "tlm-ctint-subs-${var.azure_environment}"
   storage_account_name = "tlmctsubsfunc${var.azure_environment}"
   resource_group_name  = azurerm_resource_group.commercetools_integrations.name
 
