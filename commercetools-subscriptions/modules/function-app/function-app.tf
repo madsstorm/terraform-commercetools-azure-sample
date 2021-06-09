@@ -30,14 +30,13 @@ resource "azurerm_function_app" "this" {
   tags                       = {}
 
   https_only             = true
-  enable_builtin_logging = true
+  enable_builtin_logging = false
   version                = "~3"
 
   app_settings = {
     "AzureWebJobsServiceBus"                    = var.servicebus_connection_string
     "APPINSIGHTS_INSTRUMENTATIONKEY"            = azurerm_application_insights.this.instrumentation_key
     "APPLICATIONINSIGHTS_CONNECTION_STRING"     = azurerm_application_insights.this.connection_string
-    "APPINSIGHTS_CONNECTIONSTRING"              = azurerm_application_insights.this.connection_string
     "FUNCTIONS_WORKER_RUNTIME"                  = "dotnet"
     "WEBSITE_RUN_FROM_PACKAGE"                  = "1"
     "CommercetoolsApi:ClientId"                 = var.ctp_client_id
