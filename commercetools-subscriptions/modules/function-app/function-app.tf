@@ -38,7 +38,6 @@ resource "azurerm_function_app" "this" {
     "APPINSIGHTS_INSTRUMENTATIONKEY"            = azurerm_application_insights.this.instrumentation_key
     "APPLICATIONINSIGHTS_CONNECTION_STRING"     = azurerm_application_insights.this.connection_string
     "FUNCTIONS_WORKER_RUNTIME"                  = "dotnet"
-    "WEBSITE_RUN_FROM_PACKAGE"                  = "1"
     "CommercetoolsApi:ClientId"                 = var.ctp_client_id
     "CommercetoolsApi:ClientSecret"             = var.ctp_client_secret
     "CommercetoolsApi:ProjectKey"               = var.ctp_project_key
