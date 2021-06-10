@@ -5,7 +5,7 @@ terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "2.50.0"
+      version = "2.62.1"
     }
     commercetools = {
       source  = "labd/commercetools"
