@@ -30,6 +30,8 @@ resource "commercetools_subscription" "order_created_subscription" {
     resource_type_id = "order"
     types            = ["OrderCreated"]
   }
+
+  format = "Platform"
 }
 
 module "function_app_subscriptions" {
