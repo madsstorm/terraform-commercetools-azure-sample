@@ -15,7 +15,7 @@ module "order_created_topic" {
   namespace_name      = module.servicebus.namespace_name
 
   topic_name         = "order_created"
-  subscription_names = ["send_order_to_backend"]
+  subscription_names = ["send_order_to_oms"]
 }
 
 resource "commercetools_subscription" "order_created_subscription" {
