@@ -7,6 +7,17 @@ resource "commercetools_type" "channel_extension" {
   resource_type_ids = ["channel"]
 
   field {
+    name     = "Preorder"
+    required = true
+    label = {
+      da = "Preorder"
+    }
+    type {
+      name = "Boolean"
+    }
+  }
+
+  field {
     name = "Products"
     label = {
       da = "Products"

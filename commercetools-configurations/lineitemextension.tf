@@ -12,7 +12,7 @@ resource "commercetools_type" "lineitem_extension" {
       da = "Group Id"
     }
     type {
-      name = "String"
+      name = "Number"
     }
   }
 }

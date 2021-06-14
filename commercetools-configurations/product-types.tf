@@ -109,23 +109,6 @@ resource "commercetools_product_type" "device" {
   }
 
   attribute {
-    name = "Subscriptions"
-    label = {
-      da = "Subscriptions"
-    }
-    required   = false
-    constraint = "SameForAll"
-    searchable = true
-    type {
-      name = "set"
-      element_type {
-        name              = "reference"
-        reference_type_id = "product"
-      }
-    }
-  }
-
-  attribute {
     name = "DefaultSubscription"
     label = {
       da = "Default Subscription"
@@ -278,6 +261,78 @@ resource "commercetools_product_type" "mobile_subscription" {
         name              = "reference"
         reference_type_id = "product"
       }
+    }
+  }
+}
+
+resource "commercetools_product_type" "mobile_broadband_subscription" {
+  name        = "Mobile Broadband Subscription"
+  description = "Mobile Broadband Subscription"
+  key         = "mobilebroadbandsubscription"
+
+  attribute {
+    name = "Routers"
+    label = {
+      da = "Routers"
+    }
+    required   = false
+    constraint = "SameForAll"
+    searchable = true
+    type {
+      name = "set"
+      element_type {
+        name              = "reference"
+        reference_type_id = "product"
+      }
+    }
+  }
+
+  attribute {
+    name = "Fees"
+    label = {
+      da = "Fees"
+    }
+    required   = false
+    constraint = "SameForAll"
+    searchable = true
+    type {
+      name = "set"
+      element_type {
+        name              = "reference"
+        reference_type_id = "product"
+      }
+    }
+  }
+}
+
+resource "commercetools_product_type" "mobile_broadband_hardware" {
+  name        = "Mobile Broadband Hardware"
+  description = "Mobile Broadband Hardware"
+  key         = "mobilebroadbandhardware"
+
+  attribute {
+    name = "Brand"
+    label = {
+      da = "Brand"
+    }
+    required   = true
+    constraint = "SameForAll"
+    searchable = true
+    type {
+      name = "text"
+    }
+  }
+
+  attribute {
+    name = "InternalPrice"
+    label = {
+      da = "Internal price"
+    }
+    required   = false
+    constraint = "None"
+    searchable = false
+    type {
+      name = "money"
     }
   }
 }
