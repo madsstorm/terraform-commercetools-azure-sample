@@ -6,13 +6,13 @@ resource "commercetools_type" "lineitem_extension" {
 
   resource_type_ids = ["line-item", "custom-line-item"]
 
-  field {
-    name = "GroupId"
-    label = {
-      da = "Group Id"
-    }
-    type {
-      name = "Number"
-    }
-  }
+#  field {
+#    name = "GroupId"
+#    label = {
+#      da = "Group Id"
+#    }
+#    type {
+#      name = "Number"
+#    }
+#  }
 }
