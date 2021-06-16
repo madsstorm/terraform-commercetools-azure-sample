@@ -13,7 +13,13 @@ resource "commercetools_product_type" "device" {
     searchable = true
     type {
       name = "enum"
-      values = {        
+      values = {
+        "Apple" = "Apple"
+        "Samsung" = "Samsung"
+        "Huawei" = "Huawei"
+        "OnePlus" = "OnePlus"
+        "Motorola" = "Motorola"
+        "Sony" = "Sony"
       }
     }
   }
@@ -188,7 +194,13 @@ resource "commercetools_product_type" "accessory" {
     searchable = true
     type {
       name = "enum"
-      values = {        
+      values = {
+        "Apple" = "Apple"
+        "Samsung" = "Samsung"
+        "Google" = "Google"
+        "Puro" = "Puro"
+        "Sonos" = "Sonos"
+        "Sony" = "Sony"
       }
     }
   }
@@ -324,7 +336,8 @@ resource "commercetools_product_type" "mobile_broadband_hardware" {
     searchable = true
     type {
       name = "enum"
-      values = {        
+      values = {
+        "Huawei" = "Huawei"
       }
     }
   }
