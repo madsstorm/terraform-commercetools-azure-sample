@@ -3,18 +3,18 @@ resource "commercetools_product_type" "device" {
   description = "Device"
   key         = "device"
 
-  attribute {
-    name = "Brand"
-    label = {
-      da = "Brand"
-    }
-    required   = true
-    constraint = "SameForAll"
-    searchable = true
-    type {
-      name = "text"
-    }
-  }
+  # attribute {
+  #   name = "Brand"
+  #   label = {
+  #     da = "Brand"
+  #   }
+  #   required   = true
+  #   constraint = "SameForAll"
+  #   searchable = true
+  #   type {
+  #     name = "text"
+  #   }
+  # }
 
   attribute {
     name = "ScreenSize"
@@ -176,18 +176,18 @@ resource "commercetools_product_type" "accessory" {
   description = "Accessory"
   key         = "accessory"
 
-  attribute {
-    name = "Brand"
-    label = {
-      da = "Brand"
-    }
-    required   = true
-    constraint = "SameForAll"
-    searchable = true
-    type {
-      name = "text"
-    }
-  }
+  # attribute {
+  #   name = "Brand"
+  #   label = {
+  #     da = "Brand"
+  #   }
+  #   required   = true
+  #   constraint = "SameForAll"
+  #   searchable = true
+  #   type {
+  #     name = "text"
+  #   }
+  # }
 
   attribute {
     name = "ColorDescription"
@@ -310,18 +310,18 @@ resource "commercetools_product_type" "mobile_broadband_hardware" {
   description = "Mobile Broadband Hardware"
   key         = "mobilebroadbandhardware"
 
-  attribute {
-    name = "Brand"
-    label = {
-      da = "Brand"
-    }
-    required   = true
-    constraint = "SameForAll"
-    searchable = true
-    type {
-      name = "text"
-    }
-  }
+  # attribute {
+  #   name = "Brand"
+  #   label = {
+  #     da = "Brand"
+  #   }
+  #   required   = true
+  #   constraint = "SameForAll"
+  #   searchable = true
+  #   type {
+  #     name = "text"
+  #   }
+  # }
 
   attribute {
     name = "InternalPrice"
