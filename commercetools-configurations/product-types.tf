@@ -13,6 +13,8 @@ resource "commercetools_product_type" "device" {
     searchable = true
     type {
       name = "enum"
+      values = {        
+      }
     }
   }
 
@@ -186,6 +188,8 @@ resource "commercetools_product_type" "accessory" {
     searchable = true
     type {
       name = "enum"
+      values = {        
+      }
     }
   }
 
@@ -320,6 +324,8 @@ resource "commercetools_product_type" "mobile_broadband_hardware" {
     searchable = true
     type {
       name = "enum"
+      values = {        
+      }
     }
   }
 
