@@ -12,16 +12,15 @@ resource "commercetools_product_type" "device" {
     constraint = "SameForAll"
     searchable = true
     type {
-      name = "text"
-      # name = "enum"
-      # values = {
-      #   "Apple" = "Apple"
-      #   "Samsung" = "Samsung"
-      #   "Huawei" = "Huawei"
-      #   "OnePlus" = "OnePlus"
-      #   "Motorola" = "Motorola"
-      #   "Sony" = "Sony"
-      # }
+      name = "enum"
+      values = {
+        "Apple" = "Apple"
+        "Samsung" = "Samsung"
+        "Huawei" = "Huawei"
+        "OnePlus" = "OnePlus"
+        "Motorola" = "Motorola"
+        "Sony" = "Sony"
+      }
     }
   }
 
