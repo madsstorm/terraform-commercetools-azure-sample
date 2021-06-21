@@ -48,12 +48,12 @@ resource "commercetools_api_extension" "validate_cart_limits" {
   }
 }
 
-resource "commercetools_api_extension" "set_lineitem_groupid" {
-  key = "set-lineitem-groupid"
+resource "commercetools_api_extension" "set_lineitem_custom_fields" {
+  key = "set-lineitem-custom-fields"
 
   destination = {
     type = "HTTP"
-    url = "https://${module.function_app_apiextensions.function_app_hostname}/api/SetLineItemGroupId"
+    url = "https://${module.function_app_apiextensions.function_app_hostname}/api/SetLineItemCustomFields"
     azure_authentication = data.azurerm_function_app_host_keys.apiextensions.default_function_key
   }
 
