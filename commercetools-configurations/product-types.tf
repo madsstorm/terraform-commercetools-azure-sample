@@ -12,15 +12,7 @@ resource "commercetools_product_type" "device" {
     constraint = "SameForAll"
     searchable = true
     type {
-      name = "enum"
-      values = {
-        "Apple" = "Apple"
-        "Samsung" = "Samsung"
-        "Huawei" = "Huawei"
-        "OnePlus" = "OnePlus"
-        "Motorola" = "Motorola"
-        "Sony" = "Sony"
-      }
+      name = "text"
     }
   }
 
@@ -193,14 +185,23 @@ resource "commercetools_product_type" "accessory" {
     constraint = "SameForAll"
     searchable = true
     type {
-      name = "enum"
-      values = {
-        "Apple" = "Apple"
-        "Samsung" = "Samsung"
-        "Google" = "Google"
-        "Puro" = "Puro"
-        "Sonos" = "Sonos"
-        "Sony" = "Sony"
+      name = "text"
+    }
+  }
+
+  attribute {
+    name = "CompatibleProducts"
+    label = {
+      da = "Compatible products"
+    }
+    required   = false
+    constraint = "SameForAll"
+    searchable = true
+    type {
+      name = "set"
+      element_type {
+        name              = "reference"
+        reference_type_id = "product"
       }
     }
   }
@@ -335,10 +336,7 @@ resource "commercetools_product_type" "mobile_broadband_hardware" {
     constraint = "SameForAll"
     searchable = true
     type {
-      name = "enum"
-      values = {
-        "Huawei" = "Huawei"
-      }
+      name = "text"
     }
   }
 
