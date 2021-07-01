@@ -230,13 +230,16 @@ resource "commercetools_product_type" "accessory" {
   attribute {
     name = "Brand"
     label = {
-      da = "Brand"
+      da = "Mærke"
     }
     required   = true
     constraint = "SameForAll"
     searchable = true
     type {
-      name = "text"
+      name = "enum"
+      values = {
+        "" = ""
+      }
     }
   }
 
@@ -381,13 +384,16 @@ resource "commercetools_product_type" "mobile_broadband_hardware" {
   attribute {
     name = "Brand"
     label = {
-      da = "Brand"
+      da = "Mærke"
     }
     required   = true
     constraint = "SameForAll"
     searchable = true
     type {
-      name = "text"
+      name = "enum"
+      values = {
+        "" = ""
+      }
     }
   }
 
