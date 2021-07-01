@@ -6,26 +6,28 @@ resource "commercetools_product_type" "device" {
   attribute {
     name = "Brand"
     label = {
-      da = "Brand"
+      da = "Mærke"
     }
     required   = true
     constraint = "SameForAll"
     searchable = true
     type {
-      name = "text"
+      name = "enum"
+      values = {
+      }
     }
   }
 
   attribute {
     name = "ScreenSize"
     label = {
-      da = "Screen size"
+      da = "Skærmstørrelse"
     }
     required   = false
     constraint = "SameForAll"
     searchable = true
     type {
-      name = "text"
+      name = "number"
     }
   }
 
@@ -45,7 +47,7 @@ resource "commercetools_product_type" "device" {
   attribute {
     name = "Storage"
     label = {
-      da = "Storage"
+      da = "Kapacitet"
     }
     required   = true
     constraint = "None"
@@ -58,7 +60,7 @@ resource "commercetools_product_type" "device" {
   attribute {
     name = "ColorDescription"
     label = {
-      da = "Color description"
+      da = "Farve"
     }
     required   = true
     constraint = "None"
@@ -71,13 +73,61 @@ resource "commercetools_product_type" "device" {
   attribute {
     name = "FilterColor"
     label = {
-      da = "Filter color"
+      da = "Farve på filterliste"
     }
     required   = false
     constraint = "None"
     searchable = true
     type {
-      name = "ltext"
+      name = "lenum"
+      localized_value {
+        key = "black"
+        label = {
+          da = "Sort"
+        }
+      }
+      localized_value {
+        key = "white"
+        label = {
+          da = "Hvid"
+        }
+      }
+      localized_value {
+        key = "red"
+        label = {
+          da = "Rød"
+        }
+      }
+      localized_value {
+        key = "blue"
+        label = {
+          da = "Blå"
+        }
+      }
+      localized_value {
+        key = "yellow"
+        label = {
+          da = "Gul"
+        }
+      }
+      localized_value {
+        key = "green"
+        label = {
+          da = "Grøn"
+        }
+      }
+      localized_value {
+        key = "gold"
+        label = {
+          da = "Guld"
+        }
+      }
+      localized_value {
+        key = "silver"
+        label = {
+          da = "Sølv"
+        }
+      }
     }
   }
 
@@ -97,7 +147,7 @@ resource "commercetools_product_type" "device" {
   attribute {
     name = "SubscriptionCategory"
     label = {
-      da = "Subscription category"
+      da = "Abonnementskategori"
     }
     required   = false
     constraint = "SameForAll"
@@ -111,7 +161,7 @@ resource "commercetools_product_type" "device" {
   attribute {
     name = "DefaultSubscription"
     label = {
-      da = "Default Subscription"
+      da = "Default abonnement"
     }
     required   = false
     constraint = "SameForAll"
@@ -125,7 +175,7 @@ resource "commercetools_product_type" "device" {
   attribute {
     name = "AccessoryCategory"
     label = {
-      da = "Accessory category"
+      da = "Tilbehørskategori"
     }
     required   = false
     constraint = "SameForAll"
@@ -139,7 +189,7 @@ resource "commercetools_product_type" "device" {
   attribute {
     name = "Accessories"
     label = {
-      da = "Accessories"
+      da = "Tilbehør"
     }
     required   = false
     constraint = "SameForAll"
@@ -156,7 +206,7 @@ resource "commercetools_product_type" "device" {
   attribute {
     name = "ValueAddedServices"
     label = {
-      da = "Value Added Services"
+      da = "Ekstra Services"
     }
     required   = false
     constraint = "SameForAll"
