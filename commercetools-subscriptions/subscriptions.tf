@@ -32,6 +32,10 @@ resource "commercetools_subscription" "order_created_subscription" {
   }
 }
 
+resource "random_id" "storage_subs" {
+  byte_length = 2
+}
+
 module "function_app_subscriptions" {
   source = "./modules/function-app"
 
@@ -40,7 +44,7 @@ module "function_app_subscriptions" {
 
   name                 = "commercetools-subscriptions"
   function_app_name    = "tlm-ctint-subs-${var.azure_environment}"
-  storage_account_name = "tlmctsubsfunc${var.azure_environment}"
+  storage_account_name = "tlmctsubsfunc${var.azure_environment}${random_id.storage_subs.hex}"
   resource_group_name  = azurerm_resource_group.commercetools_integrations.name
 
   app_service_plan_id          = azurerm_app_service_plan.commercetools_integrations.id

@@ -2,6 +2,10 @@ locals {
   function_app_apiextensions_name = "tlm-ctint-apiext-${var.azure_environment}"
 }
 
+resource "random_id" "storage_apiext" {
+  byte_length = 2
+}
+
 module "function_app_apiextensions" {
   source = "./modules/function-app"
 
@@ -10,7 +14,7 @@ module "function_app_apiextensions" {
 
   name                 = "commercetools-apiextensions"
   function_app_name    = local.function_app_apiextensions_name
-  storage_account_name = "tlmctapiextfunc${var.azure_environment}"
+  storage_account_name = "tlmctapiextfunc${var.azure_environment}${random_id.storage_apiext.hex}"
   resource_group_name  = azurerm_resource_group.commercetools_integrations.name
   
   app_service_plan_id          = azurerm_app_service_plan.commercetools_integrations.id
