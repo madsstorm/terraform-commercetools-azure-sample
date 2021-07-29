@@ -1,9 +1,10 @@
-locals {
-  function_app_apiextensions_name = "tlm-ctint-apiext-${var.azure_environment}"
+resource "random_id" "apiext" {
+  byte_length = 2
 }
 
-resource "random_id" "storage_apiext" {
-  byte_length = 2
+locals {
+  apiext_postfix = (var.azure_environment == "dev") ? random_id.apiext.hex : ""
+  function_app_apiextensions_name = "tlm-ctint-apiext-${var.azure_environment}${local.apiext_postfix}"
 }
 
 module "function_app_apiextensions" {
@@ -14,7 +15,7 @@ module "function_app_apiextensions" {
 
   name                 = "commercetools-apiextensions"
   function_app_name    = local.function_app_apiextensions_name
-  storage_account_name = "tlmctapiextfunc${var.azure_environment}${random_id.storage_apiext.hex}"
+  storage_account_name = "tlmctapiextfunc${var.azure_environment}${local.apiext_postfix}"
   resource_group_name  = azurerm_resource_group.commercetools_integrations.name
   
   app_service_plan_id          = azurerm_app_service_plan.commercetools_integrations.id
