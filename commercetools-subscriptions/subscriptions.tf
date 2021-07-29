@@ -1,10 +1,17 @@
+resource "random_id" "subscriptions" {
+  byte_length = 2
+}
+
+locals {
+  subs_postfix = (var.azure_environment == "dev") ? random_id.subscriptions.hex : ""
+}
+
 module "servicebus" {
   source = "./modules/servicebus"
 
   location    = azurerm_resource_group.commercetools_integrations.location
-  environment = var.azure_environment
 
-  name                = "tlm-ctint-subs"
+  name                = "tlm-ctint-subs-${var.azure_environment}${local.subs_postfix}"
   resource_group_name = azurerm_resource_group.commercetools_integrations.name
 }
 
@@ -30,14 +37,6 @@ resource "commercetools_subscription" "order_created_subscription" {
     resource_type_id = "order"
     types            = ["OrderCreated"]
   }
-}
-
-resource "random_id" "subscriptions" {
-  byte_length = 2
-}
-
-locals {
-  subs_postfix = (var.azure_environment == "dev") ? random_id.subscriptions.hex : ""
 }
 
 module "function_app_subscriptions" {
