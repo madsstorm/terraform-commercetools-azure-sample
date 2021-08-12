@@ -33,8 +33,8 @@ resource "azurerm_servicebus_subscription" "subscriptions" {
   topic_name          = azurerm_servicebus_topic.topic.name
 
   default_message_ttl = "P14D"
-  lock_duration       = "PT30S"
-  max_delivery_count  = 300
+  lock_duration       = "P5M"
+  max_delivery_count  = 50
 
   dead_lettering_on_message_expiration = true
   enable_batched_operations            = false
