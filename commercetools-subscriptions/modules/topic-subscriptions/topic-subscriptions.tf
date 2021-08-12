@@ -34,7 +34,7 @@ resource "azurerm_servicebus_subscription" "subscriptions" {
 
   default_message_ttl = "P14D"
   lock_duration       = "PT5M"
-  max_delivery_count  = 50
+  max_delivery_count  = 100
 
   dead_lettering_on_message_expiration = true
   enable_batched_operations            = false
