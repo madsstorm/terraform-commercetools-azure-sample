@@ -25,6 +25,16 @@ module "order_created_topic" {
   subscription_names = ["send_order_to_oms"]
 }
 
+module "product_published_topic" {
+  source = "./modules/topic-subscriptions"
+
+  resource_group_name = azurerm_resource_group.commercetools_integrations.name
+  namespace_name      = module.servicebus.namespace_name
+
+  topic_name         = "product_published"
+  subscription_names = ["update_prices"]
+}
+
 resource "commercetools_subscription" "order_created_subscription" {
   key = "order_created_subscription"
 
@@ -36,6 +46,20 @@ resource "commercetools_subscription" "order_created_subscription" {
   message {
     resource_type_id = "order"
     types            = ["OrderCreated"]
+  }
+}
+
+resource "commercetools_subscription" "product_published_subscription" {
+  key = "product_published_subscription"
+
+  destination = {
+    type              = "azure_servicebus"
+    connection_string = module.product_published_topic.topic_send_connection_string
+  }
+
+  message {
+    resource_type_id = "product"
+    types            = ["ProductPublished"]
   }
 }
 
