@@ -16,10 +16,10 @@ resource "commercetools_type" "price_extension" {
       name = "Boolean"
     }
   }
-  
+
   field {
     name     = "Campaign"
-    required = true
+    required = false
     label = {
       da = "Kampagne"
     }

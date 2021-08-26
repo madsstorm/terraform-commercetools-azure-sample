@@ -15,4 +15,24 @@ resource "commercetools_type" "order_extension" {
       name = "Number"
     }
   }
+
+  field {
+    name = "OsmOrderId"
+    label = {
+      da = "OsmOrderId"
+    }
+    type {
+      name = "String"
+    }
+  }
+
+  field {
+    name = "OsmOrderStatus"
+    label = {
+      da = "OsmOrderStatus"
+    }
+    type {
+      name = "String"
+    }
+  }
 }

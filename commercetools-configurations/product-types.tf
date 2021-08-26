@@ -3,9 +3,10 @@ resource "commercetools_product_type" "device" {
   description = "Device"
   key         = "device"
 
+
   attribute {
     name = "Brand"
-   label = {
+    label = {
       da = "Mærke"
     }
     required   = true
@@ -14,11 +15,10 @@ resource "commercetools_product_type" "device" {
     type {
       name = "enum"
       values = {
-	    apple = "Apple"
+        apple = "Apple"
       }
     }
   }
-
 
   attribute {
     name = "ScreenSize"
@@ -30,6 +30,97 @@ resource "commercetools_product_type" "device" {
     searchable = true
     type {
       name = "number"
+    }
+  }
+
+  attribute {
+    name = "ScreenResolution"
+    label = {
+      da = "Skærmopløsning"
+    }
+    required   = false
+    constraint = "SameForAll"
+    searchable = true
+    type {
+      name = "text"
+    }
+  }
+
+  attribute {
+    name = "DisplayType"
+    label = {
+      da = "Skærmtype"
+    }
+    required   = false
+    constraint = "SameForAll"
+    searchable = true
+    type {
+      name = "text"
+    }
+  }
+
+  attribute {
+    name = "CameraResolution"
+    label = {
+      da = "Kameraopløsning"
+    }
+    required   = false
+    constraint = "SameForAll"
+    searchable = true
+    type {
+      name = "text"
+    }
+  }
+
+  attribute {
+    name = "FrontCameraResolution"
+    label = {
+      da = "Frontkameraopløsning"
+    }
+    required   = false
+    constraint = "SameForAll"
+    searchable = true
+    type {
+      name = "text"
+    }
+  }
+
+  attribute {
+    name = "MaxExternalMemory"
+    label = {
+      da = "Max ekstern hukommelse"
+    }
+    required   = false
+    constraint = "SameForAll"
+    searchable = true
+    type {
+      name = "text"
+    }
+  }
+
+  attribute {
+    name = "CableConnectivity"
+    label = {
+      da = "Tilslutning oplader"
+    }
+    required   = false
+    constraint = "SameForAll"
+    searchable = true
+    type {
+      name = "text"
+    }
+  }
+
+  attribute {
+    name = "HeadsetConnection"
+    label = {
+      da = "Tilslutning hovedtelefoner"
+    }
+    required   = false
+    constraint = "SameForAll"
+    searchable = true
+    type {
+      name = "text"
     }
   }
 
@@ -47,6 +138,84 @@ resource "commercetools_product_type" "device" {
   }
 
   attribute {
+    name = "E-SIM"
+    label = {
+      da = "E-SIM"
+    }
+    required   = true
+    constraint = "SameForAll"
+    searchable = true
+    type {
+      name = "boolean"
+    }
+  }
+
+  attribute {
+    name = "DualSIM"
+    label = {
+      da = "Dual SIM"
+    }
+    required   = true
+    constraint = "SameForAll"
+    searchable = true
+    type {
+      name = "boolean"
+    }
+  }
+
+  attribute {
+    name = "BatteryCapacity"
+    label = {
+      da = "Batterikapacitet"
+    }
+    required   = false
+    constraint = "SameForAll"
+    searchable = true
+    type {
+      name = "text"
+    }
+  }
+
+  attribute {
+    name = "Processor"
+    label = {
+      da = "Processor"
+    }
+    required   = false
+    constraint = "SameForAll"
+    searchable = true
+    type {
+      name = "text"
+    }
+  }
+
+  attribute {
+    name = "RAM"
+    label = {
+      da = "RAM"
+    }
+    required   = false
+    constraint = "SameForAll"
+    searchable = true
+    type {
+      name = "text"
+    }
+  }
+
+  attribute {
+    name = "OperatingSystem"
+    label = {
+      da = "Operativsystem"
+    }
+    required   = false
+    constraint = "SameForAll"
+    searchable = true
+    type {
+      name = "text"
+    }
+  }
+
+  attribute {
     name = "Storage"
     label = {
       da = "Kapacitet"
@@ -55,7 +224,16 @@ resource "commercetools_product_type" "device" {
     constraint = "None"
     searchable = true
     type {
-      name = "text"
+      name = "enum"
+      values = {
+        "0000032" = "32 GB"
+        "0000064" = "64 GB"
+        "0000128" = "128 GB"
+        "0000256" = "256 GB"
+        "0000512" = "512 GB"
+        "0001024" = "1 TB"
+        "0002048" = "2 TB"
+      }
     }
   }
 
@@ -82,7 +260,7 @@ resource "commercetools_product_type" "device" {
     searchable = true
     type {
       name = "lenum"
-	  localized_value {
+      localized_value {
         key = "silver"
         label = {
           da = "Sølv"
@@ -92,9 +270,61 @@ resource "commercetools_product_type" "device" {
   }
 
   attribute {
+    name = "Height"
+    label = {
+      da = "Højde"
+    }
+    required   = false
+    constraint = "SameForAll"
+    searchable = true
+    type {
+      name = "number"
+    }
+  }
+
+  attribute {
+    name = "Width"
+    label = {
+      da = "Bredde"
+    }
+    required   = false
+    constraint = "SameForAll"
+    searchable = true
+    type {
+      name = "number"
+    }
+  }
+
+  attribute {
+    name = "Depth"
+    label = {
+      da = "Dybde"
+    }
+    required   = false
+    constraint = "SameForAll"
+    searchable = true
+    type {
+      name = "number"
+    }
+  }
+
+  attribute {
+    name = "Weight"
+    label = {
+      da = "Vægt"
+    }
+    required   = false
+    constraint = "SameForAll"
+    searchable = true
+    type {
+      name = "number"
+    }
+  }
+
+  attribute {
     name = "InternalPrice"
     label = {
-      da = "Internal price"
+      da = "Intern pris"
     }
     required   = false
     constraint = "None"
@@ -179,6 +409,19 @@ resource "commercetools_product_type" "device" {
       }
     }
   }
+
+  attribute {
+    name = "CopyPricesFromSku"
+    label = {
+      da = "Kopier priser fra SKU"
+    }
+    required   = false
+    constraint = "None"
+    searchable = false
+    type {
+      name = "text"
+    }
+  }
 }
 
 resource "commercetools_product_type" "accessory" {
@@ -196,8 +439,8 @@ resource "commercetools_product_type" "accessory" {
     searchable = true
     type {
       name = "enum"
-	  values = {
-	    apple = "Apple"
+      values = {
+        apple = "Apple"
       }
     }
   }
@@ -205,7 +448,7 @@ resource "commercetools_product_type" "accessory" {
   attribute {
     name = "ColorDescription"
     label = {
-      da = "Color description"
+      da = "Farve"
     }
     required   = true
     constraint = "None"
@@ -225,7 +468,7 @@ resource "commercetools_product_type" "accessory" {
     searchable = true
     type {
       name = "lenum"
-	  localized_value {
+      localized_value {
         key = "silver"
         label = {
           da = "Sølv"
@@ -237,7 +480,7 @@ resource "commercetools_product_type" "accessory" {
   attribute {
     name = "InternalPrice"
     label = {
-      da = "Internal price"
+      da = "Intern pris"
     }
     required   = false
     constraint = "None"
@@ -256,30 +499,13 @@ resource "commercetools_product_type" "mobile_subscription" {
   attribute {
     name = "BindingPeriod"
     label = {
-      da = "Binding period"
+      da = "Bindingsperiode"
     }
     required   = false
     constraint = "SameForAll"
     searchable = false
     type {
       name = "number"
-    }
-  }
-
-  attribute {
-    name = "Fees"
-    label = {
-      da = "Fees"
-    }
-    required   = false
-    constraint = "SameForAll"
-    searchable = true
-    type {
-      name = "set"
-      element_type {
-        name              = "reference"
-        reference_type_id = "product"
-      }
     }
   }
 }
@@ -292,24 +518,7 @@ resource "commercetools_product_type" "mobile_broadband_subscription" {
   attribute {
     name = "Routers"
     label = {
-      da = "Routers"
-    }
-    required   = false
-    constraint = "SameForAll"
-    searchable = true
-    type {
-      name = "set"
-      element_type {
-        name              = "reference"
-        reference_type_id = "product"
-      }
-    }
-  }
-
-  attribute {
-    name = "Fees"
-    label = {
-      da = "Fees"
+      da = "Routere"
     }
     required   = false
     constraint = "SameForAll"
@@ -340,15 +549,28 @@ resource "commercetools_product_type" "mobile_broadband_hardware" {
     type {
       name = "enum"
       values = {
-         apple = "Apple"
+        apple = "Apple"
       }
+    }
+  }
+
+  attribute {
+    name = "5G"
+    label = {
+      da = "5G"
+    }
+    required   = true
+    constraint = "SameForAll"
+    searchable = true
+    type {
+      name = "boolean"
     }
   }
 
   attribute {
     name = "InternalPrice"
     label = {
-      da = "Internal price"
+      da = "Intern pris"
     }
     required   = false
     constraint = "None"
@@ -357,12 +579,6 @@ resource "commercetools_product_type" "mobile_broadband_hardware" {
       name = "money"
     }
   }
-}
-
-resource "commercetools_product_type" "fee" {
-  name        = "Fee"
-  description = "A Fee can be added to the Cart as an extra cost"
-  key         = "fee"
 }
 
 resource "commercetools_product_type" "service_option" {
