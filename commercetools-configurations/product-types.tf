@@ -3,20 +3,20 @@ resource "commercetools_product_type" "device" {
   description = "Device"
   key         = "device"
 
-  attribute {
-    name = "Brand"
-    label = {
-      da = "Mærke"
-    }
-    required   = true
-    constraint = "SameForAll"
-    searchable = true
-    type {
-      name = "enum"
-      values = {
-      }
-    }
-  }
+#  attribute {
+#    name = "Brand"
+#   label = {
+#      da = "Mærke"
+#    }
+#    required   = true
+#    constraint = "SameForAll"
+#    searchable = true
+#    type {
+#      name = "enum"
+#      values = {
+#      }
+#    }
+#  }
 
 
   attribute {
@@ -227,20 +227,20 @@ resource "commercetools_product_type" "accessory" {
   description = "Accessory"
   key         = "accessory"
 
-  attribute {
-    name = "Brand"
-    label = {
-      da = "Mærke"
-    }
-    required   = true
-    constraint = "SameForAll"
-    searchable = true
-    type {
-      name = "enum"
-      values = {
-      }
-    }
-  }
+#  attribute {
+#    name = "Brand"
+#    label = {
+#      da = "Mærke"
+#    }
+#    required   = true
+#    constraint = "SameForAll"
+#    searchable = true
+#    type {
+#      name = "enum"
+#      values = {
+#      }
+#    }
+#  }
 
   attribute {
     name = "CompatibleProducts"
@@ -380,20 +380,20 @@ resource "commercetools_product_type" "mobile_broadband_hardware" {
   description = "Mobile Broadband Hardware"
   key         = "mobilebroadbandhardware"
 
-  attribute {
-    name = "Brand"
-    label = {
-      da = "Mærke"
-    }
-    required   = true
-    constraint = "SameForAll"
-    searchable = true
-    type {
-      name = "enum"
-      values = {
-      }
-    }
-  }
+#  attribute {
+#    name = "Brand"
+#    label = {
+#      da = "Mærke"
+#    }
+#    required   = true
+#    constraint = "SameForAll"
+#    searchable = true
+#    type {
+#      name = "enum"
+#      values = {
+#      }
+#    }
+#  }
 
   attribute {
     name = "InternalPrice"
