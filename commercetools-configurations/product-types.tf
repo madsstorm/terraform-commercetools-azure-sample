@@ -14,7 +14,6 @@ resource "commercetools_product_type" "device" {
     type {
       name = "enum"
       values = {
-        apple = "Apple"
       }
     }
   }
