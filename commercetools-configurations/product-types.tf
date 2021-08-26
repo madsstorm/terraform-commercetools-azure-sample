@@ -72,24 +72,24 @@ resource "commercetools_product_type" "device" {
     }
   }
 
-  attribute {
-    name = "FilterColor"
-    label = {
-      da = "Farve på filterliste"
-    }
-    required   = false
-    constraint = "None"
-    searchable = true
-    type {
-      name = "lenum"
-	  localized_value {
-        key = "silver"
-        label = {
-          da = "Sølv"
-        }
-      }
-    }
-  }
+#  attribute {
+#    name = "FilterColor"
+#    label = {
+#      da = "Farve på filterliste"
+#    }
+#    required   = false
+#    constraint = "None"
+#    searchable = true
+#    type {
+#      name = "lenum"
+#	  localized_value {
+#        key = "silver"
+#        label = {
+#          da = "Sølv"
+#        }
+#      }
+#    }
+#  }
 
   attribute {
     name = "InternalPrice"
