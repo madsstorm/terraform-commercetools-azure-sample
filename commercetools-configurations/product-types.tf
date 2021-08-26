@@ -14,10 +14,11 @@ resource "commercetools_product_type" "device" {
     type {
       name = "enum"
       values = {
-	    none = "None"
+	    apple = "Apple"
       }
     }
   }
+
 
   attribute {
     name = "ScreenSize"
@@ -71,42 +72,42 @@ resource "commercetools_product_type" "device" {
     }
   }
 
-#  attribute {
-#    name = "FilterColor"
-#    label = {
-#      da = "Farve på filterliste"
-#    }
-#    required   = false
-#    constraint = "None"
-#    searchable = true
-#    type {
-#      name = "lenum"
-#      localized_value {
-#        key = "black"
-#        label = {
-#          da = "Sort"
-#        }
-#      }
-#      localized_value {
-#        key = "white"
-#        label = {
-#          da = "Hvid"
-#        }
-#      }
-#      localized_value {
-#        key = "red"
-#        label = {
-#          da = "Rød"
-#        }
-#      }
-#      localized_value {
-#        key = "blue"
-#        label = {
-#          da = "Blå"
-#        }
-#      }
-#    }
-#  }
+  attribute {
+    name = "FilterColor"
+    label = {
+      da = "Farve på filterliste"
+    }
+    required   = false
+    constraint = "None"
+    searchable = true
+    type {
+      name = "lenum"
+      localized_value {
+        key = "black"
+        label = {
+          da = "Sort"
+        }
+      }
+      localized_value {
+        key = "white"
+        label = {
+          da = "Hvid"
+        }
+      }
+      localized_value {
+        key = "red"
+        label = {
+          da = "Rød"
+        }
+      }
+      localized_value {
+        key = "blue"
+        label = {
+          da = "Blå"
+        }
+      }
+    }
+  }
 
   attribute {
     name = "InternalPrice"
@@ -203,18 +204,21 @@ resource "commercetools_product_type" "accessory" {
   description = "Accessory"
   key         = "accessory"
 
-#  attribute {
-#    name = "Brand"
-#    label = {
-#      da = "Mærke"
-#    }
-#    required   = true
-#    constraint = "SameForAll"
-#    searchable = true
-#    type {
-#      name = "enum"
-#    }
-#  }
+  attribute {
+    name = "Brand"
+    label = {
+      da = "Mærke"
+    }
+    required   = true
+    constraint = "SameForAll"
+    searchable = true
+    type {
+      name = "enum"
+	  values = {
+	    apple = "Apple"
+      }
+    }
+  }
 
   attribute {
     name = "ColorDescription"
@@ -337,20 +341,21 @@ resource "commercetools_product_type" "mobile_broadband_hardware" {
   description = "Mobile Broadband Hardware"
   key         = "mobilebroadbandhardware"
 
-#  attribute {
-#    name = "Brand"
-#    label = {
-#      da = "Mærke"
-#    }
-#    required   = true
-#    constraint = "SameForAll"
-#    searchable = true
-#    type {
-#      name = "enum"
-#      values = {
-#      }
-#    }
-#  }
+  attribute {
+    name = "Brand"
+    label = {
+      da = "Mærke"
+    }
+    required   = true
+    constraint = "SameForAll"
+    searchable = true
+    type {
+      name = "enum"
+      values = {
+         apple = "Apple"
+      }
+    }
+  }
 
   attribute {
     name = "InternalPrice"
