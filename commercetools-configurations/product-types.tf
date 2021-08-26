@@ -239,7 +239,7 @@ resource "commercetools_product_type" "accessory" {
     type {
       name = "enum"
       values = {
-        "" = ""
+        apple = "Apple"
       }
     }
   }
