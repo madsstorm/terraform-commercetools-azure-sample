@@ -213,8 +213,6 @@ resource "commercetools_product_type" "accessory" {
     searchable = true
     type {
       name = "enum"
-      values = {
-      }
     }
   }
 
