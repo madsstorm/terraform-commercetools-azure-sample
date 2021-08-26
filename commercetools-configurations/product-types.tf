@@ -243,23 +243,6 @@ resource "commercetools_product_type" "accessory" {
   }
 
   attribute {
-    name = "CompatibleProducts"
-    label = {
-      da = "Compatible products"
-    }
-    required   = false
-    constraint = "SameForAll"
-    searchable = true
-    type {
-      name = "set"
-      element_type {
-        name              = "reference"
-        reference_type_id = "product"
-      }
-    }
-  }
-
-  attribute {
     name = "ColorDescription"
     label = {
       da = "Color description"
