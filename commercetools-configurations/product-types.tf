@@ -19,20 +19,18 @@ resource "commercetools_product_type" "device" {
     }
   }
 
-
-
-#  attribute {
-#    name = "ScreenSize"
-#    label = {
-#      da = "Skærmstørrelse"
-#    }
-#    required   = false
-#    constraint = "SameForAll"
-#    searchable = true
-#    type {
-#      name = "number"
-#    }
-#  }
+  attribute {
+    name = "ScreenSize"
+    label = {
+      da = "Skærmstørrelse"
+    }
+    required   = false
+    constraint = "SameForAll"
+    searchable = true
+    type {
+      name = "number"
+    }
+  }
 
   attribute {
     name = "5G"
