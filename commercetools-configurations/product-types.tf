@@ -3,20 +3,20 @@ resource "commercetools_product_type" "device" {
   description = "Device"
   key         = "device"
 
-#  attribute {
-#    name = "Brand"
-#   label = {
-#      da = "Mærke"
-#    }
-#    required   = true
-#    constraint = "SameForAll"
-#    searchable = true
-#    type {
-#      name = "enum"
-#      values = {
-#      }
-#    }
-#  }
+  attribute {
+    name = "Brand"
+   label = {
+      da = "Mærke"
+    }
+    required   = true
+    constraint = "SameForAll"
+    searchable = true
+    type {
+      name = "enum"
+      values = {
+      }
+    }
+  }
 
 
 #  attribute {
