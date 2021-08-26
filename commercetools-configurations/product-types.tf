@@ -393,7 +393,7 @@ resource "commercetools_product_type" "mobile_broadband_hardware" {
     type {
       name = "enum"
       values = {
-        "" = ""
+        apple = "Apple"
       }
     }
   }
