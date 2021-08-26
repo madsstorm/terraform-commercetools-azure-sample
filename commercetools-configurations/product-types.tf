@@ -20,6 +20,7 @@ resource "commercetools_product_type" "device" {
   }
 
 
+
 #  attribute {
 #    name = "ScreenSize"
 #    label = {
