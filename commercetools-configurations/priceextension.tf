@@ -16,4 +16,15 @@ resource "commercetools_type" "price_extension" {
       name = "Boolean"
     }
   }
+  
+  field {
+    name     = "Campaign"
+    required = true
+    label = {
+      da = "Kampagne"
+    }
+    type {
+      name = "String"
+    }
+  }
 }
