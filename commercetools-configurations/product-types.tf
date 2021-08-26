@@ -203,18 +203,18 @@ resource "commercetools_product_type" "accessory" {
   description = "Accessory"
   key         = "accessory"
 
-  attribute {
-    name = "Brand"
-    label = {
-      da = "Mærke"
-    }
-    required   = true
-    constraint = "SameForAll"
-    searchable = true
-    type {
-      name = "enum"
-    }
-  }
+#  attribute {
+#    name = "Brand"
+#    label = {
+#      da = "Mærke"
+#    }
+#    required   = true
+#    constraint = "SameForAll"
+#    searchable = true
+#    type {
+#      name = "enum"
+#    }
+#  }
 
   attribute {
     name = "ColorDescription"
