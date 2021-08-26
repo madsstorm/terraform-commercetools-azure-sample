@@ -82,6 +82,12 @@ resource "commercetools_product_type" "device" {
     searchable = true
     type {
       name = "lenum"
+	  localized_value {
+        key = "silver"
+        label = {
+          da = "Sølv"
+        }
+      }
     }
   }
 
@@ -219,6 +225,12 @@ resource "commercetools_product_type" "accessory" {
     searchable = true
     type {
       name = "lenum"
+	  localized_value {
+        key = "silver"
+        label = {
+          da = "Sølv"
+        }
+      }
     }
   }
 
