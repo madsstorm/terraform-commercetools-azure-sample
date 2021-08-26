@@ -71,66 +71,42 @@ resource "commercetools_product_type" "device" {
     }
   }
 
-  attribute {
-    name = "FilterColor"
-    label = {
-      da = "Farve på filterliste"
-    }
-    required   = false
-    constraint = "None"
-    searchable = true
-    type {
-      name = "lenum"
-      localized_value {
-        key = "black"
-        label = {
-          da = "Sort"
-        }
-      }
-      localized_value {
-        key = "white"
-        label = {
-          da = "Hvid"
-        }
-      }
-      localized_value {
-        key = "red"
-        label = {
-          da = "Rød"
-        }
-      }
-      localized_value {
-        key = "blue"
-        label = {
-          da = "Blå"
-        }
-      }
-      localized_value {
-        key = "yellow"
-        label = {
-          da = "Gul"
-        }
-      }
-      localized_value {
-        key = "green"
-        label = {
-          da = "Grøn"
-        }
-      }
-      localized_value {
-        key = "gold"
-        label = {
-          da = "Guld"
-        }
-      }
-      localized_value {
-        key = "silver"
-        label = {
-          da = "Sølv"
-        }
-      }
-    }
-  }
+#  attribute {
+#    name = "FilterColor"
+#    label = {
+#      da = "Farve på filterliste"
+#    }
+#    required   = false
+#    constraint = "None"
+#    searchable = true
+#    type {
+#      name = "lenum"
+#      localized_value {
+#        key = "black"
+#        label = {
+#          da = "Sort"
+#        }
+#      }
+#      localized_value {
+#        key = "white"
+#        label = {
+#          da = "Hvid"
+#        }
+#      }
+#      localized_value {
+#        key = "red"
+#        label = {
+#          da = "Rød"
+#        }
+#      }
+#      localized_value {
+#        key = "blue"
+#        label = {
+#          da = "Blå"
+#        }
+#      }
+#    }
+#  }
 
   attribute {
     name = "InternalPrice"
