@@ -82,30 +82,6 @@ resource "commercetools_product_type" "device" {
     searchable = true
     type {
       name = "lenum"
-      localized_value {
-        key = "black"
-        label = {
-          da = "Sort"
-        }
-      }
-      localized_value {
-        key = "white"
-        label = {
-          da = "Hvid"
-        }
-      }
-      localized_value {
-        key = "red"
-        label = {
-          da = "Rød"
-        }
-      }
-      localized_value {
-        key = "blue"
-        label = {
-          da = "Blå"
-        }
-      }
     }
   }
 
@@ -236,13 +212,13 @@ resource "commercetools_product_type" "accessory" {
   attribute {
     name = "FilterColor"
     label = {
-      da = "Filter color"
+      da = "Farve på filterliste"
     }
     required   = false
     constraint = "None"
     searchable = true
     type {
-      name = "ltext"
+      name = "lenum"
     }
   }
 
