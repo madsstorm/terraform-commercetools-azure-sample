@@ -2,6 +2,11 @@ resource "random_id" "subscriptions" {
   byte_length = 2
 }
 
+resource "commercetools_api_client" "subscriptions_api_client" {
+  name  = "Subscriptions Client"
+  scope = ["manage_products:${var.commercetools_project_key}","view_orders:${var.commercetools_project_key}","view_categories:${var.commercetools_project_key}"]
+}
+
 locals {
   subs_postfix = (var.azure_environment == "dev") ? random_id.subscriptions.hex : ""
 }
@@ -76,9 +81,9 @@ module "function_app_subscriptions" {
   app_service_plan_id          = azurerm_app_service_plan.commercetools_integrations.id
   servicebus_connection_string = module.servicebus.namespace_listen_connection_string
 
-  ctp_client_id     = commercetools_api_client.integrations_client.id
-  ctp_client_secret = commercetools_api_client.integrations_client.secret
-  ctp_scopes        = commercetools_api_client.integrations_client.scope
+  ctp_client_id     = commercetools_api_client.subscriptions_api_client.id
+  ctp_client_secret = commercetools_api_client.subscriptions_api_client.secret
+  ctp_scopes        = commercetools_api_client.subscriptions_api_client.scope
   ctp_project_key   = var.commercetools_project_key
   ctp_api_url       = var.commercetools_api_url
   ctp_auth_url      = var.commercetools_auth_url

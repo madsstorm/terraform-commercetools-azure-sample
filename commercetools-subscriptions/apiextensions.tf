@@ -2,6 +2,11 @@ resource "random_id" "apiext" {
   byte_length = 2
 }
 
+resource "commercetools_api_client" "apiextensions_api_client" {
+  name  = "API Extensions Client"
+  scope = ["view_products:${var.commercetools_project_key}","view_orders:${var.commercetools_project_key}","view_categories:${var.commercetools_project_key}"]
+}
+
 locals {
   apiext_postfix = (var.azure_environment == "dev") ? random_id.apiext.hex : ""
   function_app_apiextensions_name = "tlm-ctint-apiext-${var.azure_environment}${local.apiext_postfix}"
@@ -21,9 +26,9 @@ module "function_app_apiextensions" {
   app_service_plan_id          = azurerm_app_service_plan.commercetools_integrations.id
   servicebus_connection_string = ""
 
-  ctp_client_id     = commercetools_api_client.integrations_client.id
-  ctp_client_secret = commercetools_api_client.integrations_client.secret
-  ctp_scopes        = commercetools_api_client.integrations_client.scope
+  ctp_client_id     = commercetools_api_client.apiextensions_api_client.id
+  ctp_client_secret = commercetools_api_client.apiextensions_api_client.secret
+  ctp_scopes        = commercetools_api_client.apiextensions_api_client.scope
   ctp_project_key   = var.commercetools_project_key
   ctp_api_url       = var.commercetools_api_url
   ctp_auth_url      = var.commercetools_auth_url

@@ -42,8 +42,3 @@ resource "azurerm_app_service_plan" "commercetools_integrations" {
     size     = "EP1"
   }
 }
-
-resource "commercetools_api_client" "integrations_client" {
-  name  = "Integrations Client"
-  scope = ["view_products:${var.commercetools_project_key}","view_orders:${var.commercetools_project_key}","view_categories:${var.commercetools_project_key}","manage_key_value_documents:${var.commercetools_project_key}"]
-}
