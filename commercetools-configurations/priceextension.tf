@@ -92,6 +92,18 @@ resource "commercetools_type" "price_extension" {
  }
 
  field {
+   name = "SomeMoneyField"
+   label = {
+     da = "SomeMoneyField"
+   }
+   type {
+     name = "Money"
+   }
+ }
+
+
+
+ field {
     name  = "SomeProductRefSet"
     label = {
       da = "SomeProductRefSet"
