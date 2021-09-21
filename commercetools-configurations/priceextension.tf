@@ -83,7 +83,7 @@ resource "commercetools_type" "price_extension" {
    label = {
      da = "SomeStringSet"
    }
-   type = {
+   type {
       name = "Set"
       element_type {
         name = "String"
