@@ -1,7 +1,6 @@
 resource "commercetools_state" "order_open" {
   key = "order-open"
   type = "OrderState"
-  initial = true
   name = {
       da = "Order open"
   }
