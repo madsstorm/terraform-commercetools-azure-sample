@@ -1,3 +1,15 @@
+resource "commercetools_state" "order_open" {
+  key = "order-open"
+  type = "OrderState"
+  initial = true
+  name = {
+      da = "Order open"
+  }
+  description = {
+    da = "The order is open."
+  }
+}
+
 resource "commercetools_state" "order_accepted_oms" {
   key = "order-accepted-oms"
   type = "OrderState"
