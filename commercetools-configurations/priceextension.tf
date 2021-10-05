@@ -17,14 +17,14 @@ resource "commercetools_type" "price_extension" {
     }
   }
 
- field {
-   name     = "Campaign"
-   required = false
-   label = {
-     da = "Kampagne"
-   }
-   type {
-     name = "String"
-   }
- }
+  field {
+    name     = "Campaign"
+    required = false
+    label = {
+      da = "Kampagne"
+    }
+    type {
+      name = "String"
+    }
+  }
 }

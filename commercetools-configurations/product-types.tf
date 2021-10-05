@@ -15,7 +15,12 @@ resource "commercetools_product_type" "device" {
     type {
       name = "enum"
       values = {
-        apple = "Apple"
+        apple    = "Apple"
+        samsung  = "Samsung"
+        huawei   = "Huawei"
+        oneplus  = "OnePlus"
+        motorola = "Motorola"
+        sony     = "Sony"
       }
     }
   }
@@ -261,9 +266,63 @@ resource "commercetools_product_type" "device" {
     type {
       name = "lenum"
       localized_value {
+        key = "black"
+        label = {
+          da = "Sort"
+        }
+      }
+      localized_value {
+        key = "white"
+        label = {
+          da = "Hvid"
+        }
+      }
+      localized_value {
+        key = "grey"
+        label = {
+          da = "Grå"
+        }
+      }
+      localized_value {
+        key = "red"
+        label = {
+          da = "Rød"
+        }
+      }
+      localized_value {
+        key = "blue"
+        label = {
+          da = "Blå"
+        }
+      }
+      localized_value {
+        key = "yellow"
+        label = {
+          da = "Gul"
+        }
+      }
+      localized_value {
+        key = "green"
+        label = {
+          da = "Grøn"
+        }
+      }
+      localized_value {
+        key = "gold"
+        label = {
+          da = "Guld"
+        }
+      }
+      localized_value {
         key = "silver"
         label = {
           da = "Sølv"
+        }
+      }
+      localized_value {
+        key = "transparent"
+        label = {
+          da = "Transparent"
         }
       }
     }
@@ -440,7 +499,13 @@ resource "commercetools_product_type" "accessory" {
     type {
       name = "enum"
       values = {
-        apple = "Apple"
+        apple   = "Apple"
+        samsung = "Samsung"
+        sony    = "Sony"
+        puro    = "Puro"
+        google  = "Google"
+        panzer  = "Panzer"
+        sonos   = "Sonos"
       }
     }
   }
@@ -469,9 +534,63 @@ resource "commercetools_product_type" "accessory" {
     type {
       name = "lenum"
       localized_value {
+        key = "black"
+        label = {
+          da = "Sort"
+        }
+      }
+      localized_value {
+        key = "white"
+        label = {
+          da = "Hvid"
+        }
+      }
+      localized_value {
+        key = "grey"
+        label = {
+          da = "Grå"
+        }
+      }
+      localized_value {
+        key = "red"
+        label = {
+          da = "Rød"
+        }
+      }
+      localized_value {
+        key = "blue"
+        label = {
+          da = "Blå"
+        }
+      }
+      localized_value {
+        key = "yellow"
+        label = {
+          da = "Gul"
+        }
+      }
+      localized_value {
+        key = "green"
+        label = {
+          da = "Grøn"
+        }
+      }
+      localized_value {
+        key = "gold"
+        label = {
+          da = "Guld"
+        }
+      }
+      localized_value {
         key = "silver"
         label = {
           da = "Sølv"
+        }
+      }
+      localized_value {
+        key = "transparent"
+        label = {
+          da = "Transparent"
         }
       }
     }
@@ -549,7 +668,7 @@ resource "commercetools_product_type" "mobile_broadband_hardware" {
     type {
       name = "enum"
       values = {
-        apple = "Apple"
+        huawei = "Huawei"
       }
     }
   }
