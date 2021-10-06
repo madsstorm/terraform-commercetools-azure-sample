@@ -669,6 +669,7 @@ resource "commercetools_product_type" "mobile_broadband_hardware" {
       name = "enum"
       values = {
         huawei = "Huawei"
+        google = "Google"
       }
     }
   }
