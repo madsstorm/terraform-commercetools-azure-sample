@@ -675,6 +675,37 @@ resource "commercetools_product_type" "mobile_broadband_hardware" {
   }
 
   attribute {
+    name = "LocalizedBrand"
+    label = {
+      da = "Localized mærke"
+    }
+    required = true
+    constraint = "SameForAll"
+    searchable = true
+    type {
+      name = "lenum"
+      localized_value {
+        key = "apple"
+        label = {
+          da = "Apple"
+        }
+      }
+      localized_value {
+        key = "motorola"
+        label = {
+          da = "Motorola"
+        }
+      }
+      localized_value {
+        key = "nokia"
+        label = {
+          da = "Nokia"
+        }
+      }
+    }
+  }
+
+  attribute {
     name = "5G"
     label = {
       da = "5G"
