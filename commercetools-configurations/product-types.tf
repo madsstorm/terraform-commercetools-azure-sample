@@ -4,26 +4,26 @@ resource "commercetools_product_type" "device" {
   key         = "device"
 
 
-  attribute {
-    name = "Brand"
-    label = {
-      da = "Mærke"
-    }
-    required   = true
-    constraint = "SameForAll"
-    searchable = true
-    type {
-      name = "enum"
-      values = {
-        apple    = "Apple"
-        samsung  = "Samsung"
-        huawei   = "Huawei"
-        oneplus  = "OnePlus"
-        motorola = "Motorola"
-        sony     = "Sony"
-      }
-    }
-  }
+  # attribute {
+  #   name = "Brand"
+  #   label = {
+  #     da = "Mærke"
+  #   }
+  #   required   = true
+  #   constraint = "SameForAll"
+  #   searchable = true
+  #   type {
+  #     name = "enum"
+  #     values = {
+  #       apple    = "Apple"
+  #       samsung  = "Samsung"
+  #       huawei   = "Huawei"
+  #       oneplus  = "OnePlus"
+  #       motorola = "Motorola"
+  #       sony     = "Sony"
+  #     }
+  #   }
+  # }
 
   attribute {
     name = "ScreenSize"
@@ -220,27 +220,27 @@ resource "commercetools_product_type" "device" {
     }
   }
 
-  attribute {
-    name = "Storage"
-    label = {
-      da = "Kapacitet"
-    }
-    required   = true
-    constraint = "None"
-    searchable = true
-    type {
-      name = "enum"
-      values = {
-        "0000032" = "32 GB"
-        "0000064" = "64 GB"
-        "0000128" = "128 GB"
-        "0000256" = "256 GB"
-        "0000512" = "512 GB"
-        "0001024" = "1 TB"
-        "0002048" = "2 TB"
-      }
-    }
-  }
+  # attribute {
+  #   name = "Storage"
+  #   label = {
+  #     da = "Kapacitet"
+  #   }
+  #   required   = true
+  #   constraint = "None"
+  #   searchable = true
+  #   type {
+  #     name = "enum"
+  #     values = {
+  #       "0000032" = "32 GB"
+  #       "0000064" = "64 GB"
+  #       "0000128" = "128 GB"
+  #       "0000256" = "256 GB"
+  #       "0000512" = "512 GB"
+  #       "0001024" = "1 TB"
+  #       "0002048" = "2 TB"
+  #     }
+  #   }
+  # }
 
   attribute {
     name = "ColorDescription"
@@ -488,27 +488,27 @@ resource "commercetools_product_type" "accessory" {
   description = "Accessory"
   key         = "accessory"
 
-  attribute {
-    name = "Brand"
-    label = {
-      da = "Mærke"
-    }
-    required   = true
-    constraint = "SameForAll"
-    searchable = true
-    type {
-      name = "enum"
-      values = {
-        apple   = "Apple"
-        samsung = "Samsung"
-        sony    = "Sony"
-        puro    = "Puro"
-        google  = "Google"
-        panzer  = "Panzer"
-        sonos   = "Sonos"
-      }
-    }
-  }
+  # attribute {
+  #   name = "Brand"
+  #   label = {
+  #     da = "Mærke"
+  #   }
+  #   required   = true
+  #   constraint = "SameForAll"
+  #   searchable = true
+  #   type {
+  #     name = "enum"
+  #     values = {
+  #       apple   = "Apple"
+  #       samsung = "Samsung"
+  #       sony    = "Sony"
+  #       puro    = "Puro"
+  #       google  = "Google"
+  #       panzer  = "Panzer"
+  #       sonos   = "Sonos"
+  #     }
+  #   }
+  # }
 
   attribute {
     name = "ColorDescription"
