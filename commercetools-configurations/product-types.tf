@@ -717,6 +717,6 @@ resource "commercetools_product_type" "mobile_broadband_hardware" {
 
 resource "commercetools_product_type" "service_option" {
   name        = "Service Option"
-  description = "Service Option"
+  description = "Service Option..."
   key         = "serviceoption"
 }
