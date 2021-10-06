@@ -706,7 +706,7 @@ resource "commercetools_product_type" "accessory" {
 
 resource "commercetools_product_type" "mobile_subscription" {
   name        = "Mobile Subscription"
-  description = "Mobile Subscription"
+  description = "Mobile Subscription."
   key         = "mobilesubscription"
 
   attribute {
@@ -811,6 +811,6 @@ resource "commercetools_product_type" "mobile_broadband_hardware" {
 
 resource "commercetools_product_type" "service_option" {
   name        = "Service Option"
-  description = "Service Option..."
+  description = "Service Option"
   key         = "serviceoption"
 }
