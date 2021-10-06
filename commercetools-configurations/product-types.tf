@@ -658,23 +658,6 @@ resource "commercetools_product_type" "mobile_broadband_hardware" {
   key         = "mobilebroadbandhardware"
 
   attribute {
-    name = "Brand"
-    label = {
-      da = "Mærke"
-    }
-    required   = true
-    constraint = "SameForAll"
-    searchable = true
-    type {
-      name = "enum"
-      values = {
-        huawei = "Huawei"
-        google = "Google"
-      }
-    }
-  }
-
-  attribute {
     name = "LocalizedBrand"
     label = {
       da = "Localized mærke"
