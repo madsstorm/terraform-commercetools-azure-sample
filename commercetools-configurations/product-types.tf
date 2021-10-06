@@ -4,26 +4,54 @@ resource "commercetools_product_type" "device" {
   key         = "device"
 
 
-  # attribute {
-  #   name = "Brand"
-  #   label = {
-  #     da = "Mærke"
-  #   }
-  #   required   = true
-  #   constraint = "SameForAll"
-  #   searchable = true
-  #   type {
-  #     name = "enum"
-  #     values = {
-  #       apple    = "Apple"
-  #       samsung  = "Samsung"
-  #       huawei   = "Huawei"
-  #       oneplus  = "OnePlus"
-  #       motorola = "Motorola"
-  #       sony     = "Sony"
-  #     }
-  #   }
-  # }
+  attribute {
+    name = "Brand"
+    label = {
+      da = "Mærke"
+    }
+    required   = true
+    constraint = "SameForAll"
+    searchable = true
+    type {
+      name = "lenum"
+      localized_value {
+        key = "apple"
+        label = {
+          da = "Apple"
+        }
+      }
+      localized_value {
+        key = "samsung"
+        label = {
+          da = "Samsung"
+        }
+      }
+      localized_value {
+        key = "huawei"
+        label = {
+          da = "Huawei"
+        }
+      }
+      localized_value {
+        key = "oneplus"
+        label = {
+          da = "OnePlus"
+        }
+      }
+      localized_value {
+        key = "motorola"
+        label = {
+          da = "Motorola"
+        }
+      }
+      localized_value {
+        key = "sony"
+        label = {
+          da = "Sony"
+        }
+      }                              
+    }
+  }
 
   attribute {
     name = "ScreenSize"
@@ -220,27 +248,60 @@ resource "commercetools_product_type" "device" {
     }
   }
 
-  # attribute {
-  #   name = "Storage"
-  #   label = {
-  #     da = "Kapacitet"
-  #   }
-  #   required   = true
-  #   constraint = "None"
-  #   searchable = true
-  #   type {
-  #     name = "enum"
-  #     values = {
-  #       "0000032" = "32 GB"
-  #       "0000064" = "64 GB"
-  #       "0000128" = "128 GB"
-  #       "0000256" = "256 GB"
-  #       "0000512" = "512 GB"
-  #       "0001024" = "1 TB"
-  #       "0002048" = "2 TB"
-  #     }
-  #   }
-  # }
+  attribute {
+    name = "Storage"
+    label = {
+      da = "Kapacitet"
+    }
+    required   = true
+    constraint = "None"
+    searchable = true
+    type {
+      name = "lenum"
+      localized_value {
+        key = "0000032"
+        label = {
+          da = "32 GB"
+        }
+      }
+      localized_value {
+        key = "0000064"
+        label = {
+          da = "64 GB"
+        }
+      }
+      localized_value {
+        key = "0000128"
+        label = {
+          da = "128 GB"
+        }
+      }
+      localized_value {
+        key = "0000256"
+        label = {
+          da = "256 GB"
+        }
+      }
+      localized_value {
+        key = "0000512"
+        label = {
+          da = "512 GB"
+        }
+      }
+      localized_value {
+        key = "0001024"
+        label = {
+          da = "1 TB"
+        }
+      }
+      localized_value {
+        key = "0002048"
+        label = {
+          da = "2 TB"
+        }
+      }
+    }
+  }
 
   attribute {
     name = "ColorDescription"
@@ -488,27 +549,60 @@ resource "commercetools_product_type" "accessory" {
   description = "Accessory"
   key         = "accessory"
 
-  # attribute {
-  #   name = "Brand"
-  #   label = {
-  #     da = "Mærke"
-  #   }
-  #   required   = true
-  #   constraint = "SameForAll"
-  #   searchable = true
-  #   type {
-  #     name = "enum"
-  #     values = {
-  #       apple   = "Apple"
-  #       samsung = "Samsung"
-  #       sony    = "Sony"
-  #       puro    = "Puro"
-  #       google  = "Google"
-  #       panzer  = "Panzer"
-  #       sonos   = "Sonos"
-  #     }
-  #   }
-  # }
+  attribute {
+    name = "Brand"
+    label = {
+      da = "Mærke"
+    }
+    required   = true
+    constraint = "SameForAll"
+    searchable = true
+    type {
+      name = "lenum"
+      localized_value {
+        key = "apple"
+        label = {
+          da = "Apple"
+        }
+      }
+      localized_value {
+        key = "samsung"
+        label = {
+          da = "Samsung"
+        }
+      }
+      localized_value {
+        key = "sony"
+        label = {
+          da = "Sony"
+        }
+      }
+      localized_value {
+        key = "puro"
+        label = {
+          da = "Puro"
+        }
+      }
+      localized_value {
+        key = "google"
+        label = {
+          da = "Google"
+        }
+      }
+      localized_value {
+        key = "panzer"
+        label = {
+          da = "Panzer"
+        }
+      }
+      localized_value {
+        key = "sonos"
+        label = {
+          da = "Sonos"
+        }
+      }
+    }
+  }
 
   attribute {
     name = "ColorDescription"
