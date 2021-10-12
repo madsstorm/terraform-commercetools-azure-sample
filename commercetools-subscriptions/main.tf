@@ -21,15 +21,6 @@ provider "azurerm" {
   features {}
 }
 
-provider "commercetools" {
-  client_id     = "LrkevCrrEVuaqlxr_kFJODtT"
-  client_secret = "7NJriElCgYyhaiUmOqO69IgyNND7os5h"
-  project_key   = "telmoretrial"
-  scopes        = "manage_project:telmoretrial manage_api_clients:telmoretrial view_api_clients:telmoretrial"
-  api_url       = "https://api.europe-west1.gcp.commercetools.com"
-  token_url     = "https://auth.europe-west1.gcp.commercetools.com"
-}
-
 ##################################################################################
 # RESOURCES
 ##################################################################################
