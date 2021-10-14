@@ -30,5 +30,5 @@ resource "commercetools_state" "order_oms_rejected" {
   description = {
     da = "The order was rejected by Order Management System."
   }
-  transitions = ["${commercetools_state.order_open.key}"]
+  transitions = [commercetools_state.order_open.key]
 }
