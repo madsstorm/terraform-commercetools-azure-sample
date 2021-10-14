@@ -7,6 +7,7 @@ resource "commercetools_state" "order_open" {
   description = {
     da = "The order is open."
   }
+  initial = true
 }
 
 resource "commercetools_state" "order_oms_accepted" {
@@ -29,4 +30,5 @@ resource "commercetools_state" "order_oms_rejected" {
   description = {
     da = "The order was rejected by Order Management System."
   }
+  transitions = ["${commercetools_state.order_open.key}"]
 }
