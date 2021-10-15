@@ -4,7 +4,7 @@ resource "random_id" "subscriptions" {
 
 resource "commercetools_api_client" "subscriptions_api_client" {
   name  = "Subscriptions Client"
-  scope = ["manage_products:${var.commercetools_project_key}","view_orders:${var.commercetools_project_key}","view_categories:${var.commercetools_project_key}"]
+  scope = ["manage_products:${var.commercetools_project_key}", "manage_orders:${var.commercetools_project_key}", "view_categories:${var.commercetools_project_key}"]
 }
 
 locals {
@@ -14,7 +14,7 @@ locals {
 module "servicebus" {
   source = "./modules/servicebus"
 
-  location    = azurerm_resource_group.commercetools_integrations.location
+  location = azurerm_resource_group.commercetools_integrations.location
 
   name                = "tlm-ctint-subs-${var.azure_environment}${local.subs_postfix}"
   resource_group_name = azurerm_resource_group.commercetools_integrations.name

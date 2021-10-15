@@ -33,12 +33,12 @@ resource "azurerm_app_service_plan" "commercetools_integrations" {
   name                = "plan-commercetools-integrations-${var.azure_environment}"
   location            = azurerm_resource_group.commercetools_integrations.location
   resource_group_name = azurerm_resource_group.commercetools_integrations.name
-  
-  kind                         = "elastic"  
+
+  kind                         = "elastic"
   maximum_elastic_worker_count = "20"
 
   sku {
-    tier     = "ElasticPremium"
-    size     = "EP1"
+    tier = "ElasticPremium"
+    size = "EP1"
   }
 }

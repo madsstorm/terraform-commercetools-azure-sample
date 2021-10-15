@@ -45,4 +45,8 @@ resource "azurerm_function_app" "this" {
     "CommercetoolsApi:ApiBaseAddress"           = var.ctp_api_url
     "CommercetoolsApi:AuthorizationBaseAddress" = var.ctp_auth_url
   }
+
+  site_config {
+    ftps_state = "FtpsOnly"
+  }
 }

@@ -4,11 +4,11 @@ resource "random_id" "apiext" {
 
 resource "commercetools_api_client" "apiextensions_api_client" {
   name  = "API Extensions Client"
-  scope = ["view_products:${var.commercetools_project_key}","view_orders:${var.commercetools_project_key}","view_categories:${var.commercetools_project_key}"]
+  scope = ["view_products:${var.commercetools_project_key}", "view_orders:${var.commercetools_project_key}", "view_categories:${var.commercetools_project_key}"]
 }
 
 locals {
-  apiext_postfix = (var.azure_environment == "dev") ? random_id.apiext.hex : ""
+  apiext_postfix                  = (var.azure_environment == "dev") ? random_id.apiext.hex : ""
   function_app_apiextensions_name = "tlm-ctint-apiext-${var.azure_environment}${local.apiext_postfix}"
 }
 
@@ -22,7 +22,7 @@ module "function_app_apiextensions" {
   function_app_name    = local.function_app_apiextensions_name
   storage_account_name = "tlmctapiextfunc${var.azure_environment}${local.apiext_postfix}"
   resource_group_name  = azurerm_resource_group.commercetools_integrations.name
-  
+
   app_service_plan_id          = azurerm_app_service_plan.commercetools_integrations.id
   servicebus_connection_string = ""
 
@@ -43,12 +43,12 @@ data "azurerm_function_app_host_keys" "apiextensions" {
   ]
 }
 
-resource "commercetools_api_extension" "validate_cart_limits" {
-  key = "validate-cart-limits"
+resource "commercetools_api_extension" "cart_update" {
+  key = "cart-update"
 
   destination = {
-    type = "HTTP"
-    url = "https://${module.function_app_apiextensions.function_app_hostname}/api/ValidateCartLimits"
+    type                 = "HTTP"
+    url                  = "https://${module.function_app_apiextensions.function_app_hostname}/api/CartUpdate"
     azure_authentication = data.azurerm_function_app_host_keys.apiextensions.default_function_key
   }
 
@@ -58,42 +58,12 @@ resource "commercetools_api_extension" "validate_cart_limits" {
   }
 }
 
-resource "commercetools_api_extension" "set_lineitem_custom_fields" {
-  key = "set-lineitem-custom-fields"
+resource "commercetools_api_extension" "order_create" {
+  key = "order-create"
 
   destination = {
-    type = "HTTP"
-    url = "https://${module.function_app_apiextensions.function_app_hostname}/api/SetLineItemCustomFields"
-    azure_authentication = data.azurerm_function_app_host_keys.apiextensions.default_function_key
-  }
-
-  trigger {
-    resource_type_id = "cart"
-    actions          = ["Update"]
-  }
-}
-
-resource "commercetools_api_extension" "set_lineitem_distributionchannel" {
-  key = "set-lineitem-distributionchannel"
-
-  destination = {
-    type = "HTTP"
-    url = "https://${module.function_app_apiextensions.function_app_hostname}/api/SetLineItemDistributionChannel"
-    azure_authentication = data.azurerm_function_app_host_keys.apiextensions.default_function_key
-  }
-
-  trigger {
-    resource_type_id = "cart"
-    actions          = ["Update"]
-  }
-}
-
-resource "commercetools_api_extension" "set_ordernumber" {
-  key = "set-ordernumber"
-
-  destination = {
-    type = "HTTP"
-    url = "https://${module.function_app_apiextensions.function_app_hostname}/api/SetOrdernumber"
+    type                 = "HTTP"
+    url                  = "https://${module.function_app_apiextensions.function_app_hostname}/api/OrderCreate"
     azure_authentication = data.azurerm_function_app_host_keys.apiextensions.default_function_key
   }
 
